@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digitalization & AI Team - 2025 Showcase</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="mouse-gradient" id="mouseGradient"></div>
+    
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+    
+    <!-- Matrix Loading Overlay -->
+    <div class="matrix-overlay" id="matrixOverlay">
+        <canvas class="matrix-canvas" id="matrixCanvas"></canvas>
+        <div class="matrix-content">
+            <div class="matrix-title" id="matrixTitle">Initializing...</div>
+            <div class="matrix-loader">
+                <div class="matrix-loader-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Detail Page -->
+    <div class="project-detail-page" id="projectDetailPage"></div>
+
+    <!-- Main Container -->
+    <div class="container" id="mainContainer">
+        <header>
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo-circle">
+                        <span class="logo-icon">⚡</span>
+                    </div>
+                </div>
+                <div class="company-name">Adage Automation Private Limited</div>
+                <h1>
+                    <span class="word">Digitalization</span>
+                    <span class="word">&</span>
+                    <span class="word">AI</span>
+                    <span class="word">Team</span>
+                </h1>
+                <div class="subtitle">Transforming Business Through Innovation in 2025</div>
+                <div class="team-badge">
+                    <span class="badge-icon">🚀</span>
+                    <span>Driving Digital Excellence</span>
+                </div>
+            </div>
+            <div class="header-decoration">
+                <div class="floating-element">💡</div>
+                <div class="floating-element">🔮</div>
+                <div class="floating-element">⚙️</div>
+            </div>
+        </header>
+
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-number">22</div>
+                <div class="stat-label">Total Projects</div>
+                <div class="stat-bar"><div class="stat-bar-fill"></div></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-number">17</div>
+                <div class="stat-label">Live & Implemented</div>
+                <div class="stat-bar"><div class="stat-bar-fill"></div></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🚀</div>
+                <div class="stat-number">5</div>
+                <div class="stat-label">Upcoming Launches</div>
+                <div class="stat-bar"><div class="stat-bar-fill"></div></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⭐</div>
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Innovation Commitment</div>
+                <div class="stat-bar"><div class="stat-bar-fill"></div></div>
+            </div>
+        </div>
+
+        <!-- Odoo Implementations (Sales & CRM) -->
+        <div class="category-section">
+            <div class="category-header">
+                <div class="category-icon">🎯</div>
+                <h2 class="category-title">Odoo Implementations (Sales & CRM)</h2>
+                <div class="category-line"></div>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" onclick="openProject('acmg')">
+                    <div class="card-glow"></div>
+                    <div class="project-header">
+                        <div class="project-number">#01</div>
+                        <div class="project-icon">📊</div>
+                    </div>
+                    <div class="project-title">ACMG Sales Management System</div>
+                    <p class="project-description">Comprehensive sales tracking and management solution for ACMG division with real-time analytics and advanced reporting capabilities.</p>
+                    <div class="project-status status-live">
+                        <span class="status-dot"></span>
+                        LIVE & ACTIVE
+                    </div>
+                </div>
+                <div class="project-card" onclick="openProject('sales-crm')">
+                    <div class="card-glow"></div>
+                    <div class="project-header">
+                        <div class="project-number">#02</div>
+                        <div class="project-icon">💼</div>
+                    </div>
+                    <div class="project-title">Enterprise CRM & Sales Platform</div>
+                    <p class="project-description">Unified CRM solution integrating customer relationship management with advanced sales pipeline tools and comprehensive reporting.</p>
+                    <div class="project-status status-live">
+                        <span class="status-dot"></span>
+                        LIVE & ACTIVE
+                    </div>
+                </div>
+                <div class="project-card" onclick="openProject('csd')">
+                    <div class="card-glow"></div>
+                    <div class="project-header">
+                        <div class="project-number">#03</div>
+                        <div class="project-icon">🎯</div>
+                    </div>
+                    <div class="project-title">CSD Sales Hub</div>
+                    <p class="project-description">Streamlined sales operations for CSD team with automated workflows and intelligent lead scoring.</p>
+                    <div class="project-status status-live">
+                        <span class="status-dot"></span>
+                        LIVE & ACTIVE
+                    </div>
+                </div>
+                <div class="project-card" onclick="openProject('service-rfq')">
+                    <div class="card-glow"></div>
+                    <div class="project-header">
+                        <div class="project-number">#04</div>
+                        <div class="project-icon">🛠️</div>
+                    </div>
+                    <div class="project-title">Service Engineers RFQ Portal</div>
+                    <p class="project-description">Web-based request for quotation system enabling field engineers to submit and track service requests efficiently.</p>
+                    <div class="project-status status-live">
+                        <span class="status-dot"></span>
+                        LIVE & ACTIVE
+                    </div>
+                </div>
+                <div class="project-card" onclick="openProject('quotation')">
+                    <div class="card-glow"></div>
+                    <div class="project-header">
+                        <div class="project-number">#18</div>
+                        <div class="project-icon">📝</div>
+                    </div>
+                    <div class="project-title">Smart Quotation Generator</div>
+                    <p class="project-description">AI-assisted quotation generation system with templates, pricing rules, and automatic document generation.</p>
+                    <div class="project-status status-upcoming">
+                        <span class="status-dot"></span>
+                        COMING SOON
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Odoo Custom Modules & Management -->
+        <div class="category-section">
+            <div class="category-header">
+                <div class="category-icon">⚙️</div>
+                <h2 class="category-title">Odoo Custom Modules & Management</h2>
+                <div class="category-line"></div>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" onclick="openProject('safety')">
+                    <div class="card-glow"></div>
+                    <div class="project-header">
+                        <div class="project-number">#11</div>
+                        <div class="project-icon">🛡️</div>
+                    </div>
+                    <div class="project-title">Safety Meetings Management Module</div>
+                    <p class="project-description">Custom Odoo module for scheduling, tracking, and documenting safety meetings across all facilities.</p>
+                    <div class="project-status status-live">
+                        <span class="status-dot"></span>
+                        LIVE & ACTIVE
+                    </div>
+                </div>
+                <div class="project-card" onclick="openProject('project-mgmt')">
+                    <div class="card-glow"></div>
+                    <div class="project-header">
+                        <div class="project-number">#12</div>
+                        <div class="project-icon">📋</div>
+                    </div>
+                    <div class="project-title">SBU Project Management Suite</div>
+                    <p class="project-description">End-to-end project management solution with resource allocation, milestone tracking, and team collaboration tools.</p>
+                    <div class="project-status status-live">
+                        <span class="status-dot"></span>
+                        LIVE & ACTIVE
+                    </div>
+                </div>
+                <div class="project-card" onclick="openProject('frontdesk')">
+                    <div class="card-glow"></div>
+                    <div class="project-header">
+                        <div class="project-number">#13</div>
+                        <div class="project-icon">🏢</div>
+                    </div>
+                    <div class="project-title">AKAI/AKIC Frontdesk Application</div>
+                    <p class="project-description">Digital visitor management and front desk operations system with badge printing and notifications.</p>
+                    <div class="project-status status-live">
+                        <span class="status-dot"></span>
+                        LIVE & ACTIVE
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Modules -->
+        <div class="category-section">
+            <div class="projects-grid">
+                <div class="project-card" onclick="openProject('doc-mgmt')">
+                    <div class="card-glow"></div>
+                    <div class="project-header">
+                        <div class="project-number">#14</div>
+                        <div class="project-icon">📁</div>
+                    </div>
+                    <div class="project-title">SBU 2 Document Management System</div>
+                    <p class="project-description">Centralized document repository with version control, access management, and smart search capabilities.</p>
+                    <div class="project-status status-live">
+                        <span class="status-dot"></span>
+                        LIVE & ACTIVE
+                    </div>
+                </div>
+                <div class="project-card" onclick="openProject('dashboards')">
+                    <div class="card-glow"></div>
+                    <div class="project-header">
+                        <div class="project-number">#15</div>
+                        <div class="project-icon">📈</div>
+                    </div>
+                    <div class="project-title">Analytics Dashboard</div>
+                    <p class="project-description">Real-time business intelligence dashboards with customizable KPIs and automated report generation.</p>
+                    <div class="project-status status-live">
+                        <span class="status-dot"></span>
+                        LIVE & ACTIVE
+                    </div>
+                </div>
+                <div class="project-card" onclick="openProject('elearning')">
+                    <div class="card-glow"></div>
+                    <div class="project-header">
+                        <div class="project-number">#16</div>
+                        <div class="project-icon">🎓</div>
+                    </div>
+                    <div class="project-title">Odoo eLearning Platform</div>
+                    <p class="project-description">Comprehensive learning management system for employee training, certifications, and skill development.</p>
+                    <div class="project-status status-upcoming">
+                        <span class="status-dot"></span>
+                        COMING SOON
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Custom Software & Engineering Tools -->
+        <div class="category-section">
+            <div class="category-header">
+                <div class="category-icon">🔧</div>
+                <h2 class="category-title">Custom Software & Engineering Tools</h2>
+                <div class="category-line"></div>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" onclick="openProject('dew-bubble')">
+                    <div class="card-glow"></div>
+                    <div class="project-header">
+                        <div class="project-number">#05</div>
+                        <div class="project-icon">🌡️</div>
+                    </div>
+                    <div class="project-title">Thermodynamic Calculation Engine</div>
+                    <p class="project-description">Advanced calculation tool for dew point and bubble point analysis using industry-standard equations of state.</p>
+                    <div class="project-status status-live">
+                        <span class="status-dot"></span>
+                        LIVE & ACTIVE
+                    </div>
+                </div>
+                <div class="project-card" onclick="openProject('lag-pressure')">
+                    <div class="card-glow"></div>
+                    <div class="project-header">
+                        <div class="project-number">#06</div>
+                        <div class="project-icon">📉</div>
+                    </div>
+                    <div class="project-title">Process Flow Analysis Tool</div>
+                    <p class="project-description">Engineering tool for lag time and pressure drop calculations in pipeline and process systems.</p>
+                    <div class="project-status status-live">
+                        <span class="status-dot"></span>
+                        LIVE & ACTIVE
+                    </div>
+                </div>
+                <div class="project-card" onclick="openProject('auction')">
+                    <div class="card-glow"></div>
+                    <div class="project-header">
+                        <div class="project-number">#08</div>
+                        <div class="project-icon">🔨</div>
+                    </div>
+                    <div class="project-title">Adage Day 2025 Live Auction</div>
+                    <p class="project-description">Real-time auction platform with live bidding, bid history, and automated winner determination.</p>
+                    <div class="project-status status-live">
+                        <span class="status-dot"></span>
+                        LIVE & ACTIVE
+                    </div>
+                </div>
+                <div class="project-card" onclick="openProject('intellidas')">
+                    <div class="card-glow"></div>
+                    <div class="project-header">
+                        <div class="project-number">#09</div>
+                        <div class="project-icon">🧠</div>
+                    </div>
+                    <div class="project-title">IntelliDAS - AI Data Acquisition</div>
+                    <p class="project-description">Intelligent data acquisition system with machine learning-powered anomaly detection and predictive analytics.</p>
+                    <div class="project-status status-upcoming">
+                        <span class="status-dot"></span>
+                        COMING SOON
+                    </div>
+                </div>
+                <div class="project-card" onclick="openProject('sap-search')">
+                    <div class="card-glow"></div>
+                    <div class="project-header">
+                        <div class="project-number">#17</div>
+                        <div class="project-icon">🔍</div>
+                    </div>
+                    <div class="project-title">SAP Intelligent Item Search</div>
+                    <p class="project-description">AI-powered search engine for SAP materials with natural language processing and fuzzy matching.</p>
+                    <div class="project-status status-upcoming">
+                        <span class="status-dot"></span>
+                        COMING SOON
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Applications & Digital Platforms -->
+        <div class="category-section">
+            <div class="category-header">
+                <div class="category-icon">📱</div>
+                <h2 class="category-title">Applications & Digital Platforms</h2>
+                <div class="category-line"></div>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" onclick="openProject('newsletter')">
+                    <div class="card-glow"></div>
+                    <div class="project-header">
+                        <div class="project-number">#07</div>
+                        <div class="project-icon">📰</div>
+                    </div>
+                    <div class="project-title">Adage Connect Newsletter Hub</div>
+                    <p class="project-description">Engaging internal communications platform delivering company news, achievements, and updates to keep employees connected.</p>
+                    <div class="project-status status-live">
+                        <span class="status-dot"></span>
+                        LIVE & ACTIVE
+                    </div>
+                </div>
+                <div class="project-card" onclick="openProject('adage-day-app')">
+                    <div class="card-glow"></div>
+                    <div class="project-header">
+                        <div class="project-number">#10</div>
+                        <div class="project-icon">🎉</div>
+                    </div>
+                    <div class="project-title">Adage Day 2025 Event App</div>
+                    <p class="project-description">Complete event management solution with registration, live schedules, interactive maps, and social engagement features.</p>
+                    <div class="project-status status-live">
+                        <span class="status-dot"></span>
+                        LIVE & ACTIVE
+                    </div>
+                </div>
+                <div class="project-card" onclick="openProject('interactive-screen')">
+                    <div class="card-glow"></div>
+                    <div class="project-header">
+                        <div class="project-number">#21</div>
+                        <div class="project-icon">🖥️</div>
+                    </div>
+                    <div class="project-title">Corporate Interactive Display</div>
+                    <p class="project-description">Dynamic information displays for office common areas showcasing real-time metrics and announcements with touch interaction.</p>
+                    <div class="project-status status-live">
+                        <span class="status-dot"></span>
+                        LIVE & ACTIVE
+                    </div>
+                </div>
+                <div class="project-card" onclick="openProject('website')">
+                    <div class="card-glow"></div>
+                    <div class="project-header">
+                        <div class="project-number">#22</div>
+                        <div class="project-icon">🌐</div>
+                    </div>
+                    <div class="project-title">Adage-Kanoo Corporate Website</div>
+                    <p class="project-description">Modern corporate website showcasing services, portfolio, and company information with SEO optimization.</p>
+                    <div class="project-status status-live">
+                        <span class="status-dot"></span>
+                        LIVE & ACTIVE
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Upcoming Launches -->
+        <div class="category-section">
+            <div class="projects-grid">
+                <div class="project-card" onclick="openProject('field-service')">
+                    <div class="card-glow"></div>
+                    <div class="project-header">
+                        <div class="project-number">#19</div>
+                        <div class="project-icon">🚗</div>
+                    </div>
+                    <div class="project-title">Field Service Management System</div>
+                    <p class="project-description">Mobile-first field service solution with route optimization, job scheduling, and real-time updates.</p>
+                    <div class="project-status status-upcoming">
+                        <span class="status-dot"></span>
+                        COMING SOON
+                    </div>
+                </div>
+                <div class="project-card" onclick="openProject('recruitment')">
+                    <div class="card-glow"></div>
+                    <div class="project-header">
+                        <div class="project-number">#20</div>
+                        <div class="project-icon">👥</div>
+                    </div>
+                    <div class="project-title">Talent Acquisition Platform</div>
+                    <p class="project-description">End-to-end recruitment solution with applicant tracking, interview scheduling, and onboarding management.</p>
+                    <div class="project-status status-upcoming">
+                        <span class="status-dot"></span>
+                        COMING SOON
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-divider"></div>
+                <p class="footer-main">Digitalization & AI Team</p>
+                <p class="footer-company">Adage Automation Private Limited</p>
+                <p class="footer-tagline">🌟 Empowering Innovation, Enabling Excellence 🌟</p>
+                <div class="footer-divider"></div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

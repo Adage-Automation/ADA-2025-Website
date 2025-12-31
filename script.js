@@ -78,37 +78,39 @@ function initMatrixEffect() {
 // Project data
 const projectData = {
     'acmg': {
-        title: 'Odoo for ACMG (Sales)',
-        subtitle: 'Comprehensive sales management solution for the ACMG division',
+        title: 'Quotation Tracking for ACMG and CSD',
+        subtitle: 'Centralized Odoo-based system to manage inquiries, quotations, orders, and reports for ACMG and regional sales teams.',
         sections: [
             {
                 title: 'Overview',
-                content: 'Odoo for ACMG is a fully integrated enterprise resource planning solution designed to streamline sales operations, enhance customer relationship management, and provide real-time insights into revenue performance. This system has transformed how the ACMG division manages its entire sales lifecycle.'
+                content: 'The quotation tracking system was the first fully Odoo‑based workflow implemented for the sales and ACMG teams, replacing the old Excel‑driven process with a shared cloud workspace for managing quotations in real time. It centralizes every quote in a single platform where team members can collaborate, update status, and immediately see which opportunities are open, won, or lost without juggling multiple files. Built‑in reporting and filtering allow users to generate up‑to‑date performance and pipeline reports in seconds, eliminating the manual effort of sorting spreadsheets and compiling data for hours.'
+            },
+            // {
+            //     title: 'Product Gallery',
+            //     type: 'gallery',
+            //     images: [
+            //         { src: 'https://via.placeholder.com/600x400?text=Product+Image+1', alt: 'Product Image 1' },
+            //         { src: 'https://via.placeholder.com/600x400?text=Product+Image+2', alt: 'Product Image 2' },
+            //         { src: 'https://via.placeholder.com/600x400?text=Product+Image+3', alt: 'Product Image 3' }
+            //     ]
+            // },
+            {
+                title: 'Product Documentation',
+                type: 'pdf',
+                url: 'ADA Projects 2025/Quotation Tracking/Creating New Records.pdf'
             },
             {
-                title: 'Key Features',
-                features: [
-                    {
-                        name: 'Lead Management',
-                        description: 'Capture, qualify, and convert leads with automated workflows and intelligent routing'
-                    },
-                    {
-                        name: 'Order Processing',
-                        description: 'Streamlined order entry, approval workflows, and real-time inventory integration'
-                    },
-                    {
-                        name: 'Customer Portal',
-                        description: 'Self-service portal for customers to track orders, invoices, and communications'
-                    },
-                    {
-                        name: 'Analytics Dashboard',
-                        description: 'Real-time sales metrics, forecasting, and performance tracking'
-                    }
+                title: 'Utilized By',
+                utilized: [
+                    { icon: '👨‍💼', name: 'ACMG TEAM' },
+                    { icon: '👨‍💼', name: 'CSD TEAM' },
+                    { icon: '👨‍💼', name: 'AKAI & AKIC' },
+                    { icon: '👨‍💼', name: 'Regional Sales' }
                 ]
             },
             {
                 title: 'Business Impact',
-                content: 'Since implementation, the ACMG division has experienced a 35% increase in sales efficiency, 50% reduction in order processing time, and improved customer satisfaction scores. The system has enabled better forecasting accuracy and provided management with actionable insights for strategic decision-making.'
+                content: '100% quotations from Adage Regional Sales are routed through Odoo'
             }
         ]
     },
@@ -121,24 +123,26 @@ const projectData = {
                 content: 'Odoo for Sales provides a complete 360-degree view of customer interactions, opportunities, and sales performance. Built on Odoo, this platform empowers sales teams with the tools they need to close deals faster and build stronger customer relationships.'
             },
             {
-                title: 'Key Features',
-                features: [
-                    {
-                        name: 'Pipeline Visualization',
-                        description: 'Intuitive kanban boards showing deal progression through customizable stages'
-                    },
-                    {
-                        name: 'Activity Management',
-                        description: 'Automated reminders, task assignments, and follow-up scheduling'
-                    },
-                    {
-                        name: 'Email Integration',
-                        description: 'Seamless email tracking and template management within the CRM'
-                    },
-                    {
-                        name: 'Forecasting Tools',
-                        description: 'Predictive analytics and revenue forecasting based on pipeline data'
-                    }
+                title: 'Product Gallery',
+                type: 'gallery',
+                images: [
+                    { src: 'https://via.placeholder.com/600x400?text=CRM+Dashboard', alt: 'CRM Dashboard' },
+                    { src: 'https://via.placeholder.com/600x400?text=Sales+Pipeline', alt: 'Sales Pipeline' },
+                    { src: 'https://via.placeholder.com/600x400?text=Customer+Insights', alt: 'Customer Insights' }
+                ]
+            },
+            {
+                title: 'Product Documentation',
+                type: 'pdf',
+                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+            },
+            {
+                title: 'Utilized By',
+                utilized: [
+                    { icon: '🛠️', name: 'Service Managers' },
+                    { icon: '👨‍💼', name: 'Account Executives' },
+                    { icon: '📋', name: 'Operations Team' },
+                    { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
@@ -156,24 +160,26 @@ const projectData = {
                 content: 'Odoo for CSD is specifically tailored to meet the unique requirements of service-based sales. This custom Odoo implementation includes specialized workflows, pricing structures, and reporting capabilities designed for the Customer Service Division\'s business model.'
             },
             {
-                title: 'Key Features',
-                features: [
-                    {
-                        name: 'Service Contracts',
-                        description: 'Management of recurring service agreements with automated renewal tracking'
-                    },
-                    {
-                        name: 'Custom Pricing',
-                        description: 'Dynamic pricing models supporting service tiers and volume discounts'
-                    },
-                    {
-                        name: 'Service History',
-                        description: 'Complete visibility into customer service records and interaction history'
-                    },
-                    {
-                        name: 'Performance Metrics',
-                        description: 'Division-specific KPIs and reporting tailored to service operations'
-                    }
+                title: 'Product Gallery',
+                type: 'gallery',
+                images: [
+                    { src: 'https://via.placeholder.com/600x400?text=CSD+Sales+Dashboard', alt: 'CSD Sales Dashboard' },
+                    { src: 'https://via.placeholder.com/600x400?text=Customer+Service+Workflow', alt: 'Customer Service Workflow' },
+                    { src: 'https://via.placeholder.com/600x400?text=Service+Pricing+Structure', alt: 'Service Pricing Structure' }
+                ]
+            },
+            {
+                title: 'Product Documentation',
+                type: 'pdf',
+                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+            },
+            {
+                title: 'Utilized By',
+                utilized: [
+                    { icon: '🛠️', name: 'Service Managers' },
+                    { icon: '👨‍💼', name: 'Account Executives' },
+                    { icon: '📋', name: 'Operations Team' },
+                    { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
@@ -191,24 +197,26 @@ const projectData = {
                 content: 'The Service Engineers RFQ Portal provides a user-friendly web interface for field service engineers to submit, track, and manage requests for quotations. This system bridges the gap between field operations and back-office sales teams, ensuring rapid response times and accurate pricing.'
             },
             {
-                title: 'Key Features',
-                features: [
-                    {
-                        name: 'Mobile-Optimized Forms',
-                        description: 'Responsive design allowing RFQ submission from any device in the field'
-                    },
-                    {
-                        name: 'Photo Uploads',
-                        description: 'Attach site photos and equipment images directly to requests'
-                    },
-                    {
-                        name: 'Real-Time Status',
-                        description: 'Track RFQ progress from submission through quotation and approval'
-                    },
-                    {
-                        name: 'Odoo Integration',
-                        description: 'Seamless data flow into Odoo CRM for quotation generation'
-                    }
+                title: 'Product Gallery',
+                type: 'gallery',
+                images: [
+                    { src: 'https://via.placeholder.com/600x400?text=RFQ+Portal+Interface', alt: 'RFQ Portal Interface' },
+                    { src: 'https://via.placeholder.com/600x400?text=Request+Submission+Form', alt: 'Request Submission Form' },
+                    { src: 'https://via.placeholder.com/600x400?text=Quote+Tracking+Dashboard', alt: 'Quote Tracking Dashboard' }
+                ]
+            },
+            {
+                title: 'Product Documentation',
+                type: 'pdf',
+                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+            },
+            {
+                title: 'Utilized By',
+                utilized: [
+                    { icon: '🛠️', name: 'Service Managers' },
+                    { icon: '👨‍💼', name: 'Account Executives' },
+                    { icon: '📋', name: 'Operations Team' },
+                    { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
@@ -226,24 +234,26 @@ const projectData = {
                 content: 'The Safety Meetings Custom Module helps organizations maintain compliance with safety regulations while fostering a culture of workplace safety. Built as an Odoo extension, this module provides end-to-end management of safety meetings, training, and incident reporting.'
             },
             {
-                title: 'Key Features',
-                features: [
-                    {
-                        name: 'Meeting Scheduling',
-                        description: 'Automated scheduling with calendar integration and attendance tracking'
-                    },
-                    {
-                        name: 'Compliance Tracking',
-                        description: 'Monitor required training completion and certification expiration dates'
-                    },
-                    {
-                        name: 'Digital Documentation',
-                        description: 'Paperless meeting minutes, sign-in sheets, and safety reports'
-                    },
-                    {
-                        name: 'Incident Management',
-                        description: 'Record and track safety incidents with corrective action workflows'
-                    }
+                title: 'Product Gallery',
+                type: 'gallery',
+                images: [
+                    { src: 'https://via.placeholder.com/600x400?text=Safety+Meeting+Dashboard', alt: 'Safety Meeting Dashboard' },
+                    { src: 'https://via.placeholder.com/600x400?text=Incident+Reporting+Form', alt: 'Incident Reporting Form' },
+                    { src: 'https://via.placeholder.com/600x400?text=Training+Compliance+Tracker', alt: 'Training Compliance Tracker' }
+                ]
+            },
+            {
+                title: 'Product Documentation',
+                type: 'pdf',
+                url: 'D:/Adage Website/ADA-2025-Website-main/ADA-2025-Website-main/Safety Meetings Guide.pdf'
+            },
+            {
+                title: 'Utilized By',
+                utilized: [
+                    { icon: '🛠️', name: 'Service Managers' },
+                    { icon: '👨‍💼', name: 'Account Executives' },
+                    { icon: '📋', name: 'Operations Team' },
+                    { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
@@ -261,24 +271,26 @@ const projectData = {
                 content: 'The Quotation Generation system (yet to launch) will revolutionize how quotations are created and managed. By pulling data directly from Odoo, this system will generate professional, branded quotations with accurate pricing, terms, and conditions in minutes instead of hours.'
             },
             {
-                title: 'Planned Features',
-                features: [
-                    {
-                        name: 'Template Engine',
-                        description: 'Customizable quotation templates with dynamic content and branding'
-                    },
-                    {
-                        name: 'Smart Pricing',
-                        description: 'Automated price calculations with discount rules and approval workflows'
-                    },
-                    {
-                        name: 'Multi-Format Export',
-                        description: 'Generate quotations in PDF, Word, and Excel formats'
-                    },
-                    {
-                        name: 'Version Control',
-                        description: 'Track quotation revisions and maintain complete audit trails'
-                    }
+                title: 'Product Gallery',
+                type: 'gallery',
+                images: [
+                    { src: 'https://via.placeholder.com/600x400?text=Quotation+Template+Designer', alt: 'Quotation Template Designer' },
+                    { src: 'https://via.placeholder.com/600x400?text=Automated+Pricing+Engine', alt: 'Automated Pricing Engine' },
+                    { src: 'https://via.placeholder.com/600x400?text=Quote+Approval+Workflow', alt: 'Quote Approval Workflow' }
+                ]
+            },
+            {
+                title: 'Product Documentation',
+                type: 'pdf',
+                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+            },
+            {
+                title: 'Utilized by',
+                utilized: [
+                    { icon: '🛠️', name: 'Service Managers' },
+                    { icon: '👨‍💼', name: 'Account Executives' },
+                    { icon: '📋', name: 'Operations Team' },
+                    { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
@@ -296,24 +308,26 @@ const projectData = {
                 content: 'The Dew Point & Bubble Point Calculator is a specialized engineering tool that performs thermodynamic calculations essential for process equipment design and specification. This application supports engineers in accurately determining phase equilibrium conditions for various gas mixtures.'
             },
             {
-                title: 'Key Features',
-                features: [
-                    {
-                        name: 'Multi-Component Analysis',
-                        description: 'Calculate dew and bubble points for complex gas mixtures'
-                    },
-                    {
-                        name: 'Property Database',
-                        description: 'Comprehensive database of gas properties and equations of state'
-                    },
-                    {
-                        name: 'Graphical Output',
-                        description: 'Visual representation of phase diagrams and calculation results'
-                    },
-                    {
-                        name: 'Report Generation',
-                        description: 'Professional calculation reports for design documentation'
-                    }
+                title: 'Product Gallery',
+                type: 'gallery',
+                images: [
+                    { src: 'https://via.placeholder.com/600x400?text=Thermodynamic+Calculator+Interface', alt: 'Thermodynamic Calculator Interface' },
+                    { src: 'https://via.placeholder.com/600x400?text=Phase+Equilibrium+Chart', alt: 'Phase Equilibrium Chart' },
+                    { src: 'https://via.placeholder.com/600x400?text=Process+Design+Output', alt: 'Process Design Output' }
+                ]
+            },
+            {
+                title: 'Product Documentation',
+                type: 'pdf',
+                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+            },
+            {
+                title: 'Utilized By',
+                utilized: [
+                    { icon: '🛠️', name: 'Service Managers' },
+                    { icon: '👨‍💼', name: 'Account Executives' },
+                    { icon: '📋', name: 'Operations Team' },
+                    { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
@@ -331,24 +345,26 @@ const projectData = {
                 content: 'This calculation tool helps engineers analyze system dynamics, including lag times and pressure drops across pipelines and equipment. Critical for system design and troubleshooting, it ensures optimal performance and safety in pneumatic and process systems.'
             },
             {
-                title: 'Key Features',
-                features: [
-                    {
-                        name: 'Pipeline Modeling',
-                        description: 'Comprehensive modeling of pipeline networks with fittings and valves'
-                    },
-                    {
-                        name: 'Transient Analysis',
-                        description: 'Calculate system response times and lag in control loops'
-                    },
-                    {
-                        name: 'Optimization Tools',
-                        description: 'Identify bottlenecks and optimize system design'
-                    },
-                    {
-                        name: 'Standards Compliance',
-                        description: 'Ensure designs meet industry standards and best practices'
-                    }
+                title: 'Product Gallery',
+                type: 'gallery',
+                images: [
+                    { src: 'https://via.placeholder.com/600x400?text=Pipeline+Analysis+Tool', alt: 'Pipeline Analysis Tool' },
+                    { src: 'https://via.placeholder.com/600x400?text=Pressure+Drop+Calculator', alt: 'Pressure Drop Calculator' },
+                    { src: 'https://via.placeholder.com/600x400?text=System+Dynamics+Visualization', alt: 'System Dynamics Visualization' }
+                ]
+            },
+            {
+                title: 'Product Documentation',
+                type: 'pdf',
+                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+            },
+            {
+                title: 'Utilized By',
+                utilized: [
+                    { icon: '🛠️', name: 'Service Managers' },
+                    { icon: '👨‍💼', name: 'Account Executives' },
+                    { icon: '📋', name: 'Operations Team' },
+                    { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
@@ -366,24 +382,26 @@ const projectData = {
                 content: 'Developed specifically for Adage Day 2025, this auction platform created an engaging and exciting experience for employees. The system managed item listings, real-time bidding, and automated winner selection, making the event memorable and successful.'
             },
             {
-                title: 'Key Features',
-                features: [
-                    {
-                        name: 'Real-Time Bidding',
-                        description: 'Live bid updates with countdown timers and automatic notifications'
-                    },
-                    {
-                        name: 'Item Management',
-                        description: 'Photo galleries, descriptions, and minimum bid settings'
-                    },
-                    {
-                        name: 'User Accounts',
-                        description: 'Personalized dashboards showing bids, wins, and payment status'
-                    },
-                    {
-                        name: 'Admin Controls',
-                        description: 'Complete auction management with real-time monitoring and reporting'
-                    }
+                title: 'Product Gallery',
+                type: 'gallery',
+                images: [
+                    { src: 'https://via.placeholder.com/600x400?text=Auction+Dashboard', alt: 'Auction Dashboard' },
+                    { src: 'https://via.placeholder.com/600x400?text=Real-time+Bidding+Interface', alt: 'Real-time Bidding Interface' },
+                    { src: 'https://via.placeholder.com/600x400?text=Winner+Notification+System', alt: 'Winner Notification System' }
+                ]
+            },
+            {
+                title: 'Product Documentation',
+                type: 'pdf',
+                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+            },
+            {
+                title: 'Utilized By',
+                utilized: [
+                    { icon: '🛠️', name: 'Service Managers' },
+                    { icon: '👨‍💼', name: 'Account Executives' },
+                    { icon: '📋', name: 'Operations Team' },
+                    { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
@@ -401,24 +419,26 @@ const projectData = {
                 content: 'IntelliDAS represents our entry into intelligent data acquisition and analysis solutions. This software will provide advanced algorithms and machine learning capabilities to ensure optimal performance and insights.'
             },
             {
-                title: 'Planned Features',
-                features: [
-                    {
-                        name: 'AI-Powered Analysis',
-                        description: 'Machine learning algorithms for intelligent data processing'
-                    },
-                    {
-                        name: 'Anomaly Detection',
-                        description: 'Automated detection of unusual patterns and data anomalies'
-                    },
-                    {
-                        name: 'Predictive Analytics',
-                        description: 'Real-time predictions and trend analysis'
-                    },
-                    {
-                        name: 'Advanced Visualization',
-                        description: 'Interactive dashboards with comprehensive data visualization'
-                    }
+                title: 'Product Gallery',
+                type: 'gallery',
+                images: [
+                    { src: 'https://via.placeholder.com/600x400?text=Data+Acquisition+Interface', alt: 'Data Acquisition Interface' },
+                    { src: 'https://via.placeholder.com/600x400?text=ML+Analytics+Dashboard', alt: 'ML Analytics Dashboard' },
+                    { src: 'https://via.placeholder.com/600x400?text=Performance+Insights+Report', alt: 'Performance Insights Report' }
+                ]
+            },
+            {
+                title: 'Product Documentation',
+                type: 'pdf',
+                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+            },
+            {
+                title: 'Utilized by',
+                utilized: [
+                    { icon: '🛠️', name: 'Service Managers' },
+                    { icon: '👨‍💼', name: 'Account Executives' },
+                    { icon: '📋', name: 'Operations Team' },
+                    { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
@@ -436,24 +456,26 @@ const projectData = {
                 content: 'SAP Smart Item Search (not yet launched) will transform how users interact with SAP inventory data. Using natural language processing and intelligent search algorithms, this tool will make finding the right items faster and more intuitive than ever before.'
             },
             {
-                title: 'Planned Features',
-                features: [
-                    {
-                        name: 'Natural Language Search',
-                        description: 'Search using conversational queries instead of technical codes'
-                    },
-                    {
-                        name: 'Smart Suggestions',
-                        description: 'AI-powered recommendations based on search patterns and context'
-                    },
-                    {
-                        name: 'Visual Recognition',
-                        description: 'Image-based search to find items by appearance'
-                    },
-                    {
-                        name: 'Quick Actions',
-                        description: 'Direct links to create POs, check availability, and view specifications'
-                    }
+                title: 'Product Gallery',
+                type: 'gallery',
+                images: [
+                    { src: 'https://via.placeholder.com/600x400?text=NLP+Search+Interface', alt: 'NLP Search Interface' },
+                    { src: 'https://via.placeholder.com/600x400?text=Inventory+Discovery+Tool', alt: 'Inventory Discovery Tool' },
+                    { src: 'https://via.placeholder.com/600x400?text=Smart+Recommendations+Engine', alt: 'Smart Recommendations Engine' }
+                ]
+            },
+            {
+                title: 'Product Documentation',
+                type: 'pdf',
+                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+            },
+            {
+                title: 'Utilized by',
+                utilized: [
+                    { icon: '🛠️', name: 'Service Managers' },
+                    { icon: '👨‍💼', name: 'Account Executives' },
+                    { icon: '📋', name: 'Operations Team' },
+                    { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
@@ -471,24 +493,26 @@ const projectData = {
                 content: 'Adage Connect Newsletter keeps our entire organization informed and engaged. This digital platform delivers company news, employee achievements, upcoming events, and important updates in a visually appealing and easily digestible format.'
             },
             {
-                title: 'Key Features',
-                features: [
-                    {
-                        name: 'Rich Content',
-                        description: 'Support for articles, photos, videos, and interactive elements'
-                    },
-                    {
-                        name: 'Personalization',
-                        description: 'Tailored content based on department, location, and interests'
-                    },
-                    {
-                        name: 'Mobile-Friendly',
-                        description: 'Responsive design ensuring great experience on all devices'
-                    },
-                    {
-                        name: 'Analytics Dashboard',
-                        description: 'Track readership, engagement, and content performance'
-                    }
+                title: 'Product Gallery',
+                type: 'gallery',
+                images: [
+                    { src: 'https://via.placeholder.com/600x400?text=Newsletter+Template+Designer', alt: 'Newsletter Template Designer' },
+                    { src: 'https://via.placeholder.com/600x400?text=Content+Management+System', alt: 'Content Management System' },
+                    { src: 'https://via.placeholder.com/600x400?text=Engagement+Analytics+Dashboard', alt: 'Engagement Analytics Dashboard' }
+                ]
+            },
+            {
+                title: 'Product Documentation',
+                type: 'pdf',
+                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+            },
+            {
+                title: 'Utilized By',
+                utilized: [
+                    { icon: '🛠️', name: 'Service Managers' },
+                    { icon: '👨‍💼', name: 'Account Executives' },
+                    { icon: '📋', name: 'Operations Team' },
+                    { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
@@ -506,24 +530,26 @@ const projectData = {
                 content: 'The Adage Day 2025 Webapp served as the central hub for our annual company celebration. From registration to real-time event updates, this comprehensive platform ensured every aspect of the event ran smoothly and kept participants engaged throughout the day.'
             },
             {
-                title: 'Key Features',
-                features: [
-                    {
-                        name: 'Event Registration',
-                        description: 'Easy sign-up for activities, meals, and entertainment'
-                    },
-                    {
-                        name: 'Live Schedule',
-                        description: 'Real-time event schedule with push notifications for updates'
-                    },
-                    {
-                        name: 'Interactive Maps',
-                        description: 'Venue maps with location markers for activities and facilities'
-                    },
-                    {
-                        name: 'Social Feed',
-                        description: 'Share photos and experiences with colleagues during the event'
-                    }
+                title: 'Product Gallery',
+                type: 'gallery',
+                images: [
+                    { src: 'https://via.placeholder.com/600x400?text=Event+Registration+Portal', alt: 'Event Registration Portal' },
+                    { src: 'https://via.placeholder.com/600x400?text=Real-time+Updates+Feed', alt: 'Real-time Updates Feed' },
+                    { src: 'https://via.placeholder.com/600x400?text=Activity+Management+Dashboard', alt: 'Activity Management Dashboard' }
+                ]
+            },
+            {
+                title: 'Product Documentation',
+                type: 'pdf',
+                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+            },
+            {
+                title: 'Utilized By',
+                utilized: [
+                    { icon: '🛠️', name: 'Service Managers' },
+                    { icon: '👨‍💼', name: 'Account Executives' },
+                    { icon: '📋', name: 'Operations Team' },
+                    { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
@@ -541,24 +567,26 @@ const projectData = {
                 content: 'The Frontdesk Application revolutionizes visitor management at our AKAI and AKIC facilities. This comprehensive system handles visitor registration, badge printing, host notifications, and access control, ensuring security while providing a professional visitor experience.'
             },
             {
-                title: 'Key Features',
-                features: [
-                    {
-                        name: 'Pre-Registration',
-                        description: 'Hosts can pre-register visitors for expedited check-in'
-                    },
-                    {
-                        name: 'Badge Printing',
-                        description: 'Automated visitor badge generation with photos and QR codes'
-                    },
-                    {
-                        name: 'Host Notifications',
-                        description: 'Instant alerts to hosts when visitors arrive'
-                    },
-                    {
-                        name: 'Compliance Tracking',
-                        description: 'Safety briefings, NDA signatures, and evacuation lists'
-                    }
+                title: 'Product Gallery',
+                type: 'gallery',
+                images: [
+                    { src: 'https://via.placeholder.com/600x400?text=Visitor+Registration+System', alt: 'Visitor Registration System' },
+                    { src: 'https://via.placeholder.com/600x400?text=Badge+Printing+Interface', alt: 'Badge Printing Interface' },
+                    { src: 'https://via.placeholder.com/600x400?text=Access+Control+Dashboard', alt: 'Access Control Dashboard' }
+                ]
+            },
+            {
+                title: 'Product Documentation',
+                type: 'pdf',
+                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+            },
+            {
+                title: 'Utilized By',
+                utilized: [
+                    { icon: '🛠️', name: 'Service Managers' },
+                    { icon: '👨‍💼', name: 'Account Executives' },
+                    { icon: '📋', name: 'Operations Team' },
+                    { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
@@ -576,24 +604,26 @@ const projectData = {
                 content: 'The Interactive Screen solution transforms ordinary displays into engaging information hubs. Deployed in office lobbies and exhibition spaces, these screens showcase real-time company metrics, announcements, news, and motivational content in an eye-catching format.'
             },
             {
-                title: 'Key Features',
-                features: [
-                    {
-                        name: 'Live Data Integration',
-                        description: 'Real-time display of sales metrics, production data, and KPIs'
-                    },
-                    {
-                        name: 'Content Management',
-                        description: 'Easy-to-use system for scheduling and managing displayed content'
-                    },
-                    {
-                        name: 'Multi-Zone Layouts',
-                        description: 'Simultaneous display of different content types in organized zones'
-                    },
-                    {
-                        name: 'Touch Interaction',
-                        description: 'Interactive elements allowing users to explore information'
-                    }
+                title: 'Product Gallery',
+                type: 'gallery',
+                images: [
+                    { src: 'https://via.placeholder.com/600x400?text=Interactive+Display+Interface', alt: 'Interactive Display Interface' },
+                    { src: 'https://via.placeholder.com/600x400?text=Real-time+Metrics+Dashboard', alt: 'Real-time Metrics Dashboard' },
+                    { src: 'https://via.placeholder.com/600x400?text=Content+Management+System', alt: 'Content Management System' }
+                ]
+            },
+            {
+                title: 'Product Documentation',
+                type: 'pdf',
+                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+            },
+            {
+                title: 'Utilized By',
+                utilized: [
+                    { icon: '🛠️', name: 'Service Managers' },
+                    { icon: '👨‍💼', name: 'Account Executives' },
+                    { icon: '📋', name: 'Operations Team' },
+                    { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
@@ -611,24 +641,26 @@ const projectData = {
                 content: 'The Adage-Kanoo Website represents our partnership with a modern, professional digital presence. Featuring responsive design, compelling content, and integrated inquiry management, the site effectively showcases our joint capabilities and facilitates customer engagement.'
             },
             {
-                title: 'Key Features',
-                features: [
-                    {
-                        name: 'Responsive Design',
-                        description: 'Optimal viewing experience across all devices and screen sizes'
-                    },
-                    {
-                        name: 'Product Showcase',
-                        description: 'Comprehensive product catalog with specifications and applications'
-                    },
-                    {
-                        name: 'Contact Integration',
-                        description: 'Inquiry forms connected to CRM for prompt follow-up'
-                    },
-                    {
-                        name: 'SEO Optimization',
-                        description: 'Search engine optimization for better online visibility'
-                    }
+                title: 'Product Gallery',
+                type: 'gallery',
+                images: [
+                    { src: 'https://via.placeholder.com/600x400?text=Responsive+Website+Design', alt: 'Responsive Website Design' },
+                    { src: 'https://via.placeholder.com/600x400?text=Inquiry+Management+System', alt: 'Inquiry Management System' },
+                    { src: 'https://via.placeholder.com/600x400?text=Partnership+Showcase+Page', alt: 'Partnership Showcase Page' }
+                ]
+            },
+            {
+                title: 'Product Documentation',
+                type: 'pdf',
+                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+            },
+            {
+                title: 'Utilized By',
+                utilized: [
+                    { icon: '🛠️', name: 'Service Managers' },
+                    { icon: '👨‍💼', name: 'Account Executives' },
+                    { icon: '📋', name: 'Operations Team' },
+                    { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
@@ -646,24 +678,26 @@ const projectData = {
                 content: 'The Project Management system empowers SBU teams to plan, execute, and track projects with unprecedented visibility and control. From initial planning through completion, every aspect of project delivery is managed efficiently in one integrated Odoo platform.'
             },
             {
-                title: 'Key Features',
-                features: [
-                    {
-                        name: 'Task Management',
-                        description: 'Hierarchical task structures with dependencies and assignments'
-                    },
-                    {
-                        name: 'Resource Planning',
-                        description: 'Resource allocation, workload balancing, and capacity planning'
-                    },
-                    {
-                        name: 'Time Tracking',
-                        description: 'Built-in timesheet functionality with project cost tracking'
-                    },
-                    {
-                        name: 'Collaboration Tools',
-                        description: 'Integrated communication, file sharing, and status updates'
-                    }
+                title: 'Product Gallery',
+                type: 'gallery',
+                images: [
+                    { src: 'https://via.placeholder.com/600x400?text=Project+Planning+Dashboard', alt: 'Project Planning Dashboard' },
+                    { src: 'https://via.placeholder.com/600x400?text=Task+Tracking+Interface', alt: 'Task Tracking Interface' },
+                    { src: 'https://via.placeholder.com/600x400?text=Resource+Allocation+Tool', alt: 'Resource Allocation Tool' }
+                ]
+            },
+            {
+                title: 'Product Documentation',
+                type: 'pdf',
+                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+            },
+            {
+                title: 'Utilized By',
+                utilized: [
+                    { icon: '🛠️', name: 'Service Managers' },
+                    { icon: '👨‍💼', name: 'Account Executives' },
+                    { icon: '📋', name: 'Operations Team' },
+                    { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
@@ -681,24 +715,26 @@ const projectData = {
                 content: 'The Product Document Management system provides SBU 2 with a centralized repository for all product-related documentation. With robust version control, access management, and powerful search capabilities, teams can find and share information effortlessly.'
             },
             {
-                title: 'Key Features',
-                features: [
-                    {
-                        name: 'Version Control',
-                        description: 'Automatic versioning with complete revision history and rollback'
-                    },
-                    {
-                        name: 'Access Management',
-                        description: 'Granular permissions controlling who can view, edit, and approve'
-                    },
-                    {
-                        name: 'Advanced Search',
-                        description: 'Full-text search with filters for quick document discovery'
-                    },
-                    {
-                        name: 'Workflow Automation',
-                        description: 'Automated document approval and notification workflows'
-                    }
+                title: 'Product Gallery',
+                type: 'gallery',
+                images: [
+                    { src: 'https://via.placeholder.com/600x400?text=Document+Repository+Interface', alt: 'Document Repository Interface' },
+                    { src: 'https://via.placeholder.com/600x400?text=Version+Control+System', alt: 'Version Control System' },
+                    { src: 'https://via.placeholder.com/600x400?text=Advanced+Search+Engine', alt: 'Advanced Search Engine' }
+                ]
+            },
+            {
+                title: 'Product Documentation',
+                type: 'pdf',
+                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+            },
+            {
+                title: 'Utilized By',
+                utilized: [
+                    { icon: '🛠️', name: 'Service Managers' },
+                    { icon: '👨‍💼', name: 'Account Executives' },
+                    { icon: '📋', name: 'Operations Team' },
+                    { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
@@ -716,24 +752,26 @@ const projectData = {
                 content: 'The comprehensive Dashboards and Reporting solution provides real-time visibility into business performance across all functions. From sales and operations to finance and HR, stakeholders have instant access to the metrics that matter most to their roles.'
             },
             {
-                title: 'Key Features',
-                features: [
-                    {
-                        name: 'Role-Based Dashboards',
-                        description: 'Customized views showing relevant KPIs for each user role'
-                    },
-                    {
-                        name: 'Interactive Visualizations',
-                        description: 'Drill-down capabilities for exploring data in detail'
-                    },
-                    {
-                        name: 'Automated Reports',
-                        description: 'Scheduled report generation and distribution via email'
-                    },
-                    {
-                        name: 'Mobile Access',
-                        description: 'Access dashboards and reports from any device, anywhere'
-                    }
+                title: 'Product Gallery',
+                type: 'gallery',
+                images: [
+                    { src: 'https://via.placeholder.com/600x400?text=Business+Intelligence+Dashboard', alt: 'Business Intelligence Dashboard' },
+                    { src: 'https://via.placeholder.com/600x400?text=Real-time+Reporting+System', alt: 'Real-time Reporting System' },
+                    { src: 'https://via.placeholder.com/600x400?text=KPI+Tracking+Interface', alt: 'KPI Tracking Interface' }
+                ]
+            },
+            {
+                title: 'Product Documentation',
+                type: 'pdf',
+                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+            },
+            {
+                title: 'Utilized By',
+                utilized: [
+                    { icon: '🛠️', name: 'Service Managers' },
+                    { icon: '👨‍💼', name: 'Account Executives' },
+                    { icon: '📋', name: 'Operations Team' },
+                    { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
@@ -751,24 +789,26 @@ const projectData = {
                 content: 'The upcoming Field Service system (yet to launch) will revolutionize how we manage field service operations. From intelligent scheduling to mobile work orders and GPS tracking, this comprehensive solution will optimize every aspect of field service delivery.'
             },
             {
-                title: 'Planned Features',
-                features: [
-                    {
-                        name: 'Smart Scheduling',
-                        description: 'AI-powered scheduling considering skills, location, and priorities'
-                    },
-                    {
-                        name: 'Mobile App',
-                        description: 'Complete work order management on mobile devices offline and online'
-                    },
-                    {
-                        name: 'GPS Tracking',
-                        description: 'Real-time technician location and route optimization'
-                    },
-                    {
-                        name: 'Inventory Management',
-                        description: 'Van stock tracking and automated parts ordering'
-                    }
+                title: 'Product Gallery',
+                type: 'gallery',
+                images: [
+                    { src: 'https://via.placeholder.com/600x400?text=Mobile+Work+Order+App', alt: 'Mobile Work Order App' },
+                    { src: 'https://via.placeholder.com/600x400?text=GPS+Tracking+Dashboard', alt: 'GPS Tracking Dashboard' },
+                    { src: 'https://via.placeholder.com/600x400?text=Intelligent+Scheduling+System', alt: 'Intelligent Scheduling System' }
+                ]
+            },
+            {
+                title: 'Product Documentation',
+                type: 'pdf',
+                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+            },
+            {
+                title: 'Utilized by',
+                utilized: [
+                    { icon: '🛠️', name: 'Service Managers' },
+                    { icon: '👨‍💼', name: 'Account Executives' },
+                    { icon: '📋', name: 'Operations Team' },
+                    { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
@@ -786,24 +826,26 @@ const projectData = {
                 content: 'The Recruitment system (yet to launch) will transform our hiring process with an integrated Odoo system managing everything from job posting through candidate onboarding. Automated workflows, AI-assisted screening, and collaborative evaluation will make hiring faster and more effective.'
             },
             {
-                title: 'Planned Features',
-                features: [
-                    {
-                        name: 'Multi-Channel Posting',
-                        description: 'Publish jobs to multiple job boards and social media simultaneously'
-                    },
-                    {
-                        name: 'AI Resume Screening',
-                        description: 'Automated initial screening matching candidates to requirements'
-                    },
-                    {
-                        name: 'Interview Scheduling',
-                        description: 'Automated calendar coordination and reminder system'
-                    },
-                    {
-                        name: 'Collaborative Evaluation',
-                        description: 'Structured feedback collection from all interviewers'
-                    }
+                title: 'Product Gallery',
+                type: 'gallery',
+                images: [
+                    { src: 'https://via.placeholder.com/600x400?text=Job+Posting+Platform', alt: 'Job Posting Platform' },
+                    { src: 'https://via.placeholder.com/600x400?text=AI+Candidate+Screening', alt: 'AI Candidate Screening' },
+                    { src: 'https://via.placeholder.com/600x400?text=Onboarding+Workflow+System', alt: 'Onboarding Workflow System' }
+                ]
+            },
+            {
+                title: 'Product Documentation',
+                type: 'pdf',
+                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+            },
+            {
+                title: 'Utilized by',
+                utilized: [
+                    { icon: '🛠️', name: 'Service Managers' },
+                    { icon: '👨‍💼', name: 'Account Executives' },
+                    { icon: '📋', name: 'Operations Team' },
+                    { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
@@ -821,24 +863,12 @@ const projectData = {
                 content: 'The eLearning Platform (not yet launched) will provide employees with flexible, engaging online training opportunities. Supporting various learning formats, tracking progress, and managing certifications, this system will foster continuous learning and skill development across the organization.'
             },
             {
-                title: 'Planned Features',
-                features: [
-                    {
-                        name: 'Course Creation Tools',
-                        description: 'Intuitive course builder supporting multiple content types'
-                    },
-                    {
-                        name: 'Progress Tracking',
-                        description: 'Comprehensive tracking of learner progress and course completion'
-                    },
-                    {
-                        name: 'Assessments & Quizzes',
-                        description: 'Create evaluations with automatic grading and feedback'
-                    },
-                    {
-                        name: 'Certification Management',
-                        description: 'Track and manage employee certifications and training records'
-                    }
+                title: 'Utilized by',
+                utilized: [
+                    { icon: '🛠️', name: 'Service Managers' },
+                    { icon: '👨‍💼', name: 'Account Executives' },
+                    { icon: '📋', name: 'Operations Team' },
+                    { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
@@ -897,31 +927,81 @@ function openProject(projectKey) {
         `;
         
         // Add sections
-        project.sections.forEach(section => {
+        // Side by side for Utilized By and Business Impact
+        let utilizedIndex = project.sections.findIndex(s => s.title === 'Utilized By' || s.title === 'Utilized by');
+        let impactIndex = project.sections.findIndex(s => s.title === 'Business Impact' || s.title === 'Results');
+        
+        if (utilizedIndex !== -1 && impactIndex !== -1) {
             html += `
-                <div class="detail-section">
-                    <h3>${section.title}</h3>
+                <div class="side-by-side">
+                    <div class="detail-section">
+                        <h3>${project.sections[utilizedIndex].title}</h3>
             `;
             
-            if (section.content) {
-                html += `<p>${section.content}</p>`;
-            }
-            
-            if (section.features) {
-                html += `<div class="feature-list">`;
-                section.features.forEach(feature => {
+            if (project.sections[utilizedIndex].utilized) {
+                html += `<div class="utilized-list">`;
+                project.sections[utilizedIndex].utilized.forEach(util => {
                     html += `
-                        <div class="feature-item">
-                            <h4>${feature.name}</h4>
-                            <p>${feature.description}</p>
+                        <div class="utilized-item">
+                            <div class="utilized-icon">${util.icon}</div>
+                            <div class="utilized-name">${util.name}</div>
                         </div>
                     `;
                 });
                 html += `</div>`;
             }
             
-            html += `</div>`;
-        });
+            html += `
+                    </div>
+                    <div class="detail-section">
+                        <h3>${project.sections[impactIndex].title}</h3>
+                        <p>${project.sections[impactIndex].content}</p>
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Render Overview
+        html += `
+            <div class="detail-section overview-section">
+                <h3>${project.sections[0].title}</h3>
+                <p>${project.sections[0].content}</p>
+            </div>
+        `;
+
+        // Find gallery/pdf sections by type (don't rely on fixed indexes)
+        const gallerySection = project.sections.find(s => s && s.type === 'gallery');
+        const pdfSection = project.sections.find(s => s && s.type === 'pdf');
+
+        // Render Gallery if present
+        if (gallerySection) {
+            html += `
+                <div class="detail-section">
+                    <h3>${gallerySection.title}</h3>
+                    <div class="gallery-container">
+                        <div class="slideshow">
+            `;
+            gallerySection.images.forEach((img, index) => {
+                html += `<img src="${img.src}" alt="${img.alt}" class="slide ${index === 0 ? 'active' : ''}">`;
+            });
+            html += `
+                        </div>
+                        <button class="prev" onclick="changeSlide(-1)">❮</button>
+                        <button class="next" onclick="changeSlide(1)">❯</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render PDF if present
+        if (pdfSection) {
+            html += `
+                <div class="detail-section">
+                    <h3>${pdfSection.title}</h3>
+                    <iframe src="${pdfSection.url}" width="100%" height="600px" style="border: none;"></iframe>
+                </div>
+            `;
+        }
         
         html += `</div>`;
         
@@ -948,6 +1028,18 @@ function closeProject() {
     
     // Scroll to top
     window.scrollTo(0, 0);
+}
+
+// Slideshow functions
+let currentSlide = 0;
+
+function changeSlide(direction) {
+    const slides = document.querySelectorAll('.slide');
+    if (slides.length === 0) return;
+    
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + direction + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
 }
 
 // Handle window resize for matrix canvas

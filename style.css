@@ -959,7 +959,9 @@ footer {
 
 .slideshow {
     position: relative;
-    height: 400px;
+    width: 100%;
+    height: 0;
+    padding-bottom: 66.67%; /* Maintains 3:2 aspect ratio */
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(96, 165, 250, 0.3);
@@ -971,13 +973,21 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     opacity: 0;
     transition: opacity 0.5s ease;
 }
 
 .slide.active {
     opacity: 1;
+}
+
+.caption {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #cbd5e1;
+    font-style: italic;
 }
 
 .prev, .next {

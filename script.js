@@ -5,9 +5,32 @@ let mouseY = 0;
 let gradientX = 0;
 let gradientY = 0;
 
+// Thunder icon attraction
+const thunderIcon = document.querySelector('.logo-icon');
+let iconOffsetX = 0;
+let iconOffsetY = 0;
+
 document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
+    
+    // Thunder icon attraction logic
+    const iconRect = thunderIcon.getBoundingClientRect();
+    const iconCenterX = iconRect.left + iconRect.width / 2;
+    const iconCenterY = iconRect.top + iconRect.height / 2;
+    const distance = Math.sqrt((mouseX - iconCenterX) ** 2 + (mouseY - iconCenterY) ** 2);
+    
+    if (distance < 150) {
+        iconOffsetX += (mouseX - iconCenterX) * 0.1;
+        iconOffsetY += (mouseY - iconCenterY) * 0.1;
+        
+        // Limit the offset to prevent excessive movement
+        iconOffsetX = Math.max(-50, Math.min(50, iconOffsetX));
+        iconOffsetY = Math.max(-50, Math.min(50, iconOffsetY));
+    } else {
+        iconOffsetX *= 0.95;
+        iconOffsetY *= 0.95;
+    }
 });
 
 document.addEventListener('mouseenter', () => {
@@ -23,6 +46,10 @@ function animate() {
     gradientY += (mouseY - gradientY) * 0.15;
     mouseGradient.style.left = gradientX + 'px';
     mouseGradient.style.top = gradientY + 'px';
+    
+    // Animate thunder icon
+    thunderIcon.style.transform = `translate(${iconOffsetX}px, ${iconOffsetY}px)`;
+    
     requestAnimationFrame(animate);
 }
 animate();
@@ -109,24 +136,24 @@ const projectData = {
                 ]
             },
             {
-                title: 'Business Impact',
+                title: 'Impact & Adoption',
                 content: '100% quotations from Adage Regional Sales are routed through Odoo'
             }
         ]
     },
     'sales-crm': {
-        title: 'Odoo for Sales (CRM & Sales)',
-        subtitle: 'Advanced CRM platform for comprehensive sales operations',
+        title: 'CRM Management for Sales Team',
+        subtitle: 'Customer relationship module to record leads, follow-ups, and interactions for regional sales and exhibitors.',
         sections: [
             {
                 title: 'Overview',
-                content: 'Odoo for Sales provides a complete 360-degree view of customer interactions, opportunities, and sales performance. Built on Odoo, this platform empowers sales teams with the tools they need to close deals faster and build stronger customer relationships.'
+                content: 'The CRM software was introduced specifically for the regional sales team to capture potential orders and enquiries instantly during customer visits or exhibitions, ensuring no interaction is forgotten. It enables quick logging of customer details, follow-up notes, and scheduled reminders, allowing sales reps to reconnect later and probe for specific requirements without relying on memory or scattered notes. This integration with the sales module lets any team member search for customers, view interaction history, and directly link them to existing quotations for seamless tracking and conversion.'
             },
             {
                 title: 'Product Gallery',
                 type: 'gallery',
                 images: [
-                    { src: 'https://via.placeholder.com/600x400?text=CRM+Dashboard', alt: 'CRM Dashboard' },
+                    { src: '', alt: 'CRM Dashboard' },
                     { src: 'https://via.placeholder.com/600x400?text=Sales+Pipeline', alt: 'Sales Pipeline' },
                     { src: 'https://via.placeholder.com/600x400?text=Customer+Insights', alt: 'Customer Insights' }
                 ]
@@ -139,15 +166,12 @@ const projectData = {
             {
                 title: 'Utilized By',
                 utilized: [
-                    { icon: '🛠️', name: 'Service Managers' },
-                    { icon: '👨‍💼', name: 'Account Executives' },
-                    { icon: '📋', name: 'Operations Team' },
-                    { icon: '💰', name: 'Finance Department' }
+                    { icon: '👨‍💼', name: 'Regional Sales Team' },
                 ]
             },
             {
-                title: 'Results',
-                content: 'The CRM implementation has led to a 40% improvement in lead conversion rates, 30% increase in sales team productivity, and enhanced visibility into sales performance across all divisions. Sales managers now have real-time dashboards for coaching and performance improvement.'
+                title: 'Impact and Adoption',
+                content: 'Regional Sales yet to Adopt it fully'
             }
         ]
     },
@@ -183,82 +207,76 @@ const projectData = {
                 ]
             },
             {
-                title: 'Business Impact',
+                title: 'Impact and Adoption',
                 content: 'CSD has achieved 45% faster quote generation, 25% improvement in contract renewal rates, and significantly enhanced customer retention through better service tracking and proactive engagement.'
             }
         ]
     },
     'service-rfq': {
-        title: 'Odoo for Service Engineers (Website Form RFQ)',
-        subtitle: 'Streamlined request management for field service teams',
+        title: 'Service Engineers RFQ Portal',
+        subtitle: 'Portal for service engineers to raise, track, and manage RFQs for spare parts and services.',
         sections: [
             {
                 title: 'Overview',
-                content: 'The Service Engineers RFQ Portal provides a user-friendly web interface for field service engineers to submit, track, and manage requests for quotations. This system bridges the gap between field operations and back-office sales teams, ensuring rapid response times and accurate pricing.'
+                content: 'The RFQ Portal for Service Engineers provides a dedicated web form accessible via login on the adage-automation.in portal, allowing engineers to submit RFQ details instantly from mobile devices anywhere. Entries sync directly to the sales module, triggering notifications to the CSD Team at head office while offering engineers a clean dashboard to track submission status and completion rates. This replaces manual email checks and data entry for CSD, enabling faster quote generation, better monitoring of pending requests, and reduced turnaround times overall.'
             },
             {
                 title: 'Product Gallery',
                 type: 'gallery',
                 images: [
-                    { src: 'https://via.placeholder.com/600x400?text=RFQ+Portal+Interface', alt: 'RFQ Portal Interface' },
-                    { src: 'https://via.placeholder.com/600x400?text=Request+Submission+Form', alt: 'Request Submission Form' },
-                    { src: 'https://via.placeholder.com/600x400?text=Quote+Tracking+Dashboard', alt: 'Quote Tracking Dashboard' }
+                    { src: 'ADA Projects 2025/Service RFQ Portal/RFQ Form.png', alt: 'RFQ Portal Interface' },
+                    { src: 'ADA Projects 2025/Service RFQ Portal/RFQ Dashboard.png', alt: 'RFQ Dashboard' },
+                    { src: 'ADA Projects 2025/Service RFQ Portal/Editing an existing RFQ.png', alt: 'Editing Existing RFQ through the portal' }
                 ]
             },
-            {
-                title: 'Product Documentation',
-                type: 'pdf',
-                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
-            },
+            // {
+            //     title: 'Product Documentation',
+            //     type: 'pdf',
+            //     url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+            // },
             {
                 title: 'Utilized By',
                 utilized: [
-                    { icon: '🛠️', name: 'Service Managers' },
-                    { icon: '👨‍💼', name: 'Account Executives' },
-                    { icon: '📋', name: 'Operations Team' },
-                    { icon: '💰', name: 'Finance Department' }
+                    { icon: '🛠️', name: 'Service Engineers' },
                 ]
             },
             {
-                title: 'Results',
-                content: 'Service engineers report 60% faster RFQ submission times, while sales teams have reduced quotation turnaround by 50%. The portal has eliminated lost or misplaced requests and improved overall service responsiveness.'
+                title: 'Impact and Adoption',
+                content: 'Being Utilized - 62 number of RFQs from Field'
             }
         ]
     },
     'safety': {
-        title: 'Safety Meetings Odoo Custom Module',
-        subtitle: 'Comprehensive solution for workplace safety compliance',
+        title: 'Safety Meetings Module for Shopfloor',
+        subtitle: 'Custom module to record and review shopfloor safety meetings for various units across India',
         sections: [
             {
                 title: 'Overview',
-                content: 'The Safety Meetings Custom Module helps organizations maintain compliance with safety regulations while fostering a culture of workplace safety. Built as an Odoo extension, this module provides end-to-end management of safety meetings, training, and incident reporting.'
+                content: 'The Safety Meetings module is a custom Odoo module developed from scratch to automate the generation of mandatory reports required for factory inspections and internal audits, ensuring compliance without manual compilation. It supports shopfloor teams in discussing daily safety measures, personal precautions, and day plans, while capturing requests for requirements and recording all details in a structured format. The module produces digitally signed reports shared via email to designated recipients, replacing paper-based processes with a fully traceable, auditable digital workflow.'
             },
             {
                 title: 'Product Gallery',
                 type: 'gallery',
                 images: [
-                    { src: 'https://via.placeholder.com/600x400?text=Safety+Meeting+Dashboard', alt: 'Safety Meeting Dashboard' },
-                    { src: 'https://via.placeholder.com/600x400?text=Incident+Reporting+Form', alt: 'Incident Reporting Form' },
-                    { src: 'https://via.placeholder.com/600x400?text=Training+Compliance+Tracker', alt: 'Training Compliance Tracker' }
+                    { src: 'ADA Projects 2025/Safety Meetings/Digital Signature Interface.png', alt: 'Digital Signature Interface' },
+                    { src: 'ADA Projects 2025/Safety Meetings/Interface.png', alt: 'Safety Meetings Form' },
                 ]
             },
             {
                 title: 'Product Documentation',
                 type: 'pdf',
-                url: 'D:/Adage Website/ADA-2025-Website-main/ADA-2025-Website-main/Safety Meetings Guide.pdf'
+                url: 'ADA Projects 2025/Safety Meetings/Sample Report.pdf'
             },
             {
                 title: 'Utilized By',
                 utilized: [
-                    { icon: '🛠️', name: 'Service Managers' },
-                    { icon: '👨‍💼', name: 'Account Executives' },
-                    { icon: '📋', name: 'Operations Team' },
-                    { icon: '💰', name: 'Finance Department' }
+                    { icon: '🔧', name: 'Shopfloor' },
+                    { icon: '🏭', name: 'Plant Sites' },
                 ]
             },
             {
-                title: 'Business Impact',
-                content: 'The module has improved safety meeting attendance by 85%, reduced administrative time by 70%, and provided management with comprehensive safety metrics for continuous improvement initiatives.'
+                title: 'Impact and Adoption',
+                content: 'Being utilized daily by Unit 1 & Unit 2 Shopfloors. Launched in plant sites'
             }
         ]
     },
@@ -294,7 +312,7 @@ const projectData = {
                 ]
             },
             {
-                title: 'Expected Benefits',
+                title: 'Impact and Adoption',
                 content: 'We anticipate 80% reduction in quotation preparation time, elimination of pricing errors, consistent professional formatting across all quotes, and improved win rates through faster response times to customer requests.'
             }
         ]
@@ -331,7 +349,7 @@ const projectData = {
                 ]
             },
             {
-                title: 'Business Impact',
+                title: 'Impact and Adoption',
                 content: 'Engineers have reduced calculation time by 90% while improving accuracy. The tool has become essential for equipment sizing, process optimization, and customer technical support.'
             }
         ]
@@ -368,7 +386,7 @@ const projectData = {
                 ]
             },
             {
-                title: 'Results',
+                title: 'Impact and Adoption',
                 content: 'The tool has accelerated engineering workflows by 75%, reduced design iterations, and helped prevent costly field modifications through more accurate initial designs.'
             }
         ]
@@ -479,7 +497,7 @@ const projectData = {
                 ]
             },
             {
-                title: 'Expected Impact',
+                title: 'Impact and Adoption',
                 content: 'We anticipate reducing item search time by 70%, decreasing incorrect item selections by 85%, and significantly improving user satisfaction with SAP interactions.'
             }
         ]
@@ -590,7 +608,7 @@ const projectData = {
                 ]
             },
             {
-                title: 'Business Impact',
+                title: 'Impact and Adoption',
                 content: 'The system has reduced visitor check-in time by 75%, improved security compliance, and created a more professional first impression. Reception staff report 60% less administrative burden, allowing them to focus on hospitality and support.'
             }
         ]
@@ -627,7 +645,7 @@ const projectData = {
                 ]
             },
             {
-                title: 'Results',
+                title: 'Impact and Adoption',
                 content: 'The screens have become focal points in our facilities, keeping employees informed and motivated. Surveys show 90% of employees regularly view the screens, and the displays have significantly improved awareness of company performance and news.'
             }
         ]
@@ -664,55 +682,52 @@ const projectData = {
                 ]
             },
             {
-                title: 'Business Impact',
+                title: 'Impact and Adoption',
                 content: 'Since launch, the website has generated 40% more qualified leads, reduced customer inquiry response time by 50%, and significantly enhanced our professional image in the market.'
             }
         ]
     },
     'project-mgmt': {
-        title: 'Project Management for SBU Team in Odoo',
-        subtitle: 'Comprehensive project tracking and collaboration',
+        title: 'Project Management for SBU Team',
+        subtitle: 'Task and project tracking workspace for SBU 1 and SBU 2 design teams to monitor progress and deadlines.',
         sections: [
             {
                 title: 'Overview',
-                content: 'The Project Management system empowers SBU teams to plan, execute, and track projects with unprecedented visibility and control. From initial planning through completion, every aspect of project delivery is managed efficiently in one integrated Odoo platform.'
+                content: 'The project management software was implemented to enable efficient tracking of workloads, provide transparent progress visibility for each task, and ensure structured oversight of all projects. It structures the design team\'s workflow with defined stages, timelines, and accountability metrics, allowing teams to log hours accurately and monitor completion against planned durations. This rollout shifted operations from informal, scattered tracking to a disciplined system, guaranteeing on-time project delivery and better resource allocation across SBU 1 and SBU 2.'
             },
             {
                 title: 'Product Gallery',
                 type: 'gallery',
                 images: [
-                    { src: 'https://via.placeholder.com/600x400?text=Project+Planning+Dashboard', alt: 'Project Planning Dashboard' },
-                    { src: 'https://via.placeholder.com/600x400?text=Task+Tracking+Interface', alt: 'Task Tracking Interface' },
-                    { src: 'https://via.placeholder.com/600x400?text=Resource+Allocation+Tool', alt: 'Resource Allocation Tool' }
+                    { src: 'ADA Projects 2025\\Project Management\\Project Main Kanban View.png', alt: 'Kanban View of Projects' },
+                    { src: 'ADA Projects 2025\\Project Management\\Project Tasks Kanban View.png', alt: 'Kanban view of tasks of each project' },
+                    { src: 'ADA Projects 2025\\Project Management\\Automatic Reports of each project at a glance.png', alt: 'Reports of each project at a glance' }
                 ]
             },
             {
                 title: 'Product Documentation',
                 type: 'pdf',
-                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+                url: 'ADA Projects 2025\\Project Management\\Odoo Projects (Team) Guide.pdf'
             },
             {
                 title: 'Utilized By',
                 utilized: [
-                    { icon: '🛠️', name: 'Service Managers' },
-                    { icon: '👨‍💼', name: 'Account Executives' },
-                    { icon: '📋', name: 'Operations Team' },
-                    { icon: '💰', name: 'Finance Department' }
+                    { icon: '👨‍💼', name: 'Design & Engineering Team' },
                 ]
             },
             {
-                title: 'Results',
-                content: 'Project teams report 45% improvement in on-time delivery, 35% better resource utilization, and significantly enhanced visibility into project health and risks. Management appreciates the real-time dashboard views of all active projects.'
+                title: 'Impact and Adoption',
+                content: 'Utlization started by SBU 1'
             }
         ]
     },
     'doc-mgmt': {
         title: 'Product Document Management for SBU 2 in Odoo',
-        subtitle: 'Centralized documentation with version control',
+        subtitle: 'Task and project tracking workspace for SBU 1 and SBU 2 design teams to monitor progress and deadlines.',
         sections: [
             {
                 title: 'Overview',
-                content: 'The Product Document Management system provides SBU 2 with a centralized repository for all product-related documentation. With robust version control, access management, and powerful search capabilities, teams can find and share information effortlessly.'
+                content: 'Task and project tracking workspace for SBU 1 and SBU 2 design teams to monitor progress and deadlines.'
             },
             {
                 title: 'Product Gallery',
@@ -738,7 +753,7 @@ const projectData = {
                 ]
             },
             {
-                title: 'Business Impact',
+                title: 'Impact and Adoption',
                 content: 'Document retrieval time has decreased by 80%, version confusion has been eliminated, and audit compliance has improved significantly. Teams collaborate more effectively with confidence they\'re working from current documents.'
             }
         ]
@@ -775,7 +790,7 @@ const projectData = {
                 ]
             },
             {
-                title: 'Results',
+                title: 'Impact and Adoption',
                 content: 'Decision-making speed has improved by 50%, report preparation time reduced by 90%, and executives have gained unprecedented visibility into real-time business performance. Data-driven decision making has become the norm across the organization.'
             }
         ]
@@ -849,7 +864,7 @@ const projectData = {
                 ]
             },
             {
-                title: 'Expected Impact',
+                title: 'Impact and Adoption',
                 content: 'We expect to reduce time-to-hire by 40%, improve candidate quality through better screening, enhance candidate experience with faster communication, and provide management with better hiring analytics and predictions.'
             }
         ]
@@ -872,8 +887,123 @@ const projectData = {
                 ]
             },
             {
-                title: 'Expected Impact',
+                title: 'Impact and Adoption',
                 content: 'We expect to increase training accessibility by 90%, reduce onboarding time by 40%, improve employee engagement and retention through continuous learning opportunities, and provide better tracking of skill development across the organization.'
+            }
+        ]
+    },
+    'sap-odoo-sync': {
+        title: 'SAP - Odoo Sync',
+        subtitle: 'Automated data synchronization between SAP ERP and Odoo CRM platforms',
+        sections: [
+            {
+                title: 'Overview',
+                content: 'The SAP - Odoo Sync system provides seamless integration between SAP ERP and Odoo CRM platforms, enabling real-time data synchronization for customers, products, orders, and inventory. This eliminates manual data entry, reduces errors, and ensures data consistency across both systems.'
+            },
+            {
+                title: 'Product Gallery',
+                type: 'gallery',
+                images: [
+                    { src: 'ADA Projects 2025/SAP Odoo Sync/SAP-Odoo_Data_Synchronization_Flowchart.png', alt: 'SAP-Odoo_Data_Synchronization_Flowchart' },
+                    { src: 'ADA Projects 2025/SAP Odoo Sync/SAP Data imported to Inventory module.png', alt: 'SAP Data imported to Inventory module' }
+                ]
+            },
+            // {
+            //     title: 'Product Documentation',
+            //     type: 'pdf',
+            //     url: 'ADA Projects 2025/SAP Odoo Sync/SAP_Odoo_Sync_Documentation.pdf'
+            // },
+            {
+                title: 'Utilized By',
+                utilized: [
+                    { icon: '🏭', name: 'Operations Team' },
+                    { icon: '💼', name: 'Sales Team' },
+                    { icon: '📊', name: 'Finance Department' },
+                    { icon: '🛠️', name: 'IT Department' }
+                ]
+            },
+            {
+                title: 'Impact and Adoption',
+                content: 'Expected to reduce data synchronization time by 95%, eliminate manual data entry errors, and provide real-time visibility across SAP and Odoo systems.'
+            }
+        ]
+    },
+    'employee-handbook': {
+        title: 'Employee Handbook',
+        subtitle: 'Comprehensive digital employee handbook with policies, procedures, and company guidelines',
+        sections: [
+            {
+                title: 'Overview',
+                content: 'The Employee Handbook is a comprehensive digital resource providing all employees with essential information about company policies, procedures, benefits, and guidelines. This interactive handbook ensures consistent communication and easy access to important HR information across the organization.'
+            },
+            {
+                title: 'Product Documentation',
+                type: 'pdf',
+                url: 'ADA Projects 2025/Employee Handbook/Employee_Handbook.pdf'
+            },
+            {
+                title: 'Utilized By',
+                utilized: [
+                    { icon: '👥', name: 'All Employees' },
+                    { icon: '👨‍💼', name: 'HR Department' },
+                    { icon: '🏢', name: 'Management' },
+                    { icon: '📚', name: 'New Hires' }
+                ]
+            },
+            {
+                title: 'Impact and Adoption',
+                content: 'Provides centralized access to company policies, improves compliance, reduces HR inquiries, and ensures all employees have up-to-date information on procedures and benefits.'
+            }
+        ]
+    },
+    'smart-quotation-acmg': {
+        title: 'Smart Quotation Generation for ACMG',
+        subtitle: 'AI-powered quotation generation system with intelligent pricing and customization',
+        sections: [
+            {
+                title: 'Overview',
+                content: 'The Smart Quotation Generation system leverages AI to automatically create customized quotations for the ACMG team. It analyzes product requirements, applies intelligent pricing algorithms, and generates professional quotes with minimal manual intervention, significantly reducing quote preparation time.'
+            },
+            {
+                title: 'Utilized By',
+                utilized: [
+                    { icon: '👨‍💼', name: 'ACMG Team' },
+                    { icon: '💼', name: 'Sales Managers' },
+                    { icon: '📊', name: 'Pricing Department' },
+                    { icon: '🤖', name: 'AI Systems' }
+                ]
+            },
+            {
+                title: 'Impact and Adoption',
+                content: 'Expected to reduce quotation generation time by 70%, improve pricing accuracy, and enable faster response to customer inquiries for the ACMG division.'
+            }
+        ]
+    },
+    'datasheet-pdf-quotations': {
+        title: 'Datasheet creation from PDF for Quotations',
+        subtitle: 'Automated extraction and formatting of product datasheets from PDF documents',
+        sections: [
+            {
+                title: 'Overview',
+                content: 'This system automatically extracts product specifications, technical details, and pricing information from PDF datasheets and formats them for seamless integration into quotation documents. It eliminates manual data entry and ensures accuracy in product information across all quotations.'
+            },
+            {
+                title: 'Product Documentation',
+                type: 'pdf',
+                url: 'ADA Projects 2025/Datasheet creation from PDF for Quotations/Datasheet_Extraction_Documentation.pdf'
+            },
+            {
+                title: 'Utilized By',
+                utilized: [
+                    { icon: '👨‍💼', name: 'Quotation Teams' },
+                    { icon: '📄', name: 'Product Managers' },
+                    { icon: '💼', name: 'Sales Operations' },
+                    { icon: '🛠️', name: 'IT Department' }
+                ]
+            },
+            {
+                title: 'Impact and Adoption',
+                content: 'Reduces manual data entry by 90%, ensures 100% accuracy in product specifications, and speeds up the quotation process significantly.'
             }
         ]
     }
@@ -929,7 +1059,7 @@ function openProject(projectKey) {
         // Add sections
         // Side by side for Utilized By and Business Impact
         let utilizedIndex = project.sections.findIndex(s => s.title === 'Utilized By' || s.title === 'Utilized by');
-        let impactIndex = project.sections.findIndex(s => s.title === 'Business Impact' || s.title === 'Results');
+        let impactIndex = project.sections.findIndex(s => s.title === 'Impact and Adoption');
         
         if (utilizedIndex !== -1 && impactIndex !== -1) {
             html += `
@@ -986,6 +1116,7 @@ function openProject(projectKey) {
             });
             html += `
                         </div>
+                        <div class="caption">${gallerySection.images[0].alt}</div>
                         <button class="prev" onclick="changeSlide(-1)">❮</button>
                         <button class="next" onclick="changeSlide(1)">❯</button>
                     </div>
@@ -1040,6 +1171,12 @@ function changeSlide(direction) {
     slides[currentSlide].classList.remove('active');
     currentSlide = (currentSlide + direction + slides.length) % slides.length;
     slides[currentSlide].classList.add('active');
+    
+    // Update caption
+    const caption = document.querySelector('.caption');
+    if (caption) {
+        caption.textContent = slides[currentSlide].alt;
+    }
 }
 
 // Handle window resize for matrix canvas

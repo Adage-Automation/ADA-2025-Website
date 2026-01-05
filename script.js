@@ -136,7 +136,7 @@ const projectData = {
                 ]
             },
             {
-                title: 'Impact & Adoption',
+                title: 'Impact and Adoption',
                 content: '100% quotations from Adage Regional Sales are routed through Odoo'
             }
         ]
@@ -149,19 +149,19 @@ const projectData = {
                 title: 'Overview',
                 content: 'The CRM software was introduced specifically for the regional sales team to capture potential orders and enquiries instantly during customer visits or exhibitions, ensuring no interaction is forgotten. It enables quick logging of customer details, follow-up notes, and scheduled reminders, allowing sales reps to reconnect later and probe for specific requirements without relying on memory or scattered notes. This integration with the sales module lets any team member search for customers, view interaction history, and directly link them to existing quotations for seamless tracking and conversion.'
             },
-            {
-                title: 'Product Gallery',
-                type: 'gallery',
-                images: [
-                    { src: '', alt: 'CRM Dashboard' },
-                    { src: 'https://via.placeholder.com/600x400?text=Sales+Pipeline', alt: 'Sales Pipeline' },
-                    { src: 'https://via.placeholder.com/600x400?text=Customer+Insights', alt: 'Customer Insights' }
-                ]
-            },
+            // {
+            //     title: 'Product Gallery',
+            //     type: 'gallery',
+            //     images: [
+            //         { src: '', alt: 'CRM Dashboard' },
+            //         { src: 'https://via.placeholder.com/600x400?text=Sales+Pipeline', alt: 'Sales Pipeline' },
+            //         { src: 'https://via.placeholder.com/600x400?text=Customer+Insights', alt: 'Customer Insights' }
+            //     ]
+            // },
             {
                 title: 'Product Documentation',
                 type: 'pdf',
-                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+                url: 'ADA Projects 2025\\CRM Module for Sales\\Creating New Records on CRM Module.pdf'
             },
             {
                 title: 'Utilized By',
@@ -504,149 +504,158 @@ const projectData = {
     },
     'newsletter': {
         title: 'Adage Connect Newsletter',
-        subtitle: 'Engaging internal communications platform',
+        subtitle: 'Distribute the monthly Adage Connect newsletter to all employees using Email Marketing module.',
         sections: [
             {
                 title: 'Overview',
-                content: 'Adage Connect Newsletter keeps our entire organization informed and engaged. This digital platform delivers company news, employee achievements, upcoming events, and important updates in a visually appealing and easily digestible format.'
+                content: 'The Adage Connect Newsletter initiative, launched in September 2024, delivers monthly updates on the top 5 major activities and company news to keep employees and stakeholders informed.\n\nLeveraging Odoo\'s Email Marketing module, the team has successfully published over 15 editions with strong response rates, ensuring consistent communication about key events and developments.\n\nThis automated, visually appealing format replaced sporadic announcements with a reliable monthly touchpoint, boosting engagement and company-wide awareness directlly to the email inbox.'
             },
             {
                 title: 'Product Gallery',
                 type: 'gallery',
                 images: [
-                    { src: 'https://via.placeholder.com/600x400?text=Newsletter+Template+Designer', alt: 'Newsletter Template Designer' },
-                    { src: 'https://via.placeholder.com/600x400?text=Content+Management+System', alt: 'Content Management System' },
-                    { src: 'https://via.placeholder.com/600x400?text=Engagement+Analytics+Dashboard', alt: 'Engagement Analytics Dashboard' }
+                    { src: 'ADA Projects 2025\\Adage Montly Newsletter\\Email Marketing Interface.png', alt: 'Email Marketing Interface' },
+                    { src: 'ADA Projects 2025\\Adage Montly Newsletter\\How it looks in the inbox.png', alt: 'Email Inbox View' },
+                    { src: 'ADA Projects 2025\\Adage Montly Newsletter\\Detailed Reporting of the Emails send.png', alt: 'Detailed Reporting of the Emails send' }
                 ]
             },
-            {
-                title: 'Product Documentation',
-                type: 'pdf',
-                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
-            },
+            // {
+            //     title: 'Product Documentation',
+            //     type: 'pdf',
+            //     url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+            // },
             {
                 title: 'Utilized By',
                 utilized: [
-                    { icon: '🛠️', name: 'Service Managers' },
-                    { icon: '👨‍💼', name: 'Account Executives' },
-                    { icon: '📋', name: 'Operations Team' },
-                    { icon: '💰', name: 'Finance Department' }
+                    // { icon: '🛠️', name: 'Service Managers' },
+                    { icon: '👥', name: 'Everyone' },
+                    // { icon: '📋', name: 'Operations Team' },
+                    // { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
-                title: 'Engagement Results',
-                content: 'Since launch, Adage Connect has achieved 85% regular readership, with employees spending an average of 8 minutes per newsletter edition. The platform has become a vital tool for maintaining company culture and keeping everyone connected.'
+                title: 'Impact and Adoption',
+                content: 'Sent out 15 number of newsletters so far'
             }
         ]
     },
     'adage-day-app': {
         title: 'Adage Day 2025 Webapp',
-        subtitle: 'Complete event management solution',
+        subtitle: 'Event web application giving participants schedules, information, and interactive features for Adage Day 2025.',
         sections: [
             {
                 title: 'Overview',
-                content: 'The Adage Day 2025 Webapp served as the central hub for our annual company celebration. From registration to real-time event updates, this comprehensive platform ensured every aspect of the event ran smoothly and kept participants engaged throughout the day.'
+                content: 'The Adage Day 2025 application was built from scratch using HTML, CSS, and JavaScript, hosted on Netlify for seamless access as a web app from any browser.\n\nIt serves as a comprehensive, 24/7 hub delivering real-time updates on team positions, event schedules, and essential details accessible to anyone from anywhere.\n\nThis one-stop solution eliminated fragmented communications, providing instant, reliable event information and enhancing participant engagement throughout Adage Day 2025.'
             },
             {
                 title: 'Product Gallery',
                 type: 'gallery',
                 images: [
-                    { src: 'https://via.placeholder.com/600x400?text=Event+Registration+Portal', alt: 'Event Registration Portal' },
-                    { src: 'https://via.placeholder.com/600x400?text=Real-time+Updates+Feed', alt: 'Real-time Updates Feed' },
-                    { src: 'https://via.placeholder.com/600x400?text=Activity+Management+Dashboard', alt: 'Activity Management Dashboard' }
+                    { src: 'ADA Projects 2025\\Adage Day Web App\\Main Landing Page.jpeg', alt: 'Main Landing Page' },
+                    { src: 'ADA Projects 2025\\Adage Day Web App\\Winners Dashboard.jpeg', alt: 'Winners Dashboard' },
+                    { src: 'ADA Projects 2025\\Adage Day Web App\\Schedule Page.jpeg', alt: 'Schedule Page' },
+                    { src: 'ADA Projects 2025\\Adage Day Web App\\Contact Page.jpeg', alt: 'Contact Page' },
+                    { src: 'ADA Projects 2025\\Adage Day Web App\\Guidelines Page.jpeg', alt: 'Guidelines Page' }
                 ]
             },
             {
-                title: 'Product Documentation',
-                type: 'pdf',
-                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+                title: 'Product Video',
+                type: 'video',
+                content: '<video controls style="width: 100%; height: auto;"><source src="ADA Projects 2025/Adage Day Web App/Adage App.webm" type="video/webm"></video>'
             },
             {
                 title: 'Utilized By',
                 utilized: [
-                    { icon: '🛠️', name: 'Service Managers' },
-                    { icon: '👨‍💼', name: 'Account Executives' },
-                    { icon: '📋', name: 'Operations Team' },
-                    { icon: '💰', name: 'Finance Department' }
-                ]
-            },
-            {
-                title: 'Event Success',
-                content: 'The app was used by 95% of attendees, facilitating over 1,200 registrations across various activities. Real-time updates kept everyone informed, and the social features generated tremendous engagement and memorable moments.'
-            }
-        ]
-    },
-    'frontdesk': {
-        title: 'Frontdesk Application for AKAI/AKIC in Odoo',
-        subtitle: 'Modern visitor and access management system',
-        sections: [
-            {
-                title: 'Overview',
-                content: 'The Frontdesk Application revolutionizes visitor management at our AKAI and AKIC facilities. This comprehensive system handles visitor registration, badge printing, host notifications, and access control, ensuring security while providing a professional visitor experience.'
-            },
-            {
-                title: 'Product Gallery',
-                type: 'gallery',
-                images: [
-                    { src: 'https://via.placeholder.com/600x400?text=Visitor+Registration+System', alt: 'Visitor Registration System' },
-                    { src: 'https://via.placeholder.com/600x400?text=Badge+Printing+Interface', alt: 'Badge Printing Interface' },
-                    { src: 'https://via.placeholder.com/600x400?text=Access+Control+Dashboard', alt: 'Access Control Dashboard' }
-                ]
-            },
-            {
-                title: 'Product Documentation',
-                type: 'pdf',
-                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
-            },
-            {
-                title: 'Utilized By',
-                utilized: [
-                    { icon: '🛠️', name: 'Service Managers' },
-                    { icon: '👨‍💼', name: 'Account Executives' },
-                    { icon: '📋', name: 'Operations Team' },
-                    { icon: '💰', name: 'Finance Department' }
+                    // { icon: '🛠️', name: 'Service Managers' },
+                    { icon: '👨‍💼', name: 'Everyone' },
+                    // { icon: '📋', name: 'Operations Team' },
+                    // { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
                 title: 'Impact and Adoption',
-                content: 'The system has reduced visitor check-in time by 75%, improved security compliance, and created a more professional first impression. Reception staff report 60% less administrative burden, allowing them to focus on hospitality and support.'
+                content: 'Utilized for Adage Day 2025'
+            }
+        ]
+    },
+    'frontdesk': {
+        title: 'Frontdesk Application for<br>AKAI/AKIC in Odoo',
+        subtitle: 'Front office app for reception team to log visitors, manage appointments, and route visit requests.',
+        sections: [
+            {
+                title: 'Overview',
+                content: 'The frontdesk software and kiosk was introduced to streamline visitor management at the company, capturing detailed purpose of visit, scheduling future appointments, and tracking entries and exits in real time.\n\nIt enables the reception team to log visitor details efficiently, receive alerts for upcoming visits, and maintain accurate records without manual notebooks or spreadsheets.\n\nThis replaced informal check-ins with a professional, searchable system that improves security, reduces wait times, and provides analytics on visitor patterns for AKAI/AKIC operations.'
+            },
+            {
+                title: 'Product Gallery',
+                type: 'gallery',
+                images: [
+                    { src: 'ADA Projects 2025\\Frontdesk Module\\Frontdesk Interface.png', alt: 'Frontdesk Form View' },
+                    { src: 'ADA Projects 2025\\Frontdesk Module\\Frontdesk Kiosk Starting Page.png', alt: 'Frontdesk Kiosk View' },
+                    { src: 'ADA Projects 2025\\Frontdesk Module\\Frontdesk list view.png', alt: 'Frontdesk List View' }
+                ]
+            },
+            // {
+            //     title: 'Product Documentation',
+            //     type: 'pdf',
+            //     url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+            // },
+            {
+                title: 'Utilized By',
+                utilized: [
+                    // { icon: '🛠️', name: 'Service Managers' },
+                    { icon: '👨‍💼', name: 'Reception Team' },
+                    // { icon: '📋', name: 'Operations Team' },
+                    // { icon: '💰', name: 'Finance Department' }
+                ]
+            },
+            {
+                title: 'Impact and Adoption',
+                content: 'Utlization started by AKAI'
             }
         ]
     },
     'interactive-screen': {
         title: 'Interactive Screen for Exhibitions',
-        subtitle: 'Dynamic information displays for common areas',
+        subtitle: 'Touch-enabled display software that showcases company products and information to exhibition visitors.',
         sections: [
             {
                 title: 'Overview',
-                content: 'The Interactive Screen solution transforms ordinary displays into engaging information hubs. Deployed in office lobbies and exhibition spaces, these screens showcase real-time company metrics, announcements, news, and motivational content in an eye-catching format.'
+                content: 'The interactive screen software, deployed at over 15 exhibitions during the year, was built entirely using HTML, CSS, and JavaScript for offline, locally hosted operation.\n\nIt features an intuitive dashboard allowing visitors to independently explore product offerings and company solutions without internet access, ensuring fast loading and smooth navigation.\n\nThis approach replaced static brochures with engaging, self-guided product discovery, boosting visitor interaction and lead generation at trade shows.'
             },
             {
                 title: 'Product Gallery',
                 type: 'gallery',
                 images: [
-                    { src: 'https://via.placeholder.com/600x400?text=Interactive+Display+Interface', alt: 'Interactive Display Interface' },
-                    { src: 'https://via.placeholder.com/600x400?text=Real-time+Metrics+Dashboard', alt: 'Real-time Metrics Dashboard' },
-                    { src: 'https://via.placeholder.com/600x400?text=Content+Management+System', alt: 'Content Management System' }
+                    { src: 'ADA Projects 2025\\Interactive Screen\\interactive screen adage.png', alt: 'Interactive Display Interface' },
+                    { src: 'ADA Projects 2025\\Interactive Screen\\About Adage.png', alt: 'About Adage Page' },
+                    { src: 'ADA Projects 2025\\Interactive Screen\\Cement Interface.png', alt: 'Sub Page of Cement Applications' },
+                    { src: 'ADA Projects 2025\\Interactive Screen\\Oil n Gas Interface.png', alt: 'Sub Page of Oil & Gas Applications' },
+                    { src: 'ADA Projects 2025\\Interactive Screen\\Inbuilt PPT Viewer.png', alt: 'Inbuilt PPT Viewer' }
                 ]
             },
             {
-                title: 'Product Documentation',
-                type: 'pdf',
-                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+                title: 'Product Video',
+                type: 'video',
+                content: '<video controls style="width: 100%; height: auto;"><source src="ADA Projects 2025/Interactive Screen/Industrial Application.webm" type="video/webm"></video>'
             },
+            // {
+            //     title: 'Product Documentation',
+            //     type: 'pdf',
+            //     url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+            // },
             {
                 title: 'Utilized By',
                 utilized: [
-                    { icon: '🛠️', name: 'Service Managers' },
-                    { icon: '👨‍💼', name: 'Account Executives' },
-                    { icon: '📋', name: 'Operations Team' },
-                    { icon: '💰', name: 'Finance Department' }
+                    // { icon: '🛠️', name: 'Service Managers' },
+                    { icon: '🏟️', name: 'Exhibitors' },
+                    // { icon: '📋', name: 'Operations Team' },
+                    // { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
                 title: 'Impact and Adoption',
-                content: 'The screens have become focal points in our facilities, keeping employees informed and motivated. Surveys show 90% of employees regularly view the screens, and the displays have significantly improved awareness of company performance and news.'
+                content: 'Utilized for 15+ number of conferences & exhibitions this year'
             }
         ]
     },
@@ -722,39 +731,27 @@ const projectData = {
         ]
     },
     'doc-mgmt': {
-        title: 'Product Document Management for SBU 2 in Odoo',
-        subtitle: 'Task and project tracking workspace for SBU 1 and SBU 2 design teams to monitor progress and deadlines.',
+        title: 'Document Management for<br>Standardized Drawings',
+        subtitle: 'Central repository for SBU 2 documents with controlled access and version tracking.',
         sections: [
             {
                 title: 'Overview',
-                content: 'Task and project tracking workspace for SBU 1 and SBU 2 design teams to monitor progress and deadlines.'
+                content: 'The document management system integrates with inventory management to organize drawings and files for every physical part in the company. Previously, teams relied on Excel sheets with manual updates, limited access controls, and poor visibility into file locations or changes.\n\nThis was replaced by Odoo\'s version control features, private visibility settings, download analytics, and advanced filtering/grouping options for easy traceability of products.\n\nThe rollout eliminated scattered files, ensured only authorized access, tracked usage patterns, and enabled quick searches by part number or category, streamlining compliance and collaboration for SBU 2.'
             },
             {
-                title: 'Product Gallery',
-                type: 'gallery',
-                images: [
-                    { src: 'https://via.placeholder.com/600x400?text=Document+Repository+Interface', alt: 'Document Repository Interface' },
-                    { src: 'https://via.placeholder.com/600x400?text=Version+Control+System', alt: 'Version Control System' },
-                    { src: 'https://via.placeholder.com/600x400?text=Advanced+Search+Engine', alt: 'Advanced Search Engine' }
-                ]
-            },
-            {
-                title: 'Product Documentation',
-                type: 'pdf',
-                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+                title: 'Product Video',
+                type: 'video',
+                content: '<video controls style="width: 100%; height: auto;"><source src="ADA Projects 2025/Document Management/Product Inventory Management.mp4" type="video/mp4"></video>'
             },
             {
                 title: 'Utilized By',
                 utilized: [
-                    { icon: '🛠️', name: 'Service Managers' },
-                    { icon: '👨‍💼', name: 'Account Executives' },
-                    { icon: '📋', name: 'Operations Team' },
-                    { icon: '💰', name: 'Finance Department' }
+                    { icon: '👨‍💼', name: 'SBU 2 Team' },
                 ]
             },
             {
                 title: 'Impact and Adoption',
-                content: 'Document retrieval time has decreased by 80%, version confusion has been eliminated, and audit compliance has improved significantly. Teams collaborate more effectively with confidence they\'re working from current documents.'
+                content: 'All standardized drawings created by SBU2 tracked in Odoo'
             }
         ]
     },
@@ -797,38 +794,38 @@ const projectData = {
     },
     'field-service': {
         title: 'Field Service in Odoo',
-        subtitle: 'Mobile solution for service operations excellence (Yet to launch)',
+        subtitle: 'User - friendly module for planning, dispatching, and reporting of service engineer field visits.',
         sections: [
             {
                 title: 'Overview',
-                content: 'The upcoming Field Service system (yet to launch) will revolutionize how we manage field service operations. From intelligent scheduling to mobile work orders and GPS tracking, this comprehensive solution will optimize every aspect of field service delivery.'
+                content: 'The Field Service Management system is in progress and expected to launch by January 2026, enabling service engineers to record maintenance or commissioning visits with details on identified problems and solutions.\n\nThis creates a shared knowledge base, allowing new engineers to review past site-specific notes before visits, reducing repeat issues and improving efficiency.\n\nManagers gain a comprehensive dashboard view of engineer locations, timelines, and workloads, facilitating optimal task assignments and resource planning.'
             },
             {
                 title: 'Product Gallery',
                 type: 'gallery',
                 images: [
-                    { src: 'https://via.placeholder.com/600x400?text=Mobile+Work+Order+App', alt: 'Mobile Work Order App' },
-                    { src: 'https://via.placeholder.com/600x400?text=GPS+Tracking+Dashboard', alt: 'GPS Tracking Dashboard' },
-                    { src: 'https://via.placeholder.com/600x400?text=Intelligent+Scheduling+System', alt: 'Intelligent Scheduling System' }
+                    { src: 'ADA Projects 2025/Field Service Management/Form.png', alt: 'Form View' },
+                    { src: 'ADA Projects 2025/Field Service Management/Gantt View.png', alt: 'Timesheet/ Gantt View' },
+                    { src: 'ADA Projects 2025/Field Service Management/Worksheet.png', alt: 'Worksheet Form View' }
                 ]
             },
-            {
-                title: 'Product Documentation',
-                type: 'pdf',
-                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
-            },
+            // {
+            //     title: 'Product Documentation',
+            //     type: 'pdf',
+            //     url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+            // },
             {
                 title: 'Utilized by',
                 utilized: [
-                    { icon: '🛠️', name: 'Service Managers' },
-                    { icon: '👨‍💼', name: 'Account Executives' },
-                    { icon: '📋', name: 'Operations Team' },
-                    { icon: '💰', name: 'Finance Department' }
+                    { icon: '🛠️', name: 'Service Engineers' },
+                    { icon: '👨‍💼', name: 'Management' },
+                    // { icon: '📋', name: 'Operations Team' },
+                    // { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
-                title: 'Expected Benefits',
-                content: 'We anticipate 30% more service calls per technician per day, 25% reduction in travel time, 50% faster invoicing, and significantly improved first-time fix rates through better preparation and information access.'
+                title: 'Impact and Adoption',
+                content: 'To be launched in Jan 2026'
             }
         ]
     },
@@ -1099,20 +1096,31 @@ function openProject(projectKey) {
             </div>
         `;
 
-        // Find gallery/pdf sections by type (don't rely on fixed indexes)
+        // Find gallery/pdf/video sections by type
         const gallerySection = project.sections.find(s => s && s.type === 'gallery');
         const pdfSection = project.sections.find(s => s && s.type === 'pdf');
+        const videoSection = project.sections.find(s => s && s.type === 'video');
+
+        // Render Video first if present
+        if (videoSection) {
+            html += `
+                <div class="detail-section">
+                    <h3>${videoSection.title}</h3>
+                    <div>${videoSection.content}</div>
+                </div>
+            `;
+        }
 
         // Render Gallery if present
         if (gallerySection) {
             html += `
                 <div class="detail-section">
                     <h3>${gallerySection.title}</h3>
-                    <div class="gallery-container">
-                        <div class="slideshow">
+                    <div class="gallery-container" style="width: 100%; max-width: 1920px; height: auto; min-height: 600px; display: flex; flex-direction: column; margin: 0 auto;">
+                        <div class="slideshow" style="flex: 1; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
             `;
             gallerySection.images.forEach((img, index) => {
-                html += `<img src="${img.src}" alt="${img.alt}" class="slide ${index === 0 ? 'active' : ''}">`;
+                html += `<img src="${img.src}" alt="${img.alt}" class="slide ${index === 0 ? 'active' : ''}" data-zoom="1" style="max-width:100%;max-height:100%;object-fit:contain;display:block;transition:transform 0.2s ease;transform-origin:center center;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(' + (this.dataset.zoom || 1) + ')'">`;
             });
             html += `
                         </div>
@@ -1137,6 +1145,91 @@ function openProject(projectKey) {
         html += `</div>`;
         
         detailPage.innerHTML = html;
+        
+        // Add wheel zoom and drag functionality to slideshow images
+        const slideshow = detailPage.querySelector('.slideshow');
+        if (slideshow) {
+            let isDragging = false;
+            let startX = 0, startY = 0;
+            let translateX = 0, translateY = 0;
+            
+            slideshow.addEventListener('wheel', function(e) {
+                const activeSlide = slideshow.querySelector('.slide.active');
+                if (activeSlide) {
+                    e.preventDefault();
+                    let currentZoom = parseFloat(activeSlide.dataset.zoom) || 1;
+                    const delta = e.deltaY < 0 ? 0.1 : -0.1;
+                    currentZoom = Math.min(3, Math.max(1, currentZoom + delta));
+                    activeSlide.dataset.zoom = currentZoom;
+                    
+                    // Reset translation when zoom is 1
+                    if (currentZoom === 1) {
+                        translateX = 0;
+                        translateY = 0;
+                        activeSlide.dataset.translateX = 0;
+                        activeSlide.dataset.translateY = 0;
+                        activeSlide.style.cursor = 'default';
+                    } else {
+                        activeSlide.style.cursor = 'grab';
+                    }
+                    
+                    activeSlide.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentZoom})`;
+                }
+            }, { passive: false });
+            
+            slideshow.addEventListener('mousedown', function(e) {
+                const activeSlide = slideshow.querySelector('.slide.active');
+                if (activeSlide && parseFloat(activeSlide.dataset.zoom) > 1) {
+                    isDragging = true;
+                    startX = e.clientX;
+                    startY = e.clientY;
+                    translateX = parseFloat(activeSlide.dataset.translateX) || 0;
+                    translateY = parseFloat(activeSlide.dataset.translateY) || 0;
+                    activeSlide.style.cursor = 'grabbing';
+                    e.preventDefault();
+                }
+            });
+            
+            slideshow.addEventListener('mousemove', function(e) {
+                if (isDragging) {
+                    const activeSlide = slideshow.querySelector('.slide.active');
+                    if (activeSlide) {
+                        const deltaX = e.clientX - startX;
+                        const deltaY = e.clientY - startY;
+                        const newTranslateX = translateX + deltaX;
+                        const newTranslateY = translateY + deltaY;
+                        const currentZoom = parseFloat(activeSlide.dataset.zoom) || 1;
+                        activeSlide.style.transform = `translate(${newTranslateX}px, ${newTranslateY}px) scale(${currentZoom})`;
+                    }
+                }
+            });
+            
+            slideshow.addEventListener('mouseup', function(e) {
+                if (isDragging) {
+                    const activeSlide = slideshow.querySelector('.slide.active');
+                    if (activeSlide) {
+                        const deltaX = e.clientX - startX;
+                        const deltaY = e.clientY - startY;
+                        translateX = translateX + deltaX;
+                        translateY = translateY + deltaY;
+                        activeSlide.dataset.translateX = translateX;
+                        activeSlide.dataset.translateY = translateY;
+                        activeSlide.style.cursor = 'grab';
+                    }
+                    isDragging = false;
+                }
+            });
+            
+            slideshow.addEventListener('mouseleave', function() {
+                if (isDragging) {
+                    const activeSlide = slideshow.querySelector('.slide.active');
+                    if (activeSlide) {
+                        activeSlide.style.cursor = 'grab';
+                    }
+                    isDragging = false;
+                }
+            });
+        }
         
         // Hide matrix overlay and show detail page
         matrixOverlay.classList.remove('active');
@@ -1178,6 +1271,80 @@ function changeSlide(direction) {
         caption.textContent = slides[currentSlide].alt;
     }
 }
+
+// Image viewer overlay for zoomable slides
+let viewerScale = 1;
+
+function ensureImageViewer() {
+    let overlay = document.getElementById('imageViewerOverlay');
+    if (overlay) {
+        return overlay;
+    }
+    overlay = document.createElement('div');
+    overlay.id = 'imageViewerOverlay';
+    overlay.style.cssText = 'position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.85);z-index:2000;padding:24px;';
+    const frame = document.createElement('div');
+    frame.style.cssText = 'position:relative;max-width:90vw;max-height:90vh;display:flex;align-items:center;justify-content:center;';
+    const img = document.createElement('img');
+    img.style.cssText = 'max-width:100%;max-height:100%;transform-origin:center center;transition:transform 0.1s ease-out;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.45);';
+    const closeBtn = document.createElement('button');
+    closeBtn.textContent = '✕';
+    closeBtn.setAttribute('aria-label', 'Close image');
+    closeBtn.style.cssText = 'position:absolute;top:-12px;right:-12px;width:32px;height:32px;border:none;border-radius:50%;background:#111;color:#fff;font-size:16px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.35);';
+    closeBtn.addEventListener('click', hideImageViewer);
+    frame.appendChild(img);
+    frame.appendChild(closeBtn);
+    overlay.appendChild(frame);
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+            hideImageViewer();
+        }
+    });
+    overlay.addEventListener('wheel', (e) => {
+        if (overlay.style.display !== 'flex') return;
+        e.preventDefault();
+        const delta = e.deltaY < 0 ? 0.15 : -0.15;
+        viewerScale = Math.min(4, Math.max(1, viewerScale + delta));
+        img.style.transform = `scale(${viewerScale})`;
+    }, { passive: false });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlay.style.display === 'flex') {
+            hideImageViewer();
+        }
+    });
+    document.body.appendChild(overlay);
+    return overlay;
+}
+
+function showImageInViewer(src, alt) {
+    const overlay = ensureImageViewer();
+    const img = overlay.querySelector('img');
+    viewerScale = 1;
+    img.src = src;
+    img.alt = alt || '';
+    img.style.transform = 'scale(1)';
+    overlay.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+function hideImageViewer() {
+    const overlay = ensureImageViewer();
+    overlay.style.display = 'none';
+    document.body.style.overflow = '';
+}
+
+function attachImageViewerHandlers(root = document) {
+    const images = root.querySelectorAll('img.slide');
+    images.forEach((img) => {
+        if (img.dataset.viewerBound === '1') return;
+        img.dataset.viewerBound = '1';
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', () => showImageInViewer(img.src, img.alt));
+    });
+}
+
+// Bind to any slides already on the page (if present)
+attachImageViewerHandlers();
 
 // Handle window resize for matrix canvas
 window.addEventListener('resize', () => {

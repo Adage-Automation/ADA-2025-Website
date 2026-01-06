@@ -5,29 +5,37 @@ let mouseY = 0;
 let gradientX = 0;
 let gradientY = 0;
 
-// Thunder icon attraction
+// Thunder icon and ball attraction
 const thunderIcon = document.querySelector('.logo-icon');
 let iconOffsetX = 0;
 let iconOffsetY = 0;
+let isAttracted = false;
+
+// Store the original icon position
+let iconBaseX = 0;
+let iconBaseY = 0;
 
 document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
     
-    // Thunder icon attraction logic
+    // Get the icon's base position (without transform offset)
     const iconRect = thunderIcon.getBoundingClientRect();
-    const iconCenterX = iconRect.left + iconRect.width / 2;
-    const iconCenterY = iconRect.top + iconRect.height / 2;
-    const distance = Math.sqrt((mouseX - iconCenterX) ** 2 + (mouseY - iconCenterY) ** 2);
+    iconBaseX = iconRect.left + iconRect.width / 2 - iconOffsetX;
+    iconBaseY = iconRect.top + iconRect.height / 2 - iconOffsetY;
+    
+    const distance = Math.sqrt((mouseX - iconBaseX) ** 2 + (mouseY - iconBaseY) ** 2);
     
     if (distance < 150) {
-        iconOffsetX += (mouseX - iconCenterX) * 0.1;
-        iconOffsetY += (mouseY - iconCenterY) * 0.1;
+        isAttracted = true;
+        iconOffsetX += (mouseX - iconBaseX) * 0.1;
+        iconOffsetY += (mouseY - iconBaseY) * 0.1;
         
         // Limit the offset to prevent excessive movement
         iconOffsetX = Math.max(-50, Math.min(50, iconOffsetX));
         iconOffsetY = Math.max(-50, Math.min(50, iconOffsetY));
     } else {
+        isAttracted = false;
         iconOffsetX *= 0.95;
         iconOffsetY *= 0.95;
     }
@@ -42,8 +50,16 @@ document.addEventListener('mouseleave', () => {
 });
 
 function animate() {
-    gradientX += (mouseX - gradientX) * 0.15;
-    gradientY += (mouseY - gradientY) * 0.15;
+    // When attracted, ball moves together with thunder icon
+    if (isAttracted) {
+        // Ball follows the same offset as the thunder icon (moves together)
+        gradientX += (iconBaseX + iconOffsetX - gradientX) * 0.2;
+        gradientY += (iconBaseY + iconOffsetY - gradientY) * 0.2;
+    } else {
+        gradientX += (mouseX - gradientX) * 0.15;
+        gradientY += (mouseY - gradientY) * 0.15;
+    }
+    
     mouseGradient.style.left = gradientX + 'px';
     mouseGradient.style.top = gradientY + 'px';
     
@@ -113,7 +129,7 @@ const projectData = {
                 content: 'The quotation tracking system was the first fully Odoo‑based workflow implemented for the sales and ACMG teams, replacing the old Excel‑driven process with a shared cloud workspace for managing quotations in real time. It centralizes every quote in a single platform where team members can collaborate, update status, and immediately see which opportunities are open, won, or lost without juggling multiple files. Built‑in reporting and filtering allow users to generate up‑to‑date performance and pipeline reports in seconds, eliminating the manual effort of sorting spreadsheets and compiling data for hours.'
             },
             // {
-            //     title: 'Product Gallery',
+            //     title: 'Project Gallery',
             //     type: 'gallery',
             //     images: [
             //         { src: 'https://via.placeholder.com/600x400?text=Product+Image+1', alt: 'Product Image 1' },
@@ -122,9 +138,14 @@ const projectData = {
             //     ]
             // },
             {
-                title: 'Product Documentation',
+                title: 'Project Documentation',
                 type: 'pdf',
                 url: 'ADA Projects 2025/Quotation Tracking/Creating New Records.pdf'
+            },
+            {
+                title: 'Live Dashboard',
+                type: 'dashboard',
+                url: 'https://adage-automation.odoo.com/dashboard/share/19/b27a00ca-de13-454b-941b-631f75001a59'
             },
             {
                 title: 'Utilized By',
@@ -149,17 +170,15 @@ const projectData = {
                 title: 'Overview',
                 content: 'The CRM software was introduced specifically for the regional sales team to capture potential orders and enquiries instantly during customer visits or exhibitions, ensuring no interaction is forgotten. It enables quick logging of customer details, follow-up notes, and scheduled reminders, allowing sales reps to reconnect later and probe for specific requirements without relying on memory or scattered notes. This integration with the sales module lets any team member search for customers, view interaction history, and directly link them to existing quotations for seamless tracking and conversion.'
             },
-            // {
-            //     title: 'Product Gallery',
-            //     type: 'gallery',
-            //     images: [
-            //         { src: '', alt: 'CRM Dashboard' },
-            //         { src: 'https://via.placeholder.com/600x400?text=Sales+Pipeline', alt: 'Sales Pipeline' },
-            //         { src: 'https://via.placeholder.com/600x400?text=Customer+Insights', alt: 'Customer Insights' }
-            //     ]
-            // },
             {
-                title: 'Product Documentation',
+                title: 'Project Gallery',
+                type: 'gallery',
+                images: [
+                    { src: 'ADA Projects 2025/CRM Module for Sales/CRM Form View.png', alt: 'CRM Form View' }
+                ]
+            },
+            {
+                title: 'Project Documentation',
                 type: 'pdf',
                 url: 'ADA Projects 2025\\CRM Module for Sales\\Creating New Records on CRM Module.pdf'
             },
@@ -184,7 +203,7 @@ const projectData = {
                 content: 'Odoo for CSD is specifically tailored to meet the unique requirements of service-based sales. This custom Odoo implementation includes specialized workflows, pricing structures, and reporting capabilities designed for the Customer Service Division\'s business model.'
             },
             {
-                title: 'Product Gallery',
+                title: 'Project Gallery',
                 type: 'gallery',
                 images: [
                     { src: 'https://via.placeholder.com/600x400?text=CSD+Sales+Dashboard', alt: 'CSD Sales Dashboard' },
@@ -193,7 +212,7 @@ const projectData = {
                 ]
             },
             {
-                title: 'Product Documentation',
+                title: 'Project Documentation',
                 type: 'pdf',
                 url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
             },
@@ -221,7 +240,7 @@ const projectData = {
                 content: 'The RFQ Portal for Service Engineers provides a dedicated web form accessible via login on the adage-automation.in portal, allowing engineers to submit RFQ details instantly from mobile devices anywhere. Entries sync directly to the sales module, triggering notifications to the CSD Team at head office while offering engineers a clean dashboard to track submission status and completion rates. This replaces manual email checks and data entry for CSD, enabling faster quote generation, better monitoring of pending requests, and reduced turnaround times overall.'
             },
             {
-                title: 'Product Gallery',
+                title: 'Project Gallery',
                 type: 'gallery',
                 images: [
                     { src: 'ADA Projects 2025/Service RFQ Portal/RFQ Form.png', alt: 'RFQ Portal Interface' },
@@ -229,8 +248,13 @@ const projectData = {
                     { src: 'ADA Projects 2025/Service RFQ Portal/Editing an existing RFQ.png', alt: 'Editing Existing RFQ through the portal' }
                 ]
             },
+            {
+                title: 'Project Video',
+                type: 'video',
+                content: '<video controls style="width: 100%; height: auto;"><source src="ADA Projects 2025/Service RFQ Portal/service rfq.webm" type="video/webm"></video>'
+            },
             // {
-            //     title: 'Product Documentation',
+            //     title: 'Project Documentation',
             //     type: 'pdf',
             //     url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
             // },
@@ -255,7 +279,7 @@ const projectData = {
                 content: 'The Safety Meetings module is a custom Odoo module developed from scratch to automate the generation of mandatory reports required for factory inspections and internal audits, ensuring compliance without manual compilation. It supports shopfloor teams in discussing daily safety measures, personal precautions, and day plans, while capturing requests for requirements and recording all details in a structured format. The module produces digitally signed reports shared via email to designated recipients, replacing paper-based processes with a fully traceable, auditable digital workflow.'
             },
             {
-                title: 'Product Gallery',
+                title: 'Project Gallery',
                 type: 'gallery',
                 images: [
                     { src: 'ADA Projects 2025/Safety Meetings/Digital Signature Interface.png', alt: 'Digital Signature Interface' },
@@ -263,7 +287,12 @@ const projectData = {
                 ]
             },
             {
-                title: 'Product Documentation',
+                title: 'Project Video',
+                type: 'video',
+                content: '<video controls style="width: 100%; height: auto;"><source src="ADA Projects 2025/Safety Meetings/Safety Meetings.webm" type="video/webm"></video>'
+            },
+            {
+                title: 'Project Documentation',
                 type: 'pdf',
                 url: 'ADA Projects 2025/Safety Meetings/Sample Report.pdf'
             },
@@ -289,7 +318,7 @@ const projectData = {
                 content: 'The Quotation Generation system (yet to launch) will revolutionize how quotations are created and managed. By pulling data directly from Odoo, this system will generate professional, branded quotations with accurate pricing, terms, and conditions in minutes instead of hours.'
             },
             {
-                title: 'Product Gallery',
+                title: 'Project Gallery',
                 type: 'gallery',
                 images: [
                     { src: 'https://via.placeholder.com/600x400?text=Quotation+Template+Designer', alt: 'Quotation Template Designer' },
@@ -298,7 +327,7 @@ const projectData = {
                 ]
             },
             {
-                title: 'Product Documentation',
+                title: 'Project Documentation',
                 type: 'pdf',
                 url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
             },
@@ -318,187 +347,186 @@ const projectData = {
         ]
     },
     'dew-bubble': {
-        title: 'Dew Point & Bubble Point Calculation Python Script',
-        subtitle: 'Precision engineering calculations for process design',
+        title: 'Dew Point & Bubble Point Calculator',
+        subtitle: 'Automatic calculations of dew point and bubble point values from the datasheet composition table.',
         sections: [
             {
                 title: 'Overview',
-                content: 'The Dew Point & Bubble Point Calculator is a specialized engineering tool that performs thermodynamic calculations essential for process equipment design and specification. This application supports engineers in accurately determining phase equilibrium conditions for various gas mixtures.'
+                content: 'This automates dew point and bubble point calculations by automatically preparing the required data and running the calculations. It checks the input data for correctness and generates separate result files for each case.\n\nBy removing manual steps, it saves time, reduces errors, and makes the entire calculation process faster, smoother, and more reliable.'
             },
+            // {
+            //     title: 'Project Gallery',
+            //     type: 'gallery',
+            //     images: [
+            //         { src: 'https://via.placeholder.com/600x400?text=Thermodynamic+Calculator+Interface', alt: 'Thermodynamic Calculator Interface' },
+            //         { src: 'https://via.placeholder.com/600x400?text=Phase+Equilibrium+Chart', alt: 'Phase Equilibrium Chart' },
+            //         { src: 'https://via.placeholder.com/600x400?text=Process+Design+Output', alt: 'Process Design Output' }
+            //     ]
+            // },
             {
-                title: 'Product Gallery',
-                type: 'gallery',
-                images: [
-                    { src: 'https://via.placeholder.com/600x400?text=Thermodynamic+Calculator+Interface', alt: 'Thermodynamic Calculator Interface' },
-                    { src: 'https://via.placeholder.com/600x400?text=Phase+Equilibrium+Chart', alt: 'Phase Equilibrium Chart' },
-                    { src: 'https://via.placeholder.com/600x400?text=Process+Design+Output', alt: 'Process Design Output' }
-                ]
-            },
-            {
-                title: 'Product Documentation',
+                title: 'Project Documentation',
                 type: 'pdf',
-                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+                url: 'ADA Projects 2025/Dew Point & Bubble Point Calculator/Dew Point & Bubble Point/User Guide - Dew Point & Bubble Point Calculation.pdf'
             },
             {
                 title: 'Utilized By',
                 utilized: [
-                    { icon: '🛠️', name: 'Service Managers' },
-                    { icon: '👨‍💼', name: 'Account Executives' },
-                    { icon: '📋', name: 'Operations Team' },
-                    { icon: '💰', name: 'Finance Department' }
+                    // { icon: '🛠️', name: 'Service Managers' },
+                    { icon: '👨‍💼', name: 'ACMG Teams' },
+                    // { icon: '📋', name: 'Operations Team' },
+                    // { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
                 title: 'Impact and Adoption',
-                content: 'Engineers have reduced calculation time by 90% while improving accuracy. The tool has become essential for equipment sizing, process optimization, and customer technical support.'
+                content: 'Utilized by ACMG 1 & 2. Utlized for 6 number of projects performed so far'
             }
         ]
     },
     'lag-pressure': {
-        title: 'Lag Time & Pressure Drop Calculation Python Script',
-        subtitle: 'Advanced system analysis for pipeline design',
+        title: 'Pressure Drop and Lag time Calculator',
+        subtitle: 'Automatic calculations for Pressure Drop & Lag Time for various flow rates.',
         sections: [
             {
                 title: 'Overview',
-                content: 'This calculation tool helps engineers analyze system dynamics, including lag times and pressure drops across pipelines and equipment. Critical for system design and troubleshooting, it ensures optimal performance and safety in pneumatic and process systems.'
+                content: 'This automates the calculation of lag time and pressure drop by taking input data from an Excel sheet, running the required calculations automatically, and writing the results back into a final output file.\nIt removes the need to manually enter data and calculate results row by row, saving a significant amount of time, reducing effort, and minimizing human errors, especially when working with large datasets.'
             },
+            // {
+            //     title: 'Project Gallery',
+            //     type: 'gallery',
+            //     images: [
+            //         { src: 'https://via.placeholder.com/600x400?text=Pipeline+Analysis+Tool', alt: 'Pipeline Analysis Tool' },
+            //         { src: 'https://via.placeholder.com/600x400?text=Pressure+Drop+Calculator', alt: 'Pressure Drop Calculator' },
+            //         { src: 'https://via.placeholder.com/600x400?text=System+Dynamics+Visualization', alt: 'System Dynamics Visualization' }
+            //     ]
+            // },
             {
-                title: 'Product Gallery',
-                type: 'gallery',
-                images: [
-                    { src: 'https://via.placeholder.com/600x400?text=Pipeline+Analysis+Tool', alt: 'Pipeline Analysis Tool' },
-                    { src: 'https://via.placeholder.com/600x400?text=Pressure+Drop+Calculator', alt: 'Pressure Drop Calculator' },
-                    { src: 'https://via.placeholder.com/600x400?text=System+Dynamics+Visualization', alt: 'System Dynamics Visualization' }
-                ]
-            },
-            {
-                title: 'Product Documentation',
+                title: 'Project Documentation',
                 type: 'pdf',
-                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+                url: 'ADA Projects 2025/Pressure Time and Lag Time/Pressure Drop and Lag time Calculator/Lag Time & Pressure Drop Calculation/User Guide - Lag Time & Pressure Drop Calculation.pdf'
             },
             {
                 title: 'Utilized By',
                 utilized: [
-                    { icon: '🛠️', name: 'Service Managers' },
-                    { icon: '👨‍💼', name: 'Account Executives' },
-                    { icon: '📋', name: 'Operations Team' },
-                    { icon: '💰', name: 'Finance Department' }
+                    // { icon: '🛠️', name: 'Service Managers' },
+                    { icon: '👨‍💼', name: 'ACMG Team' },
+                    // { icon: '📋', name: 'Operations Team' },
+                    // { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
                 title: 'Impact and Adoption',
-                content: 'The tool has accelerated engineering workflows by 75%, reduced design iterations, and helped prevent costly field modifications through more accurate initial designs.'
+                content: 'Utilized by ACMG 1 & 2.'
             }
         ]
     },
     'auction': {
-        title: 'Auction Custom Software for Adage Day',
-        subtitle: 'Interactive bidding system for company celebrations',
+        title: 'Adage Day Live Auction Software',
+        subtitle: 'Real-time auction platform used by event organizers during Adage Day to manage bids and results.',
         sections: [
             {
                 title: 'Overview',
-                content: 'Developed specifically for Adage Day 2025, this auction platform created an engaging and exciting experience for employees. The system managed item listings, real-time bidding, and automated winner selection, making the event memorable and successful.'
+                content: 'The Adage Day Live Auction software was developed entirely from scratch using Python as a custom web application tailored to the managing committee\'s requirements.\n\nIt features three parallel real-time screens: one displaying the current bidder\'s photo, another showing bidder details and live bid amounts to the team captains, and a third generating results directly in Excel format for easy export.\n\nThis intuitive, user-friendly solution marked the team\'s first fully indigenous software, replacing manual auction methods using excel sheets and other third party applications with seamless, synchronized bidding and instant result capture.'
             },
             {
-                title: 'Product Gallery',
+                title: 'Project Gallery',
                 type: 'gallery',
                 images: [
-                    { src: 'https://via.placeholder.com/600x400?text=Auction+Dashboard', alt: 'Auction Dashboard' },
-                    { src: 'https://via.placeholder.com/600x400?text=Real-time+Bidding+Interface', alt: 'Real-time Bidding Interface' },
-                    { src: 'https://via.placeholder.com/600x400?text=Winner+Notification+System', alt: 'Winner Notification System' }
+                    { src: 'ADA Projects 2025/Adage Day Live Auction Software/auction ss1.PNG', alt: 'Live Bidding Screen Backend' },
+                    { src: 'ADA Projects 2025/Adage Day Live Auction Software/auction ss2.PNG', alt: 'Live Bidding Screen Frontend' },
+                    { src: 'ADA Projects 2025/Adage Day Live Auction Software/auction ss3.PNG', alt: 'Team Ledger Backend' },
+                    { src: 'ADA Projects 2025/Adage Day Live Auction Software/auction ss4.PNG', alt: 'Auction Result Interface' }
                 ]
             },
             {
-                title: 'Product Documentation',
+                title: 'Project Documentation',
                 type: 'pdf',
-                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+                url: 'ADA Projects 2025/Adage Day Live Auction Software/Auction App Document.pdf'
             },
             {
                 title: 'Utilized By',
                 utilized: [
-                    { icon: '🛠️', name: 'Service Managers' },
-                    { icon: '👨‍💼', name: 'Account Executives' },
-                    { icon: '📋', name: 'Operations Team' },
-                    { icon: '💰', name: 'Finance Department' }
+                    // { icon: '🛠️', name: 'Service Managers' },
+                    { icon: '👨‍💼', name: 'Event Organizers' },
+                    // { icon: '📋', name: 'Operations Team' },
+                    // { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
-                title: 'Event Success',
-                content: 'The platform facilitated over 500 bids across 50 items during Adage Day 2025, with 100% uptime and enthusiastic participation from employees. The success has led to requests for similar platforms for future company events.'
+                title: 'Impact and Adoption',
+                content: 'Utilized for Adage Day 2025'
             }
         ]
     },
     'intellidas': {
-        title: 'IntelliDAS Software',
-        subtitle: 'Next-generation data acquisition system (Not yet launched)',
+        title: 'IntelliStream Software',
+        subtitle: 'Data acquisition and streaming platform for capturing, visualizing, and analyzing live process data for customers and internal teams.',
         sections: [
             {
                 title: 'Overview',
-                content: 'IntelliDAS represents our entry into intelligent data acquisition and analysis solutions. This software will provide advanced algorithms and machine learning capabilities to ensure optimal performance and insights.'
+                content: 'IntelliStream is a user-friendly, browser-based analyser management and reporting application for monitoring, maintaining, and reporting on industrial gas analyzers from a centralized interface.\n\nIt displays live measurements, alarms, trends, and status for multiple analyzers, with automated workflows for validation, calibration, cleaning, and maintenance.\n\nComprehensive alarm management, reliability indicators, and local data storage simplify operations, reduce downtime, and ensure compliance through visual dashboards and guided actions'
             },
+            // {
+            //     title: 'Project Gallery',
+            //     type: 'gallery',
+            //     images: [
+            //         { src: 'https://via.placeholder.com/600x400?text=Data+Acquisition+Interface', alt: 'Data Acquisition Interface' },
+            //         { src: 'https://via.placeholder.com/600x400?text=ML+Analytics+Dashboard', alt: 'ML Analytics Dashboard' },
+            //         { src: 'https://via.placeholder.com/600x400?text=Performance+Insights+Report', alt: 'Performance Insights Report' }
+            //     ]
+            // },
             {
-                title: 'Product Gallery',
-                type: 'gallery',
-                images: [
-                    { src: 'https://via.placeholder.com/600x400?text=Data+Acquisition+Interface', alt: 'Data Acquisition Interface' },
-                    { src: 'https://via.placeholder.com/600x400?text=ML+Analytics+Dashboard', alt: 'ML Analytics Dashboard' },
-                    { src: 'https://via.placeholder.com/600x400?text=Performance+Insights+Report', alt: 'Performance Insights Report' }
-                ]
-            },
-            {
-                title: 'Product Documentation',
+                title: 'Project Documentation',
                 type: 'pdf',
-                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+                url: 'ADA Projects 2025/IntelliStream - DAS software/IntelliStream-Analyzer-Management-System.pdf'
             },
             {
                 title: 'Utilized by',
                 utilized: [
-                    { icon: '🛠️', name: 'Service Managers' },
-                    { icon: '👨‍💼', name: 'Account Executives' },
-                    { icon: '📋', name: 'Operations Team' },
-                    { icon: '💰', name: 'Finance Department' }
+                    { icon: '👥', name: 'Customers' },
+                    { icon: '👨‍💼', name: 'Internal Team' }
                 ]
             },
             {
-                title: 'Market Opportunity',
-                content: 'IntelliDAS will position us in the growing market for intelligent data solutions, addressing the increasing demand for advanced analytics in business operations.'
+                title: 'Impact and Adoption',
+                content: 'Completed FAT and to be commissioned at IBN ZAHR, Saudi Arabia. Ready for launch across all projects'
             }
         ]
     },
     'sap-search': {
         title: 'SAP Smart Item Search',
-        subtitle: 'AI-powered inventory search and discovery (Not yet launched)',
+        subtitle: 'Utility to quickly search and retrieve item details from SAP for daily use by all teams without need of logging into SAP',
         sections: [
             {
                 title: 'Overview',
-                content: 'SAP Smart Item Search (not yet launched) will transform how users interact with SAP inventory data. Using natural language processing and intelligent search algorithms, this tool will make finding the right items faster and more intuitive than ever before.'
+                content: 'The SAP Item Search is a custom-built application leveraging reasoning models and LLMs to create an intuitive, searchable platform for product codes and item descriptions.\n\nUsers can log in from anywhere via internet hosting to instantly retrieve all required details without accessing SAP directly or contacting head office.\n\nThis eliminates login barriers and support requests, providing fast, self-service access to SAP data and streamlining daily operations across teams.'
             },
             {
-                title: 'Product Gallery',
+                title: 'Project Gallery',
                 type: 'gallery',
                 images: [
-                    { src: 'https://via.placeholder.com/600x400?text=NLP+Search+Interface', alt: 'NLP Search Interface' },
-                    { src: 'https://via.placeholder.com/600x400?text=Inventory+Discovery+Tool', alt: 'Inventory Discovery Tool' },
-                    { src: 'https://via.placeholder.com/600x400?text=Smart+Recommendations+Engine', alt: 'Smart Recommendations Engine' }
+                    { src: 'ADA Projects 2025/SAP Item Search/SAP Item Search Tool/SAP_APP_DFD.PNG', alt: 'SAP App DFD' }
                 ]
             },
             {
-                title: 'Product Documentation',
+                title: 'Project Video',
+                type: 'video',
+                content: '<video controls style="width: 100%; height: auto;"><source src="ADA Projects 2025/SAP Item Search/SAP Item Search Tool/SAP App Recording .mp4" type="video/mp4"></video>'
+            },
+            {
+                title: 'Project Documentation',
                 type: 'pdf',
-                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+                url: 'ADA Projects 2025/SAP Item Search/SAP Item Search Tool/Logic Flow Diagram.pdf'
             },
             {
                 title: 'Utilized by',
                 utilized: [
-                    { icon: '🛠️', name: 'Service Managers' },
-                    { icon: '👨‍💼', name: 'Account Executives' },
-                    { icon: '📋', name: 'Operations Team' },
-                    { icon: '💰', name: 'Finance Department' }
+                    { icon: '👥', name: 'Everyone' }
                 ]
             },
             {
                 title: 'Impact and Adoption',
-                content: 'We anticipate reducing item search time by 70%, decreasing incorrect item selections by 85%, and significantly improving user satisfaction with SAP interactions.'
+                content: 'To be launched in Jan 2026'
             }
         ]
     },
@@ -511,7 +539,7 @@ const projectData = {
                 content: 'The Adage Connect Newsletter initiative, launched in September 2024, delivers monthly updates on the top 5 major activities and company news to keep employees and stakeholders informed.\n\nLeveraging Odoo\'s Email Marketing module, the team has successfully published over 15 editions with strong response rates, ensuring consistent communication about key events and developments.\n\nThis automated, visually appealing format replaced sporadic announcements with a reliable monthly touchpoint, boosting engagement and company-wide awareness directlly to the email inbox.'
             },
             {
-                title: 'Product Gallery',
+                title: 'Project Gallery',
                 type: 'gallery',
                 images: [
                     { src: 'ADA Projects 2025\\Adage Montly Newsletter\\Email Marketing Interface.png', alt: 'Email Marketing Interface' },
@@ -520,7 +548,7 @@ const projectData = {
                 ]
             },
             // {
-            //     title: 'Product Documentation',
+            //     title: 'Project Documentation',
             //     type: 'pdf',
             //     url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
             // },
@@ -548,7 +576,7 @@ const projectData = {
                 content: 'The Adage Day 2025 application was built from scratch using HTML, CSS, and JavaScript, hosted on Netlify for seamless access as a web app from any browser.\n\nIt serves as a comprehensive, 24/7 hub delivering real-time updates on team positions, event schedules, and essential details accessible to anyone from anywhere.\n\nThis one-stop solution eliminated fragmented communications, providing instant, reliable event information and enhancing participant engagement throughout Adage Day 2025.'
             },
             {
-                title: 'Product Gallery',
+                title: 'Project Gallery',
                 type: 'gallery',
                 images: [
                     { src: 'ADA Projects 2025\\Adage Day Web App\\Main Landing Page.jpeg', alt: 'Main Landing Page' },
@@ -559,7 +587,7 @@ const projectData = {
                 ]
             },
             {
-                title: 'Product Video',
+                title: 'Project Video',
                 type: 'video',
                 content: '<video controls style="width: 100%; height: auto;"><source src="ADA Projects 2025/Adage Day Web App/Adage App.webm" type="video/webm"></video>'
             },
@@ -587,7 +615,7 @@ const projectData = {
                 content: 'The frontdesk software and kiosk was introduced to streamline visitor management at the company, capturing detailed purpose of visit, scheduling future appointments, and tracking entries and exits in real time.\n\nIt enables the reception team to log visitor details efficiently, receive alerts for upcoming visits, and maintain accurate records without manual notebooks or spreadsheets.\n\nThis replaced informal check-ins with a professional, searchable system that improves security, reduces wait times, and provides analytics on visitor patterns for AKAI/AKIC operations.'
             },
             {
-                title: 'Product Gallery',
+                title: 'Project Gallery',
                 type: 'gallery',
                 images: [
                     { src: 'ADA Projects 2025\\Frontdesk Module\\Frontdesk Interface.png', alt: 'Frontdesk Form View' },
@@ -595,8 +623,13 @@ const projectData = {
                     { src: 'ADA Projects 2025\\Frontdesk Module\\Frontdesk list view.png', alt: 'Frontdesk List View' }
                 ]
             },
+            {
+                title: 'Project Video',
+                type: 'video',
+                content: '<video controls style="width: 100%; height: auto;"><source src="ADA Projects 2025/Frontdesk Module/Frontdesk Kiosk.webm" type="video/webm"></video>'
+            },
             // {
-            //     title: 'Product Documentation',
+            //     title: 'Project Documentation',
             //     type: 'pdf',
             //     url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
             // },
@@ -624,7 +657,7 @@ const projectData = {
                 content: 'The interactive screen software, deployed at over 15 exhibitions during the year, was built entirely using HTML, CSS, and JavaScript for offline, locally hosted operation.\n\nIt features an intuitive dashboard allowing visitors to independently explore product offerings and company solutions without internet access, ensuring fast loading and smooth navigation.\n\nThis approach replaced static brochures with engaging, self-guided product discovery, boosting visitor interaction and lead generation at trade shows.'
             },
             {
-                title: 'Product Gallery',
+                title: 'Project Gallery',
                 type: 'gallery',
                 images: [
                     { src: 'ADA Projects 2025\\Interactive Screen\\interactive screen adage.png', alt: 'Interactive Display Interface' },
@@ -635,12 +668,12 @@ const projectData = {
                 ]
             },
             {
-                title: 'Product Video',
+                title: 'Project Video',
                 type: 'video',
                 content: '<video controls style="width: 100%; height: auto;"><source src="ADA Projects 2025/Interactive Screen/Industrial Application.webm" type="video/webm"></video>'
             },
             // {
-            //     title: 'Product Documentation',
+            //     title: 'Project Documentation',
             //     type: 'pdf',
             //     url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
             // },
@@ -668,7 +701,7 @@ const projectData = {
                 content: 'The Adage-Kanoo Website represents our partnership with a modern, professional digital presence. Featuring responsive design, compelling content, and integrated inquiry management, the site effectively showcases our joint capabilities and facilitates customer engagement.'
             },
             {
-                title: 'Product Gallery',
+                title: 'Project Gallery',
                 type: 'gallery',
                 images: [
                     { src: 'https://via.placeholder.com/600x400?text=Responsive+Website+Design', alt: 'Responsive Website Design' },
@@ -677,7 +710,7 @@ const projectData = {
                 ]
             },
             {
-                title: 'Product Documentation',
+                title: 'Project Documentation',
                 type: 'pdf',
                 url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
             },
@@ -705,7 +738,7 @@ const projectData = {
                 content: 'The project management software was implemented to enable efficient tracking of workloads, provide transparent progress visibility for each task, and ensure structured oversight of all projects. It structures the design team\'s workflow with defined stages, timelines, and accountability metrics, allowing teams to log hours accurately and monitor completion against planned durations. This rollout shifted operations from informal, scattered tracking to a disciplined system, guaranteeing on-time project delivery and better resource allocation across SBU 1 and SBU 2.'
             },
             {
-                title: 'Product Gallery',
+                title: 'Project Gallery',
                 type: 'gallery',
                 images: [
                     { src: 'ADA Projects 2025\\Project Management\\Project Main Kanban View.png', alt: 'Kanban View of Projects' },
@@ -714,7 +747,12 @@ const projectData = {
                 ]
             },
             {
-                title: 'Product Documentation',
+                title: 'Project Video',
+                type: 'video',
+                content: '<video controls style="width: 100%; height: auto;"><source src="ADA Projects 2025/Project Management/Project Management.webm" type="video/webm"></video>'
+            },
+            {
+                title: 'Project Documentation',
                 type: 'pdf',
                 url: 'ADA Projects 2025\\Project Management\\Odoo Projects (Team) Guide.pdf'
             },
@@ -739,7 +777,7 @@ const projectData = {
                 content: 'The document management system integrates with inventory management to organize drawings and files for every physical part in the company. Previously, teams relied on Excel sheets with manual updates, limited access controls, and poor visibility into file locations or changes.\n\nThis was replaced by Odoo\'s version control features, private visibility settings, download analytics, and advanced filtering/grouping options for easy traceability of products.\n\nThe rollout eliminated scattered files, ensured only authorized access, tracked usage patterns, and enabled quick searches by part number or category, streamlining compliance and collaboration for SBU 2.'
             },
             {
-                title: 'Product Video',
+                title: 'Project Video',
                 type: 'video',
                 content: '<video controls style="width: 100%; height: auto;"><source src="ADA Projects 2025/Document Management/Product Inventory Management.mp4" type="video/mp4"></video>'
             },
@@ -764,7 +802,7 @@ const projectData = {
                 content: 'The comprehensive Dashboards and Reporting solution provides real-time visibility into business performance across all functions. From sales and operations to finance and HR, stakeholders have instant access to the metrics that matter most to their roles.'
             },
             {
-                title: 'Product Gallery',
+                title: 'Project Gallery',
                 type: 'gallery',
                 images: [
                     { src: 'https://via.placeholder.com/600x400?text=Business+Intelligence+Dashboard', alt: 'Business Intelligence Dashboard' },
@@ -773,7 +811,7 @@ const projectData = {
                 ]
             },
             {
-                title: 'Product Documentation',
+                title: 'Project Documentation',
                 type: 'pdf',
                 url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
             },
@@ -801,7 +839,7 @@ const projectData = {
                 content: 'The Field Service Management system is in progress and expected to launch by January 2026, enabling service engineers to record maintenance or commissioning visits with details on identified problems and solutions.\n\nThis creates a shared knowledge base, allowing new engineers to review past site-specific notes before visits, reducing repeat issues and improving efficiency.\n\nManagers gain a comprehensive dashboard view of engineer locations, timelines, and workloads, facilitating optimal task assignments and resource planning.'
             },
             {
-                title: 'Product Gallery',
+                title: 'Project Gallery',
                 type: 'gallery',
                 images: [
                     { src: 'ADA Projects 2025/Field Service Management/Form.png', alt: 'Form View' },
@@ -810,7 +848,7 @@ const projectData = {
                 ]
             },
             // {
-            //     title: 'Product Documentation',
+            //     title: 'Project Documentation',
             //     type: 'pdf',
             //     url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
             // },
@@ -831,61 +869,62 @@ const projectData = {
     },
     'recruitment': {
         title: 'Recruitment in Odoo',
-        subtitle: 'Streamlined hiring from posting to onboarding (Yet to launch)',
+        subtitle: 'Hiring workflow system to manage job postings, applications, interviews, and candidate status for HR.',
         sections: [
             {
                 title: 'Overview',
-                content: 'The Recruitment system (yet to launch) will transform our hiring process with an integrated Odoo system managing everything from job posting through candidate onboarding. Automated workflows, AI-assisted screening, and collaborative evaluation will make hiring faster and more effective.'
+                content: 'The Recruitment module streamlines HR workflows by maintaining a structured database for new hires, managing the full interview process, and automating steps from candidate screening through onboarding and employee record creation.\n\nIt centralizes resumes, schedules interviews, tracks statuses, and generates offers, reducing paperwork and ensuring smooth transitions to active employment.\n\nWith demonstrations completed, only live implementation and real-world usage remain, positioning it for quick rollout to enhance hiring efficiency.'
             },
             {
-                title: 'Product Gallery',
-                type: 'gallery',
-                images: [
-                    { src: 'https://via.placeholder.com/600x400?text=Job+Posting+Platform', alt: 'Job Posting Platform' },
-                    { src: 'https://via.placeholder.com/600x400?text=AI+Candidate+Screening', alt: 'AI Candidate Screening' },
-                    { src: 'https://via.placeholder.com/600x400?text=Onboarding+Workflow+System', alt: 'Onboarding Workflow System' }
-                ]
+                title: 'Project Video',
+                type: 'video',
+                content: '<video controls style="width: 100%; height: auto;"><source src="ADA Projects 2025/Recruitment/Recruitment.webm" type="video/webm"></video>'
             },
-            {
-                title: 'Product Documentation',
-                type: 'pdf',
-                url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
-            },
+            // {
+            //     title: 'Project Gallery',
+            //     type: 'gallery',
+            //     images: [
+            //         { src: 'https://via.placeholder.com/600x400?text=Job+Posting+Platform', alt: 'Job Posting Platform' },
+            //         { src: 'https://via.placeholder.com/600x400?text=AI+Candidate+Screening', alt: 'AI Candidate Screening' },
+            //         { src: 'https://via.placeholder.com/600x400?text=Onboarding+Workflow+System', alt: 'Onboarding Workflow System' }
+            //     ]
+            // },
+            // {
+            //     title: 'Project Documentation',
+            //     type: 'pdf',
+            //     url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
+            // },
             {
                 title: 'Utilized by',
                 utilized: [
-                    { icon: '🛠️', name: 'Service Managers' },
-                    { icon: '👨‍💼', name: 'Account Executives' },
-                    { icon: '📋', name: 'Operations Team' },
-                    { icon: '💰', name: 'Finance Department' }
+                    { icon: '👨‍💼', name: 'HR' },
+                    { icon: '👥', name: 'Interested Candidates' }
                 ]
             },
             {
                 title: 'Impact and Adoption',
-                content: 'We expect to reduce time-to-hire by 40%, improve candidate quality through better screening, enhance candidate experience with faster communication, and provide management with better hiring analytics and predictions.'
+                content: 'To be launched in Q1 2026'
             }
         ]
     },
     'elearning': {
         title: 'Odoo eLearning',
-        subtitle: 'Comprehensive online training and development (Not yet launched)',
+        subtitle: 'Training and onboarding portal to host courses, quizzes, and learning paths for new employees set by HR.',
         sections: [
             {
                 title: 'Overview',
-                content: 'The eLearning Platform (not yet launched) will provide employees with flexible, engaging online training opportunities. Supporting various learning formats, tracking progress, and managing certifications, this system will foster continuous learning and skill development across the organization.'
+                content: 'The eLearning platform provides a self-paced onboarding hub where new employees can log in independently, access resources, and complete custom courses without heavy reliance on personal interactions.\n\nCourses, developed in collaboration with Management and HR, cover key topics with progress tracking, quizzes, and digital certifications upon completion, fostering skill recognition and career growth within the company.\n\nStill in progress, this system will standardize training, reduce onboarding time, and create a centralized repository of company knowledge accessible anytime.'
             },
             {
                 title: 'Utilized by',
                 utilized: [
-                    { icon: '🛠️', name: 'Service Managers' },
-                    { icon: '👨‍💼', name: 'Account Executives' },
-                    { icon: '📋', name: 'Operations Team' },
-                    { icon: '💰', name: 'Finance Department' }
+                    { icon: '�', name: 'New Employees' },
+                    { icon: '👨‍💼', name: 'HR' }
                 ]
             },
             {
                 title: 'Impact and Adoption',
-                content: 'We expect to increase training accessibility by 90%, reduce onboarding time by 40%, improve employee engagement and retention through continuous learning opportunities, and provide better tracking of skill development across the organization.'
+                content: 'To be launched in Q1 2026'
             }
         ]
     },
@@ -898,7 +937,7 @@ const projectData = {
                 content: 'The SAP - Odoo Sync system provides seamless integration between SAP ERP and Odoo CRM platforms, enabling real-time data synchronization for customers, products, orders, and inventory. This eliminates manual data entry, reduces errors, and ensures data consistency across both systems.'
             },
             {
-                title: 'Product Gallery',
+                title: 'Project Gallery',
                 type: 'gallery',
                 images: [
                     { src: 'ADA Projects 2025/SAP Odoo Sync/SAP-Odoo_Data_Synchronization_Flowchart.png', alt: 'SAP-Odoo_Data_Synchronization_Flowchart' },
@@ -906,17 +945,17 @@ const projectData = {
                 ]
             },
             // {
-            //     title: 'Product Documentation',
+            //     title: 'Project Documentation',
             //     type: 'pdf',
             //     url: 'ADA Projects 2025/SAP Odoo Sync/SAP_Odoo_Sync_Documentation.pdf'
             // },
             {
                 title: 'Utilized By',
                 utilized: [
-                    { icon: '🏭', name: 'Operations Team' },
-                    { icon: '💼', name: 'Sales Team' },
-                    { icon: '📊', name: 'Finance Department' },
-                    { icon: '🛠️', name: 'IT Department' }
+                    { icon: '🛠️', name: 'Digitalization & AI Team' },
+                    // { icon: '💼', name: 'Sales Team' },
+                    // { icon: '📊', name: 'Finance Department' },
+                    // { icon: '🛠️', name: 'IT Department' }
                 ]
             },
             {
@@ -934,7 +973,7 @@ const projectData = {
                 content: 'The Employee Handbook is a comprehensive digital resource providing all employees with essential information about company policies, procedures, benefits, and guidelines. This interactive handbook ensures consistent communication and easy access to important HR information across the organization.'
             },
             {
-                title: 'Product Documentation',
+                title: 'Project Documentation',
                 type: 'pdf',
                 url: 'ADA Projects 2025/Employee Handbook/Employee_Handbook.pdf'
             },
@@ -955,52 +994,51 @@ const projectData = {
     },
     'smart-quotation-acmg': {
         title: 'Smart Quotation Generation for ACMG',
-        subtitle: 'AI-powered quotation generation system with intelligent pricing and customization',
+        subtitle: 'Intelligent tool to generate accurate, standardized quotations for ACMG based on inputs and predefined templates directly from Odoo',
         sections: [
             {
                 title: 'Overview',
-                content: 'The Smart Quotation Generation system leverages AI to automatically create customized quotations for the ACMG team. It analyzes product requirements, applies intelligent pricing algorithms, and generates professional quotes with minimal manual intervention, significantly reducing quote preparation time.'
+                content: 'The Employee Handbook serves as a centralized, secure resource hub accessible via company login, covering mission, vision, policies, holidays, culture, and working environment in a transparent format.\n\nIt eliminates scattered documents or verbal handovers, enabling employees to self-serve information anytime for better onboarding and daily reference.\n\nThis digital approach fosters consistency, compliance, and engagement across teams by providing an easy-to-navigate, always-updated single source of company knowledge.'
+            },
+            {
+                title: 'Project Documentation',
+                type: 'pdf',
+                url: 'ADA Projects 2025/smart quotation generation/Smart Quotation Generation for ACMG/Quotation Generation/Automating Quotation Document Generation.pdf'
             },
             {
                 title: 'Utilized By',
                 utilized: [
-                    { icon: '👨‍💼', name: 'ACMG Team' },
-                    { icon: '💼', name: 'Sales Managers' },
-                    { icon: '📊', name: 'Pricing Department' },
-                    { icon: '🤖', name: 'AI Systems' }
+                    { icon: '👨‍💼', name: 'ACMG Teams' }
                 ]
             },
             {
                 title: 'Impact and Adoption',
-                content: 'Expected to reduce quotation generation time by 70%, improve pricing accuracy, and enable faster response to customer inquiries for the ACMG division.'
+                content: 'To be launched in Q1 2026'
             }
         ]
     },
     'datasheet-pdf-quotations': {
         title: 'Datasheet creation from PDF for Quotations',
-        subtitle: 'Automated extraction and formatting of product datasheets from PDF documents',
+        subtitle: 'Automated Extraction and Organization of Data from PDF to Excel.',
         sections: [
             {
                 title: 'Overview',
-                content: 'This system automatically extracts product specifications, technical details, and pricing information from PDF datasheets and formats them for seamless integration into quotation documents. It eliminates manual data entry and ensures accuracy in product information across all quotations.'
+                content: 'This extracts required data from a PDF file and automatically organizes it into a structured Excel sheet. It filters relevant information and prepares a final, ready-to-use dataset.\n\nBy replacing manual PDF reading and data entry, it saves time, reduces errors, and makes handling large technical documents much easier.'
             },
             {
-                title: 'Product Documentation',
+                title: 'Project Documentation',
                 type: 'pdf',
                 url: 'ADA Projects 2025/Datasheet creation from PDF for Quotations/Datasheet_Extraction_Documentation.pdf'
             },
             {
                 title: 'Utilized By',
                 utilized: [
-                    { icon: '👨‍💼', name: 'Quotation Teams' },
-                    { icon: '📄', name: 'Product Managers' },
-                    { icon: '💼', name: 'Sales Operations' },
-                    { icon: '🛠️', name: 'IT Department' }
+                    { icon: '👨‍💼', name: 'ACMG Teams' }
                 ]
             },
             {
                 title: 'Impact and Adoption',
-                content: 'Reduces manual data entry by 90%, ensures 100% accuracy in product specifications, and speeds up the quotation process significantly.'
+                content: 'Utlized by ACMG Team.'
             }
         ]
     }
@@ -1096,10 +1134,11 @@ function openProject(projectKey) {
             </div>
         `;
 
-        // Find gallery/pdf/video sections by type
+        // Find gallery/pdf/video/dashboard sections by type
         const gallerySection = project.sections.find(s => s && s.type === 'gallery');
         const pdfSection = project.sections.find(s => s && s.type === 'pdf');
         const videoSection = project.sections.find(s => s && s.type === 'video');
+        const dashboardSection = project.sections.find(s => s && s.type === 'dashboard');
 
         // Render Video first if present
         if (videoSection) {
@@ -1107,6 +1146,16 @@ function openProject(projectKey) {
                 <div class="detail-section">
                     <h3>${videoSection.title}</h3>
                     <div>${videoSection.content}</div>
+                </div>
+            `;
+        }
+
+        // Render Dashboard if present
+        if (dashboardSection) {
+            html += `
+                <div class="detail-section">
+                    <h3>${dashboardSection.title}</h3>
+                    <iframe src="${dashboardSection.url}" width="100%" height="800px" style="border: none; border-radius: 8px;"></iframe>
                 </div>
             `;
         }
@@ -1354,3 +1403,36 @@ window.addEventListener('resize', () => {
         canvas.height = window.innerHeight;
     }
 });
+
+// Back to top button
+const backToTopBtn = document.getElementById('backToTop');
+const detailPageScrollContainer = document.getElementById('projectDetailPage');
+
+if (backToTopBtn) {
+    const threshold = 300;
+
+    const updateBackToTop = (source) => {
+        const scrollPos = source === window ? window.scrollY : source.scrollTop;
+        if (scrollPos > threshold) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    };
+
+    window.addEventListener('scroll', () => updateBackToTop(window));
+
+    if (detailPageScrollContainer) {
+        detailPageScrollContainer.addEventListener('scroll', () => updateBackToTop(detailPageScrollContainer));
+    }
+
+    backToTopBtn.addEventListener('click', () => {
+        if (detailPageScrollContainer && detailPageScrollContainer.classList.contains('active')) {
+            detailPageScrollContainer.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    });
+
+    updateBackToTop(window);
+}

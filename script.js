@@ -458,13 +458,13 @@ const projectData = {
             }
         ]
     },
-    'intellidas': {
-        title: 'IntelliStream Software',
-        subtitle: 'Data acquisition and streaming platform for capturing, visualizing, and analyzing live process data for customers and internal teams.',
+    'foresy': {
+        title: 'Foresy Software',
+        subtitle: 'Foresy is the most user-friendly way for plant operators to monitor, maintain, and report on industrial gas analyzers from a single, centralized interface',
         sections: [
             {
                 title: 'Overview',
-                content: 'IntelliStream is a user-friendly, browser-based analyser management and reporting application for monitoring, maintaining, and reporting on industrial gas analyzers from a centralized interface.\n\nIt displays live measurements, alarms, trends, and status for multiple analyzers, with automated workflows for validation, calibration, cleaning, and maintenance.\n\nComprehensive alarm management, reliability indicators, and local data storage simplify operations, reduce downtime, and ensure compliance through visual dashboards and guided actions'
+                content: 'Foresy is a user-friendly, browser-based application designed to monitor, maintain, and report on industrial gas analyzers from a single, centralized interface. \nIt helps users view live measurements, understand system status, respond to alarms, and carry out routine operational and maintenance activities with confidence. \Foresy builds a strong data foundation for deeper diagnostics, predictive insights and pro-active maintenance.'
             },
             // {
             //     title: 'Project Gallery',
@@ -478,7 +478,7 @@ const projectData = {
             {
                 title: 'Project Documentation',
                 type: 'pdf',
-                url: 'ADA Projects 2025/IntelliStream - DAS software/IntelliStream-Analyzer-Management-System.pdf'
+                url: 'ADA Projects 2025/Foresy.pdf'
             },
             {
                 title: 'Utilized by',
@@ -1436,3 +1436,4 @@ if (backToTopBtn) {
 
     updateBackToTop(window);
 }
+

@@ -478,7 +478,7 @@ const projectData = {
             {
                 title: 'Project Documentation',
                 type: 'pdf',
-                url: 'ADA Projects 2025/Foresy.pdf'
+                url: 'ADA Projects 2025/Foresy/Foresy.pdf'
             },
             {
                 title: 'Utilized by',
@@ -1436,4 +1436,5 @@ if (backToTopBtn) {
 
     updateBackToTop(window);
 }
+
 

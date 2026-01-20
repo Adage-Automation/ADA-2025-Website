@@ -458,13 +458,13 @@ const projectData = {
             }
         ]
     },
-    'foresy': {
-        title: 'Foresy Software',
-        subtitle: 'Foresy is the most user-friendly way for plant operators to monitor, maintain, and report on industrial gas analyzers from a single, centralized interface',
+    'adapt': {
+        title: 'ADAPT Software',
+        subtitle: 'ADAPT (Adage Data Acquisition and Predictive Toolkit) is the most user-friendly way for plant operators to monitor, maintain, and report on industrial gas analyzers from a single, centralized interface',
         sections: [
             {
                 title: 'Overview',
-                content: 'Foresy is a user-friendly, browser-based application designed to monitor, maintain, and report on industrial gas analyzers from a single, centralized interface. \nIt helps users view live measurements, understand system status, respond to alarms, and carry out routine operational and maintenance activities with confidence. \Foresy builds a strong data foundation for deeper diagnostics, predictive insights and pro-active maintenance.'
+                content: 'ADAPT (Adage Data Acquisition and Predictive Toolkit) is a user-friendly, browser-based application designed to monitor, maintain, and report on industrial gas analyzers from a single, centralized interface. \nIt helps users view live measurements, understand system status, respond to alarms, and carry out routine operational and maintenance activities with confidence. \nADAPT builds a strong data foundation for deeper diagnostics, predictive insights and pro-active maintenance.'
             },
             // {
             //     title: 'Project Gallery',
@@ -476,9 +476,9 @@ const projectData = {
             //     ]
             // },
             {
-                title: 'Project Documentation',
-                type: 'pdf',
-                url: 'ADA Projects 2025/Foresy/Foresy.pdf'
+                title: 'Project Demo',
+                type: 'video',
+                url: 'ADA Projects 2025/Foresy/ADAPT Video.mp4'
             },
             {
                 title: 'Utilized by',
@@ -916,6 +916,22 @@ const projectData = {
                 content: 'The eLearning platform provides a self-paced onboarding hub where new employees can log in independently, access resources, and complete custom courses without heavy reliance on personal interactions.\n\nCourses, developed in collaboration with Management and HR, cover key topics with progress tracking, quizzes, and digital certifications upon completion, fostering skill recognition and career growth within the company.\n\nStill in progress, this system will standardize training, reduce onboarding time, and create a centralized repository of company knowledge accessible anytime.'
             },
             {
+                title: 'Project Documentation',
+                type: 'pdf-dual',
+                documents: [
+                    { 
+                        title: 'Employee Guide',
+                        url: 'ADA Projects 2025/ELearning/eLearning (Employee) Guide.pdf',
+                        description: 'Comprehensive guide for employees on how to use the eLearning platform'
+                    },
+                    { 
+                        title: 'HR Guide',
+                        url: 'ADA Projects 2025/ELearning/eLearning (HR) Guide.pdf',
+                        description: 'Administrative guide for HR personnel to manage courses and track progress'
+                    }
+                ]
+            },
+            {
                 title: 'Utilized by',
                 utilized: [
                     { icon: '�', name: 'New Employees' },
@@ -1026,9 +1042,9 @@ const projectData = {
                 content: 'This extracts required data from a PDF file and automatically organizes it into a structured Excel sheet. It filters relevant information and prepares a final, ready-to-use dataset.\n\nBy replacing manual PDF reading and data entry, it saves time, reduces errors, and makes handling large technical documents much easier.'
             },
             {
-                title: 'Project Documentation',
-                type: 'pdf',
-                url: 'ADA Projects 2025/Datasheet creation from PDF for Quotations/Datasheet_Extraction_Documentation.pdf'
+                title: 'Project Demo',
+                type: 'video',
+                url: 'ADA Projects 2025/Document to excel/doctoexcel.mp4'
             },
             {
                 title: 'Utilized By',
@@ -1137,6 +1153,7 @@ function openProject(projectKey) {
         // Find gallery/pdf/video/dashboard sections by type
         const gallerySection = project.sections.find(s => s && s.type === 'gallery');
         const pdfSection = project.sections.find(s => s && s.type === 'pdf');
+        const pdfDualSection = project.sections.find(s => s && s.type === 'pdf-dual');
         const videoSection = project.sections.find(s => s && s.type === 'video');
         const dashboardSection = project.sections.find(s => s && s.type === 'dashboard');
 
@@ -1145,9 +1162,22 @@ function openProject(projectKey) {
             html += `
                 <div class="detail-section">
                     <h3>${videoSection.title}</h3>
-                    <div>${videoSection.content}</div>
-                </div>
             `;
+            
+            if (videoSection.url) {
+                // Handle video with URL property
+                html += `
+                    <video controls width="100%" style="max-height: 600px; border-radius: 8px;">
+                        <source src="${videoSection.url}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                `;
+            } else if (videoSection.content) {
+                // Handle video with content property (embedded HTML)
+                html += `<div>${videoSection.content}</div>`;
+            }
+            
+            html += `</div>`;
         }
 
         // Render Dashboard if present
@@ -1187,6 +1217,24 @@ function openProject(projectKey) {
                 <div class="detail-section">
                     <h3>${pdfSection.title}</h3>
                     <iframe src="${pdfSection.url}" width="100%" height="600px" style="border: none;"></iframe>
+                </div>
+            `;
+        }
+
+        // Render PDF Dual if present
+        if (pdfDualSection) {
+            html += `
+                <div class="detail-section">
+                    <h3>${pdfDualSection.title}</h3>
+                    <div class="pdf-dual-container" style="display: flex; gap: 20px; flex-wrap: wrap;">
+                        ${pdfDualSection.documents.map(doc => `
+                            <div class="pdf-document" style="flex: 1; min-width: 300px;">
+                                <h4 style="margin-bottom: 10px; color: #64ffda;">${doc.title}</h4>
+                                <p style="margin-bottom: 15px; color: #b0bec5; font-size: 14px;">${doc.description}</p>
+                                <iframe src="${doc.url}" width="100%" height="500px" style="border: 1px solid #333; border-radius: 8px;"></iframe>
+                            </div>
+                        `).join('')}
+                    </div>
                 </div>
             `;
         }

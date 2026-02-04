@@ -1208,4 +1208,6 @@ footer {
     .project-card { padding: 20px; min-height: 250px; }
     .detail-section { padding: 20px; }
     .feature-list { grid-template-columns: 1fr; }
+
 }
+

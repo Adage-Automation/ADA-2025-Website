@@ -1064,7 +1064,7 @@ const projectData = {
         sections: [
             {
                 title: 'Overview',
-                content: 'The GeM Portal Automation system currently scrapes relevant tender details from the Government e-Marketplace (GeM) portal based on a predefined list of keywords specifically configured for ACMG team requirements.\n\nThe system automatically identifies and extracts pertinent tender information that matches ACMG\'s business focus areas, allowing the team to quickly review opportunities without manually browsing through hundreds of listings.\n\nCurrently, users can download the filtered tender PDFs directly through the system. Further improvements are in progress to enhance automation capabilities, including automated bid preparation and submission features.'
+                content: 'The GeM Portal Automation assistant is a tool in progress that continuously tracks Government e-Marketplace (GeM) portal using AI methods and provides a narrow filtered list of tenders that are relevant to Adage allowing the team to quickly review opportunities without manually browsing through hundreds of listings.'
             },
             {
                 title: 'Project Video',
@@ -1079,7 +1079,7 @@ const projectData = {
             },
             {
                 title: 'Impact and Adoption',
-                content: 'Currently enables ACMG team to efficiently filter and download relevant government tenders based on predefined keywords. Saves significant time in manual tender searching and PDF collection. Enhanced automation features are under development.'
+                content: 'This will enable ACMG, Sales, CSD teams to efficiently track government tenders that are relevant to Adage using AI to save significant time in manual tender searching.'
             }
         ]
     }

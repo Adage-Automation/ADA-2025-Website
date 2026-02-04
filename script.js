@@ -145,7 +145,7 @@ const projectData = {
             {
                 title: 'Live Dashboard',
                 type: 'dashboard',
-                url: 'https://adage-automation.odoo.com/dashboard/share/19/b27a00ca-de13-454b-941b-631f75001a59'
+                url: 'https://adage-automation.odoo.com/dashboard/share/20/f95e0208-efae-4dee-8364-e22b2c9acac5'
             },
             {
                 title: 'Utilized By',
@@ -158,7 +158,7 @@ const projectData = {
             },
             {
                 title: 'Impact and Adoption',
-                content: '100% quotations from Adage Regional Sales are routed through Odoo'
+                content: '100% quotations from Adage Regional Sales are routed through Odoo<br><br>• Number of quotes logged in Odoo: [To be updated]<br><br>• Number of RFQs logged in Odoo: [To be updated]<br><br>• Number of quotations uploaded in Odoo: [To be updated]'
             }
         ]
     },
@@ -251,7 +251,7 @@ const projectData = {
             {
                 title: 'Project Video',
                 type: 'video',
-                content: '<video controls style="width: 100%; height: auto;"><source src="ADA Projects 2025/Service RFQ Portal/service rfq.webm" type="video/webm"></video>'
+                content: '<video controls style="width: 100%; height: auto;"><source src="ADA Projects 2025/Service RFQ Portal/service rfq.mp4" type="video/webm"></video>'
             },
             // {
             //     title: 'Project Documentation',
@@ -266,7 +266,7 @@ const projectData = {
             },
             {
                 title: 'Impact and Adoption',
-                content: 'Being Utilized - 62 number of RFQs from Field'
+                content: 'Being Utilized -72 number of RFQs from Field'
             }
         ]
     },
@@ -976,7 +976,7 @@ const projectData = {
             },
             {
                 title: 'Impact and Adoption',
-                content: 'Expected to reduce data synchronization time by 95%, eliminate manual data entry errors, and provide real-time visibility across SAP and Odoo systems.'
+                content: 'This is an internal toolkit used across different projects of digitalization team. It serves as a foundational integration layer that enables seamless data flow between SAP and Odoo systems.'
             }
         ]
     },
@@ -1029,7 +1029,7 @@ const projectData = {
             },
             {
                 title: 'Impact and Adoption',
-                content: 'To be launched in Q1 2026'
+                content: 'To be integrated with standard ACMG product modules'
             }
         ]
     },
@@ -1054,7 +1054,32 @@ const projectData = {
             },
             {
                 title: 'Impact and Adoption',
-                content: 'Utlized by ACMG Team.'
+                content: 'This was used for 4 projects. This is yet to be fully utilised by ACMG teams.'
+            }
+        ]
+    },
+    'gem-portal': {
+        title: 'GeM Portal Automation',
+        subtitle: 'Automated Government e-Marketplace (GeM) portal integration for streamlined procurement processes and bid management.',
+        sections: [
+            {
+                title: 'Overview',
+                content: 'The GeM Portal Automation system currently scrapes relevant tender details from the Government e-Marketplace (GeM) portal based on a predefined list of keywords specifically configured for ACMG team requirements.\n\nThe system automatically identifies and extracts pertinent tender information that matches ACMG\'s business focus areas, allowing the team to quickly review opportunities without manually browsing through hundreds of listings.\n\nCurrently, users can download the filtered tender PDFs directly through the system. Further improvements are in progress to enhance automation capabilities, including automated bid preparation and submission features.'
+            },
+            {
+                title: 'Project Video',
+                type: 'video',
+                content: '<video controls style="width: 100%; height: auto;"><source src="ADA Projects 2025/GeM Portal/GeM Portal Video.mp4" type="video/mp4"></video>'
+            },
+            {
+                title: 'Utilized By',
+                utilized: [
+                    { icon: '👨‍💼', name: 'ACMG Team' }
+                ]
+            },
+            {
+                title: 'Impact and Adoption',
+                content: 'Currently enables ACMG team to efficiently filter and download relevant government tenders based on predefined keywords. Saves significant time in manual tender searching and PDF collection. Enhanced automation features are under development.'
             }
         ]
     }

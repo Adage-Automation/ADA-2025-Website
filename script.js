@@ -1579,4 +1579,99 @@ if (backToTopBtn) {
     updateBackToTop(window);
 }
 
+// ===== FIREBASE AUTHENTICATION =====
 
+// Initialize Firebase Auth
+const auth = firebase.auth();
+
+// Check authentication state on page load
+auth.onAuthStateChanged((user) => {
+    const body = document.body;
+    const loginScreen = document.getElementById('loginScreen');
+    const mainContainer = document.getElementById('mainContainer');
+    const signOutBtn = document.getElementById('signOutBtn');
+    
+    if (user) {
+        // User is authenticated
+        console.log('User authenticated:', user.email);
+        body.classList.remove('auth-blocked');
+        loginScreen.style.display = 'none';
+        if (mainContainer) {
+            mainContainer.style.display = 'block';
+        }
+        if (signOutBtn) {
+            signOutBtn.style.display = 'block';
+        }
+    } else {
+        // User is not authenticated
+        console.log('User not authenticated');
+        body.classList.add('auth-blocked');
+        loginScreen.style.display = 'flex';
+        if (mainContainer) {
+            mainContainer.style.display = 'none';
+        }
+        if (signOutBtn) {
+            signOutBtn.style.display = 'none';
+        }
+    }
+});
+
+// Google Sign-In function
+function login() {
+    const btn = document.querySelector('#loginScreen button');
+    btn.disabled = true;
+
+    const provider = new firebase.auth.GoogleAuthProvider();
+
+    // ✅ Force session-only login
+    auth.setPersistence(firebase.auth.Auth.Persistence.SESSION)
+        .then(() => {
+            return auth.signInWithPopup(provider);
+        })
+        .then(() => {
+            // Google Analytics: successful login
+            if (typeof gtag === 'function') {
+                gtag('event', 'login', { method: 'google' });
+            }
+        })
+        .catch((error) => {
+            console.error('Login failed:', error.message);
+            alert('Login failed. Please try again.');
+        })
+        .finally(() => {
+            btn.disabled = false;
+        });
+}
+
+
+
+// Sign out function
+function signOut() {
+    auth.signOut()
+        .then(() => {
+            if (typeof gtag === 'function') {
+                gtag('event', 'logout');
+            }
+        })
+        .catch((error) => {
+            console.error('Sign out failed:', error);
+        });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const signOutBtn = document.getElementById('signOutBtn');
+    if (signOutBtn) {
+        signOutBtn.addEventListener('click', signOut);
+    }
+});
+
+
+// 🔒 Force logout on browser/tab close
+window.addEventListener('beforeunload', () => {
+    try {
+        firebase.auth().signOut();
+        sessionStorage.clear();
+    } catch (e) {
+        // fail silently
+    }
+});

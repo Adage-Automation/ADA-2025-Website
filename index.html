@@ -2,6 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Firebase Core -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+
+    <!-- Firebase Authentication -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+
+    <script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyDKAsEZQ0GG-rjrX4ayi-dnWSh3oGNsUwM",
+        authDomain: "ada-website-access-control.firebaseapp.com",
+        projectId: "ada-website-access-control",
+        appId: "1:799359664795:web:85392398dc209b89dc3c3e"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    </script>
+
+
     <!-- Google Analytics (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-77QLKRFZ4C"></script>
     <script>
@@ -19,7 +37,21 @@
     <title>Digitalization & AI Team - 2025 Showcase</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<button id="signOutBtn" class="sign-out-btn" style="display:none;">
+    Sign Out
+</button>
+
+<body class="auth-blocked">
+
+    <!-- Login Screen (Access Control) -->
+    <div id="loginScreen" class="login-screen">
+        <h2>ADA Digitalization & AI</h2>
+        <p>Authorized access only</p>
+
+        <button onclick="login()">Sign in with Google</button>
+        <!-- Microsoft login will be added later -->
+    </div>
+
     <div class="mouse-gradient" id="mouseGradient"></div>
     
     <!-- Animated Background -->
@@ -69,6 +101,7 @@
                 <div class="floating-element">💡</div>
                 <div class="floating-element">🔮</div>
                 <div class="floating-element">⚙️</div>
+                <!-- <button id="signOutBtn" class="sign-out-btn" onclick="signOut()" style="display: none;">Sign Out</button> -->
             </div>
         </header>
 
@@ -439,8 +472,6 @@
                 </div>
             </div>
         </div>
-
-
 
         <footer>
             <div class="footer-content">

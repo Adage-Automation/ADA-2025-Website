@@ -1135,7 +1135,16 @@ window.addEventListener('load', () => {
 // Open project detail page with matrix animation
 function openProject(projectKey) {
     const project = projectData[projectKey];
+    
     if (!project) return;
+    
+    // Google Analytics – track project open
+    if (typeof gtag === 'function') {
+        gtag('event', 'project_open', {
+            project_key: projectKey,
+            project_title: project.title
+        });
+    }
     
     const matrixOverlay = document.getElementById('matrixOverlay');
     
@@ -1414,6 +1423,14 @@ function closeProject() {
     const detailPage = document.getElementById('projectDetailPage');
     const mainContainer = document.getElementById('mainContainer');
     
+    // Google Analytics – track project close
+    if (typeof gtag === 'function') {
+        const projectTitle = document.querySelector('.detail-title');
+        gtag('event', 'project_close', {
+            project_title: projectTitle ? projectTitle.textContent : 'Unknown'
+        });
+    }
+    
     detailPage.classList.remove('active');
     mainContainer.style.display = 'block';
     
@@ -1431,6 +1448,13 @@ function changeSlide(direction) {
     slides[currentSlide].classList.remove('active');
     currentSlide = (currentSlide + direction + slides.length) % slides.length;
     slides[currentSlide].classList.add('active');
+    
+    // Google Analytics – track gallery navigation
+    if (typeof gtag === 'function') {
+        gtag('event', 'gallery_interaction', {
+            action: direction > 0 ? 'next' : 'prev'
+        });
+    }
     
     // Update caption
     const caption = document.querySelector('.caption');

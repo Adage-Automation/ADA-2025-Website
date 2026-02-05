@@ -158,7 +158,7 @@ const projectData = {
             },
             {
                 title: 'Impact and Adoption',
-                content: '100% quotations from Adage Regional Sales are routed through Odoo<br><br>• Number of quotes logged in Odoo: [To be updated]<br><br>• Number of RFQs logged in Odoo: [To be updated]<br><br>• Number of quotations uploaded in Odoo: [To be updated]'
+                content: '100% quotations from Adage Regional Sales are routed through Odoo<br><br>• Number of RFQs logged in Odoo by ACMG Team : 1450+ <br><br>• Number of RFQs logged in Odoo by CSD Team : 1500+ <br><br>• Number of total quotations uploaded in Odoo: 3200+<br><br>• No. of new customers added in 2025 : 295<br><br>• Top Industry Type by Order Entries : Cement'
             }
         ]
     },
@@ -526,7 +526,7 @@ const projectData = {
             },
             {
                 title: 'Impact and Adoption',
-                content: 'To be launched in Jan 2026'
+                content: 'To be launched in Q1 2026'
             }
         ]
     },
@@ -836,16 +836,41 @@ const projectData = {
         sections: [
             {
                 title: 'Overview',
-                content: 'The Field Service Management system is in progress and expected to launch by January 2026, enabling service engineers to record maintenance or commissioning visits with details on identified problems and solutions.\n\nThis creates a shared knowledge base, allowing new engineers to review past site-specific notes before visits, reducing repeat issues and improving efficiency.\n\nManagers gain a comprehensive dashboard view of engineer locations, timelines, and workloads, facilitating optimal task assignments and resource planning.'
+                content: 'The Field Service Management system is in progress and expected to launch by Q1 2026, enabling service engineers to record maintenance or commissioning visits with details on identified problems and solutions.\n\nThis creates a shared knowledge base, allowing new engineers to review past site-specific notes before visits, reducing repeat issues and improving efficiency.\n\nManagers gain a comprehensive dashboard view of engineer locations, timelines, and workloads, facilitating optimal task assignments and resource planning.'
             },
             {
                 title: 'Project Gallery',
                 type: 'gallery',
                 images: [
-                    { src: 'ADA Projects 2025/Field Service Management/Form.png', alt: 'Form View' },
-                    { src: 'ADA Projects 2025/Field Service Management/Gantt View.png', alt: 'Timesheet/ Gantt View' },
-                    { src: 'ADA Projects 2025/Field Service Management/Worksheet.png', alt: 'Worksheet Form View' }
+                    { src: 'ADA Projects 2025/Field Service Management/Screenshots/Form View.png', alt: 'Form View' },
+                    { src: 'ADA Projects 2025/Field Service Management/Screenshots/Worksheets Gantt View.png', alt: 'Worksheets Gantt View' },
+                    { src: 'ADA Projects 2025/Field Service Management/Screenshots/Worksheet Form View.png', alt: 'Worksheet Form View' },
+                    { src: 'ADA Projects 2025/Field Service Management/Screenshots/Commissioning Certificate Form View.png', alt: 'Commissioning Certificate Form View' },
+                    { src: 'ADA Projects 2025/Field Service Management/Screenshots/Minutes of Meeting Form View.png', alt: 'Minutes of Meeting Form View' },
+                    { src: 'ADA Projects 2025/Field Service Management/Screenshots/Timesheets form view.png', alt: 'Timesheets Form View' },
+                    { src: 'ADA Projects 2025/Field Service Management/Screenshots/Inbuilt pdf to word convertor website.png', alt: 'Inbuilt PDF to Word Converter Website' }
                 ]
+            },
+            {
+                title: 'Sample Documents Generated on Odoo',
+                type: 'pdf-dual',
+                documents: [
+                    { 
+                        title: 'Commissioning Certificate',
+                        url: 'ADA Projects 2025/Field Service Management/Sample Docs/Commissioning Certificate.pdf',
+                        description: 'Sample commissioning certificate document template'
+                    },
+                    { 
+                        title: 'Minutes of Meeting',
+                        url: 'ADA Projects 2025/Field Service Management/Sample Docs/Minutes of Meeting PDF.pdf',
+                        description: 'Meeting minutes documentation template'
+                    }
+                ]
+            },
+            {
+                title: 'Timesheet Report',
+                type: 'pdf',
+                url: 'ADA Projects 2025/Field Service Management/Sample Docs/Timesheet Report.pdf'
             },
             // {
             //     title: 'Project Documentation',
@@ -863,7 +888,7 @@ const projectData = {
             },
             {
                 title: 'Impact and Adoption',
-                content: 'To be launched in Jan 2026'
+                content: 'To be launched in Q1 2026'
             }
         ]
     },
@@ -989,17 +1014,18 @@ const projectData = {
                 content: 'The Employee Handbook is a comprehensive digital resource providing all employees with essential information about company policies, procedures, benefits, and guidelines. This interactive handbook ensures consistent communication and easy access to important HR information across the organization.'
             },
             {
-                title: 'Project Documentation',
-                type: 'pdf',
-                url: 'ADA Projects 2025/Employee Handbook/Employee_Handbook.pdf'
+                title: 'Project Gallery',
+                type: 'gallery',
+                images: [
+                    { src: 'ADA Projects 2025/Employee Handbook/Digital Interface.png', alt: 'Digital Employee Handbook Interface' }
+                ]
             },
             {
                 title: 'Utilized By',
                 utilized: [
                     { icon: '👥', name: 'All Employees' },
-                    { icon: '👨‍💼', name: 'HR Department' },
-                    { icon: '🏢', name: 'Management' },
-                    { icon: '📚', name: 'New Hires' }
+                    { icon: '💼', name: 'HR Department' }
+                   
                 ]
             },
             {
@@ -1054,7 +1080,7 @@ const projectData = {
             },
             {
                 title: 'Impact and Adoption',
-                content: 'This was used for 4 projects. This is yet to be fully utilised by ACMG teams.'
+                content: 'This was used for 3 projects : <br><br>   • VALMET QG NFS Project<br><br>   • ADNOC HGD Project<br><br>   • Haldia Project<br><br>This is yet to be fully utilised by ACMG teams.'
             }
         ]
     },
@@ -1179,6 +1205,7 @@ function openProject(projectKey) {
         const gallerySection = project.sections.find(s => s && s.type === 'gallery');
         const pdfSection = project.sections.find(s => s && s.type === 'pdf');
         const pdfDualSection = project.sections.find(s => s && s.type === 'pdf-dual');
+        const pdfTripleSection = project.sections.find(s => s && s.type === 'pdf-triple');
         const videoSection = project.sections.find(s => s && s.type === 'video');
         const dashboardSection = project.sections.find(s => s && s.type === 'dashboard');
 
@@ -1257,6 +1284,24 @@ function openProject(projectKey) {
                                 <h4 style="margin-bottom: 10px; color: #64ffda;">${doc.title}</h4>
                                 <p style="margin-bottom: 15px; color: #b0bec5; font-size: 14px;">${doc.description}</p>
                                 <iframe src="${doc.url}" width="100%" height="500px" style="border: 1px solid #333; border-radius: 8px;"></iframe>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render PDF Triple if present
+        if (pdfTripleSection) {
+            html += `
+                <div class="detail-section">
+                    <h3>${pdfTripleSection.title}</h3>
+                    <div class="pdf-triple-container" style="display: flex; gap: 15px; flex-wrap: wrap;">
+                        ${pdfTripleSection.documents.map(doc => `
+                            <div class="pdf-document" style="flex: 1; min-width: 280px; max-width: 32%;">
+                                <h4 style="margin-bottom: 8px; color: #64ffda; font-size: 16px;">${doc.title}</h4>
+                                <p style="margin-bottom: 12px; color: #b0bec5; font-size: 13px;">${doc.description}</p>
+                                <iframe src="${doc.url}" width="100%" height="400px" style="border: 1px solid #333; border-radius: 8px;"></iframe>
                             </div>
                         `).join('')}
                     </div>

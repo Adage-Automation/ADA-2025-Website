@@ -1618,8 +1618,10 @@ auth.onAuthStateChanged((user) => {
 
 // Google Sign-In function
 function login() {
-    const btn = document.querySelector('#loginScreen button');
-    btn.disabled = true;
+    const buttons = document.querySelectorAll('#loginScreen button');
+    
+    // Disable all login buttons
+    buttons.forEach(btn => btn.disabled = true);
 
     const provider = new firebase.auth.GoogleAuthProvider();
 
@@ -1636,10 +1638,148 @@ function login() {
         })
         .catch((error) => {
             console.error('Login failed:', error.message);
-            alert('Login failed. Please try again.');
+            
+            // Don't show alert if user closed the popup - they know what they did
+            if (error.code !== 'auth/popup-closed-by-user' && error.code !== 'auth/cancelled-popup-request') {
+                alert('Login failed. Please try again.');
+            }
         })
         .finally(() => {
-            btn.disabled = false;
+            // Re-enable all buttons
+            buttons.forEach(btn => btn.disabled = false);
+        });
+}
+
+function loginMicrosoft() {
+    const buttons = document.querySelectorAll('#loginScreen button');
+    
+    // Disable all login buttons
+    buttons.forEach(btn => btn.disabled = true);
+    
+    const provider = new firebase.auth.OAuthProvider('microsoft.com');
+
+    provider.setCustomParameters({
+        prompt: 'select_account',
+        tenant: 'common' // Allow both personal and work/school accounts
+    });
+
+    // Add scopes for Microsoft
+    provider.addScope('email');
+    provider.addScope('profile');
+
+    auth.signInWithPopup(provider)
+        .then((result) => {
+            // Successfully logged in
+            console.log('Microsoft login successful!');
+            if (typeof gtag === 'function') {
+                gtag('event', 'login', { method: 'microsoft' });
+            }
+        })
+        .catch((error) => {
+            console.error('Microsoft login error:', error);
+            console.error('Error code:', error.code);
+            
+            // Handle account exists with different credential - link accounts
+            if (error.code === 'auth/account-exists-with-different-credential') {
+                const pendingCred = error.credential;
+                const email = error.email;
+                
+                console.log('Account exists, attempting to link...');
+                console.log('Email:', email);
+                
+                if (!pendingCred) {
+                    alert('Unable to retrieve Microsoft credential. Please try again.');
+                    return;
+                }
+                
+                // Store credential data in sessionStorage for linking after Google sign-in
+                try {
+                    sessionStorage.setItem('pendingMicrosoftCred', JSON.stringify({
+                        providerId: pendingCred.providerId,
+                        signInMethod: pendingCred.signInMethod,
+                        oauthAccessToken: pendingCred.accessToken,
+                        oauthIdToken: pendingCred.idToken,
+                        email: email
+                    }));
+                    console.log('Stored pending credential in sessionStorage');
+                } catch (e) {
+                    console.error('Failed to store credential:', e);
+                }
+                
+                console.log('Prompting Google sign-in to verify account ownership...');
+                
+                const googleProvider = new firebase.auth.GoogleAuthProvider();
+                googleProvider.setCustomParameters({
+                    login_hint: email,
+                    prompt: 'select_account'
+                });
+                
+                // Use signInWithPopup and handle linking immediately
+                auth.signInWithPopup(googleProvider)
+                    .then((googleResult) => {
+                        console.log('Google sign-in successful!');
+                        console.log('Current user:', googleResult.user.email);
+                        console.log('Now attempting to link Microsoft credential...');
+                        
+                        // Link the pending Microsoft credential directly
+                        // The pendingCred object is already a valid credential
+                        return googleResult.user.linkWithCredential(pendingCred);
+                    })
+                    .then((linkedResult) => {
+                        console.log('✅ Accounts linked successfully!');
+                        console.log('Linked providers:', linkedResult.user.providerData.map(p => p.providerId));
+                        
+                        // Clear stored credential
+                        sessionStorage.removeItem('pendingMicrosoftCred');
+                        
+                        if (typeof gtag === 'function') {
+                            gtag('event', 'account_linked', { method: 'microsoft' });
+                        }
+                    })
+                    .catch((linkError) => {
+                        console.error('❌ Linking failed!');
+                        console.error('Link error:', linkError);
+                        
+                        // Only show alert for critical errors
+                        if (linkError.code === 'auth/credential-already-in-use') {
+                            alert('This Microsoft account is already linked to a different user.');
+                        } else if (linkError.code === 'auth/provider-already-linked') {
+                            alert('Your Google account already has a Microsoft account linked.');
+                        }
+                        // For other errors, just log to console - user is already signed in with Google
+                    })
+                    .finally(() => {
+                        // Re-enable buttons after linking attempt
+                        buttons.forEach(btn => btn.disabled = false);
+                    });
+                
+                return; // Don't re-enable buttons yet, linking flow will handle it
+            }
+            
+            // Provide more specific error messages for other errors
+            let errorMessage = 'Microsoft login failed. ';
+            
+            if (error.code === 'auth/popup-blocked') {
+                errorMessage += 'Please allow popups for this site.';
+                alert(errorMessage);
+            } else if (error.code === 'auth/popup-closed-by-user' || error.code === 'auth/cancelled-popup-request') {
+                // User closed popup - no need to show alert, they know what they did
+                console.log('User closed the popup');
+            } else if (error.code === 'auth/unauthorized-domain') {
+                errorMessage += 'This domain is not authorized. Please contact the administrator.';
+                alert(errorMessage);
+            } else if (error.code === 'auth/operation-not-allowed') {
+                errorMessage += 'Microsoft login is not enabled. Please use Google Sign-In or contact the administrator.';
+                alert(errorMessage);
+            } else {
+                errorMessage += error.message || 'Please try again.';
+                alert(errorMessage);
+            }
+        })
+        .finally(() => {
+            // Re-enable buttons for all non-linking scenarios
+            // (linking flow has its own finally block)
+            buttons.forEach(btn => btn.disabled = false);
         });
 }
 

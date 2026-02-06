@@ -1434,6 +1434,21 @@ footer {
     transform: translateY(-1px) scale(0.98);
 }
 
+.login-screen button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.login-screen button:disabled:hover {
+    transform: none;
+    box-shadow: 0 8px 22px rgba(96, 165, 250, 0.28);
+}
+
+.login-screen button:disabled::before {
+    display: none;
+}
+
 .login-restriction {
     margin-top: 34px;
     font-size: 0.85rem;

@@ -45,11 +45,21 @@
 
     <!-- Login Screen (Access Control) -->
     <div id="loginScreen" class="login-screen">
-        <h2>ADA Digitalization & AI</h2>
-        <p>Authorized access only</p>
+        <div class="login-wrapper">
+            <img src="Adage_Logo.png" class="login-logo" alt="Adage Logo" />
 
-        <button onclick="login()">Sign in with Google</button>
-        <!-- Microsoft login will be added later -->
+            <h1 class="login-title">Adage Digitalization & AI</h1>
+            <div class="login-divider"></div>
+
+            <div class="login-actions">
+                <button onclick="login()">Sign in with Google</button>
+                <!--<button onclick="loginMicrosoft()">Sign in with Microsoft</button>-->
+            </div>
+
+            <p class="login-restriction">
+                🔒 Restricted for internal Adage Automation users only
+            </p>
+        </div>
     </div>
 
     <div class="mouse-gradient" id="mouseGradient"></div>
@@ -80,6 +90,7 @@
         <header>
             <div class="header-content">
                 <div class="logo-section">
+                    <img src="Adage_Logo.png" alt="Adage Automation" class="header-logo">
                     <div class="logo-circle">
                         <span class="logo-icon">⚡</span>
                     </div>

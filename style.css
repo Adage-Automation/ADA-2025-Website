@@ -613,6 +613,122 @@ h1 .word:nth-child(4) { animation-delay: 0.9s; }
     transform: translateY(-5px);
 }
 
+/* Utilized By Tags */
+.utilized-by-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+    min-height: 24px;
+}
+
+.utilized-tag {
+    background: rgba(96, 165, 250, 0.15);
+    color: #60a5fa;
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.3s ease;
+}
+
+.utilized-tag:hover {
+    background: rgba(96, 165, 250, 0.25);
+    border-color: rgba(96, 165, 250, 0.5);
+    transform: translateY(-2px);
+}
+
+.utilized-tag .tag-icon {
+    font-size: 0.7rem;
+}
+
+/* Filter Section */
+.filter-section {
+    margin: 40px 0;
+    padding: 0 20px;
+}
+
+.filter-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.filter-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.filter-title {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.filter-line {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(96, 165, 250, 0.3), transparent);
+}
+
+.filter-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    max-width: 100%;
+}
+
+.filter-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #cbd5e1;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.filter-btn:hover {
+    background: rgba(96, 165, 250, 0.1);
+    border-color: rgba(96, 165, 250, 0.3);
+    color: #60a5fa;
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background: rgba(96, 165, 250, 0.2);
+    border-color: rgba(96, 165, 250, 0.5);
+    color: #60a5fa;
+    font-weight: 600;
+}
+
+/* Hidden projects for filtering */
+.project-card.hidden {
+    display: none;
+}
+
 footer {
     text-align: center;
     padding: 80px 20px;

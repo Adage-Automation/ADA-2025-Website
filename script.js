@@ -934,6 +934,35 @@ const projectData = {
             }
         ]
     },
+    'it-policy': {
+        title: 'IT Policy Training',
+        subtitle: 'Digital training platform for IT policy compliance with electronic acknowledgment and signature capture.',
+        sections: [
+            {
+                title: 'Overview',
+                content: 'Users can log in to the Odoo platform using their company-verified email credentials to access the training. Once signed in, they can enroll in the course and complete it at their own pace.\n\nAfter completing the course, users are required to acknowledge the content and provide their digital signature. Upon submission, the signed document is instantly generated and downloaded.\n\nAll signed documents are securely stored in the Odoo backend, enabling HR and management to access, review, and download user-specific records anytime as needed.'
+            },
+            {
+                title: 'Project Gallery',
+                type: 'gallery',
+                images: [
+                    { src: 'https://via.placeholder.com/600x400?text=IT+Policy+Login', alt: 'IT Policy Training Login' },
+                    { src: 'https://via.placeholder.com/600x400?text=Course+Content', alt: 'Course Content View' },
+                    { src: 'https://via.placeholder.com/600x400?text=Digital+Signature', alt: 'Digital Signature Interface' }
+                ]
+            },
+            {
+                title: 'Utilized by',
+                utilized: [
+                    { icon: '👥', name: 'Everyone' }
+                ]
+            },
+            {
+                title: 'Impact and Adoption',
+                content: 'All employees have been digitally trained on the IT policy and guidelines. Upon completion, each user has acknowledged and signed the document electronically, which is automatically stored in the backend system. Employees using Adage-owned digital devices are required to successfully complete the course.'
+            }
+        ]
+    },
     'elearning': {
         title: 'Odoo eLearning',
         subtitle: 'Training and onboarding portal to host courses, quizzes, and learning paths for new employees set by HR.',
@@ -1097,7 +1126,7 @@ const projectData = {
             {
                 title: 'Project Video',
                 type: 'video',
-                content: '<video controls style="width: 100%; height: auto;"><source src="ADA Projects 2025/GeM Portal/GeMPortal.mp4" type="video/mp4"></video>'
+                content: '<video controls style="width: 100%; height: auto;"><source src="ADA Projects 2025/GeM Portal/GemPortal.mp4" type="video/mp4"></video>'
             },
             {
                 title: 'Utilized by',

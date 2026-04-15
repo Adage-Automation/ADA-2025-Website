@@ -18,19 +18,19 @@ let iconBaseY = 0;
 document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
-    
+
     // Get the icon's base position (without transform offset)
     const iconRect = thunderIcon.getBoundingClientRect();
     iconBaseX = iconRect.left + iconRect.width / 2 - iconOffsetX;
     iconBaseY = iconRect.top + iconRect.height / 2 - iconOffsetY;
-    
+
     const distance = Math.sqrt((mouseX - iconBaseX) ** 2 + (mouseY - iconBaseY) ** 2);
-    
+
     if (distance < 150) {
         isAttracted = true;
         iconOffsetX += (mouseX - iconBaseX) * 0.1;
         iconOffsetY += (mouseY - iconBaseY) * 0.1;
-        
+
         // Limit the offset to prevent excessive movement
         iconOffsetX = Math.max(-50, Math.min(50, iconOffsetX));
         iconOffsetY = Math.max(-50, Math.min(50, iconOffsetY));
@@ -59,13 +59,13 @@ function animate() {
         gradientX += (mouseX - gradientX) * 0.15;
         gradientY += (mouseY - gradientY) * 0.15;
     }
-    
+
     mouseGradient.style.left = gradientX + 'px';
     mouseGradient.style.top = gradientY + 'px';
-    
+
     // Animate thunder icon
     thunderIcon.style.transform = `translate(${iconOffsetX}px, ${iconOffsetY}px)`;
-    
+
     requestAnimationFrame(animate);
 }
 animate();
@@ -74,39 +74,39 @@ animate();
 function initMatrixEffect() {
     const canvas = document.getElementById('matrixCanvas');
     const ctx = canvas.getContext('2d');
-    
+
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    
+
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()';
     const fontSize = 14;
     const columns = canvas.width / fontSize;
     const drops = Array(Math.floor(columns)).fill(1);
-    
+
     function drawMatrix() {
         ctx.fillStyle = 'rgba(10, 14, 39, 0.05)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-        
+
         ctx.font = fontSize + 'px monospace';
-        
+
         for (let i = 0; i < drops.length; i++) {
             const gradient = ctx.createLinearGradient(0, drops[i] * fontSize, 0, (drops[i] + 10) * fontSize);
             gradient.addColorStop(0, '#60a5fa');
             gradient.addColorStop(0.5, '#a78bfa');
             gradient.addColorStop(1, 'rgba(96, 165, 250, 0)');
-            
+
             ctx.fillStyle = gradient;
-            
+
             const text = chars[Math.floor(Math.random() * chars.length)];
             ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-            
+
             if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
                 drops[i] = 0;
             }
             drops[i]++;
         }
     }
-    
+
     let matrixInterval;
     return {
         start: () => {
@@ -148,12 +148,12 @@ const projectData = {
                 url: 'https://adage-automation.odoo.com/dashboard/share/20/f95e0208-efae-4dee-8364-e22b2c9acac5'
             },
             {
-                title: 'Utilized By',
+                title: 'Utilized by',
                 utilized: [
-                    { icon: '👨‍💼', name: 'ACMG TEAM' },
-                    { icon: '👨‍💼', name: 'CSD TEAM' },
+                    { icon: '👨‍💼', name: 'ACMG Teams' },
+                    { icon: '👨‍💼', name: 'CSD Team' },
                     { icon: '👨‍💼', name: 'AKAI & AKIC' },
-                    { icon: '👨‍💼', name: 'Regional Sales' }
+                    { icon: '👨‍💼', name: 'Regional Sales Teams' }
                 ]
             },
             {
@@ -183,9 +183,9 @@ const projectData = {
                 url: 'ADA Projects 2025\\CRM Module for Sales\\Creating New Records on CRM Module.pdf'
             },
             {
-                title: 'Utilized By',
+                title: 'Utilized by',
                 utilized: [
-                    { icon: '👨‍💼', name: 'Regional Sales Team' },
+                    { icon: '👨‍💼', name: 'Regional Sales Teams' },
                 ]
             },
             {
@@ -217,12 +217,12 @@ const projectData = {
                 url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
             },
             {
-                title: 'Utilized By',
+                title: 'Utilized by',
                 utilized: [
-                    { icon: '🛠️', name: 'Service Managers' },
-                    { icon: '👨‍💼', name: 'Account Executives' },
-                    { icon: '📋', name: 'Operations Team' },
-                    { icon: '💰', name: 'Finance Department' }
+                    { icon: '👨‍💼', name: 'CSD Team' },
+                    // { icon: '👨‍💼', name: 'Account Executives' },
+                    // { icon: '📋', name: 'Operations Team' },
+                    // { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
@@ -259,9 +259,9 @@ const projectData = {
             //     url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
             // },
             {
-                title: 'Utilized By',
+                title: 'Utilized by',
                 utilized: [
-                    { icon: '🛠️', name: 'Service Engineers' },
+                    { icon: '👨‍💼', name: 'CSD Team' },
                 ]
             },
             {
@@ -297,10 +297,10 @@ const projectData = {
                 url: 'ADA Projects 2025/Safety Meetings/Sample Report.pdf'
             },
             {
-                title: 'Utilized By',
+                title: 'Utilized by',
                 utilized: [
                     { icon: '🔧', name: 'Shopfloor' },
-                    { icon: '🏭', name: 'Plant Sites' },
+                    { icon: '👨‍💼', name: 'CSD Team' },
                 ]
             },
             {
@@ -334,10 +334,10 @@ const projectData = {
             {
                 title: 'Utilized by',
                 utilized: [
-                    { icon: '🛠️', name: 'Service Managers' },
-                    { icon: '👨‍💼', name: 'Account Executives' },
-                    { icon: '📋', name: 'Operations Team' },
-                    { icon: '💰', name: 'Finance Department' }
+                    // { icon: '🛠️', name: 'Service Managers' },
+                    { icon: '👨‍💼', name: 'ACMG Teams' },
+                    // { icon: '📋', name: 'Operations Team' },
+                    // { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
@@ -369,7 +369,7 @@ const projectData = {
                 url: 'ADA Projects 2025/Dew Point & Bubble Point Calculator/Dew Point & Bubble Point/User Guide - Dew Point & Bubble Point Calculation.pdf'
             },
             {
-                title: 'Utilized By',
+                title: 'Utilized by',
                 utilized: [
                     // { icon: '🛠️', name: 'Service Managers' },
                     { icon: '👨‍💼', name: 'ACMG Teams' },
@@ -406,10 +406,10 @@ const projectData = {
                 url: 'ADA Projects 2025/Pressure Time and Lag Time/Pressure Drop and Lag time Calculator/Lag Time & Pressure Drop Calculation/User Guide - Lag Time & Pressure Drop Calculation.pdf'
             },
             {
-                title: 'Utilized By',
+                title: 'Utilized by',
                 utilized: [
                     // { icon: '🛠️', name: 'Service Managers' },
-                    { icon: '👨‍💼', name: 'ACMG Team' },
+                    { icon: '👨‍💼', name: 'ACMG Teams' },
                     // { icon: '📋', name: 'Operations Team' },
                     // { icon: '💰', name: 'Finance Department' }
                 ]
@@ -444,7 +444,7 @@ const projectData = {
                 url: 'ADA Projects 2025/Adage Day Live Auction Software/Auction App Document.pdf'
             },
             {
-                title: 'Utilized By',
+                title: 'Utilized by',
                 utilized: [
                     // { icon: '🛠️', name: 'Service Managers' },
                     { icon: '👨‍💼', name: 'Event Organizers' },
@@ -483,8 +483,7 @@ const projectData = {
             {
                 title: 'Utilized by',
                 utilized: [
-                    { icon: '👥', name: 'Customers' },
-                    { icon: '👨‍💼', name: 'Internal Team' }
+                    { icon: '👥', name: 'Customers' }
                 ]
             },
             {
@@ -526,7 +525,7 @@ const projectData = {
             },
             {
                 title: 'Impact and Adoption',
-                content: 'To be launched in Q1 2026'
+                content: 'To be launched in Q2 2026'
             }
         ]
     },
@@ -553,7 +552,7 @@ const projectData = {
             //     url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
             // },
             {
-                title: 'Utilized By',
+                title: 'Utilized by',
                 utilized: [
                     // { icon: '🛠️', name: 'Service Managers' },
                     { icon: '👥', name: 'Everyone' },
@@ -592,10 +591,10 @@ const projectData = {
                 content: '<video controls style="width: 100%; height: auto;"><source src="ADA Projects 2025/Adage Day Web App/Adage App.webm" type="video/webm"></video>'
             },
             {
-                title: 'Utilized By',
+                title: 'Utilized by',
                 utilized: [
                     // { icon: '🛠️', name: 'Service Managers' },
-                    { icon: '👨‍💼', name: 'Everyone' },
+                    { icon: '👥', name: 'Everyone' },
                     // { icon: '📋', name: 'Operations Team' },
                     // { icon: '💰', name: 'Finance Department' }
                 ]
@@ -634,10 +633,10 @@ const projectData = {
             //     url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
             // },
             {
-                title: 'Utilized By',
+                title: 'Utilized by',
                 utilized: [
                     // { icon: '🛠️', name: 'Service Managers' },
-                    { icon: '👨‍💼', name: 'Reception Team' },
+                    { icon: '👨‍💼', name: 'AKAI & AKIC' },
                     // { icon: '📋', name: 'Operations Team' },
                     // { icon: '💰', name: 'Finance Department' }
                 ]
@@ -678,7 +677,7 @@ const projectData = {
             //     url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
             // },
             {
-                title: 'Utilized By',
+                title: 'Utilized by',
                 utilized: [
                     // { icon: '🛠️', name: 'Service Managers' },
                     { icon: '🏟️', name: 'Exhibitors' },
@@ -715,12 +714,12 @@ const projectData = {
                 url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
             },
             {
-                title: 'Utilized By',
+                title: 'Utilized by',
                 utilized: [
-                    { icon: '🛠️', name: 'Service Managers' },
-                    { icon: '👨‍💼', name: 'Account Executives' },
-                    { icon: '📋', name: 'Operations Team' },
-                    { icon: '💰', name: 'Finance Department' }
+                    { icon: '👥', name: 'Everyone' },
+                    // { icon: '👨‍💼', name: 'Account Executives' },
+                    // { icon: '📋', name: 'Operations Team' },
+                    // { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
@@ -757,9 +756,9 @@ const projectData = {
                 url: 'ADA Projects 2025\\Project Management\\Odoo Projects (Team) Guide.pdf'
             },
             {
-                title: 'Utilized By',
+                title: 'Utilized by',
                 utilized: [
-                    { icon: '👨‍💼', name: 'Design & Engineering Team' },
+                    { icon: '👨‍💼', name: 'SBU 1 & 2 Teams' },
                 ]
             },
             {
@@ -782,9 +781,9 @@ const projectData = {
                 content: '<video controls style="width: 100%; height: auto;"><source src="ADA Projects 2025/Document Management/Product Inventory Management.mp4" type="video/mp4"></video>'
             },
             {
-                title: 'Utilized By',
+                title: 'Utilized by',
                 utilized: [
-                    { icon: '👨‍💼', name: 'SBU 2 Team' },
+                    { icon: '👨‍💼', name: 'SBU 1 & 2 Teams' },
                 ]
             },
             {
@@ -816,12 +815,11 @@ const projectData = {
                 url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'
             },
             {
-                title: 'Utilized By',
+                title: 'Utilized by',
                 utilized: [
-                    { icon: '🛠️', name: 'Service Managers' },
-                    { icon: '👨‍💼', name: 'Account Executives' },
-                    { icon: '📋', name: 'Operations Team' },
-                    { icon: '💰', name: 'Finance Department' }
+                    // { icon: '🛠️', name: 'Service Managers' },
+                    { icon: '👨‍💼', name: 'ACMG Teams' },
+                    // { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
@@ -836,7 +834,7 @@ const projectData = {
         sections: [
             {
                 title: 'Overview',
-                content: 'The Field Service Management system is in progress and expected to launch by Q1 2026, enabling service engineers to record maintenance or commissioning visits with details on identified problems and solutions.\n\nThis creates a shared knowledge base, allowing new engineers to review past site-specific notes before visits, reducing repeat issues and improving efficiency.\n\nManagers gain a comprehensive dashboard view of engineer locations, timelines, and workloads, facilitating optimal task assignments and resource planning.'
+                content: 'The Field Service Management system is in progress and expected to launch by Q2 2026, enabling service engineers to record maintenance or commissioning visits with details on identified problems and solutions.\n\nThis creates a shared knowledge base, allowing new engineers to review past site-specific notes before visits, reducing repeat issues and improving efficiency.\n\nManagers gain a comprehensive dashboard view of engineer locations, timelines, and workloads, facilitating optimal task assignments and resource planning.'
             },
             {
                 title: 'Project Video (Worksheet Analytics)',
@@ -860,12 +858,12 @@ const projectData = {
                 title: 'Sample Documents Generated on Odoo',
                 type: 'pdf-dual',
                 documents: [
-                    { 
+                    {
                         title: 'Commissioning Certificate',
                         url: 'ADA Projects 2025/Field Service Management/Sample Docs/Commissioning Certificate.pdf',
                         description: 'Sample commissioning certificate document template'
                     },
-                    { 
+                    {
                         title: 'Minutes of Meeting',
                         url: 'ADA Projects 2025/Field Service Management/Sample Docs/Minutes of Meeting PDF.pdf',
                         description: 'Meeting minutes documentation template'
@@ -885,15 +883,14 @@ const projectData = {
             {
                 title: 'Utilized by',
                 utilized: [
-                    { icon: '🛠️', name: 'Service Engineers' },
-                    { icon: '👨‍💼', name: 'Management' },
+                    { icon: '👨‍💼', name: 'CSD Team' },
                     // { icon: '📋', name: 'Operations Team' },
                     // { icon: '💰', name: 'Finance Department' }
                 ]
             },
             {
                 title: 'Impact and Adoption',
-                content: 'To be launched in Q1 2026'
+                content: 'To be launched in Q2 2026'
             }
         ]
     },
@@ -927,13 +924,13 @@ const projectData = {
             {
                 title: 'Utilized by',
                 utilized: [
-                    { icon: '👨‍💼', name: 'HR' },
-                    { icon: '👥', name: 'Interested Candidates' }
+                    { icon: '💼', name: 'HR Department' },
+                    // { icon: '👥', name: 'Interested Candidates' }
                 ]
             },
             {
                 title: 'Impact and Adoption',
-                content: 'To be launched in Q1 2026'
+                content: 'To be launched in Q2 2026'
             }
         ]
     },
@@ -949,12 +946,12 @@ const projectData = {
                 title: 'Project Documentation',
                 type: 'pdf-dual',
                 documents: [
-                    { 
+                    {
                         title: 'Employee Guide',
                         url: 'ADA Projects 2025/ELearning/eLearning (Employee) Guide.pdf',
                         description: 'Comprehensive guide for employees on how to use the eLearning platform'
                     },
-                    { 
+                    {
                         title: 'HR Guide',
                         url: 'ADA Projects 2025/ELearning/eLearning (HR) Guide.pdf',
                         description: 'Administrative guide for HR personnel to manage courses and track progress'
@@ -964,13 +961,13 @@ const projectData = {
             {
                 title: 'Utilized by',
                 utilized: [
-                    { icon: '�', name: 'New Employees' },
-                    { icon: '👨‍💼', name: 'HR' }
+                    // { icon: '�', name: 'New Employees' },
+                    { icon: '💼', name: 'HR Department' }
                 ]
             },
             {
                 title: 'Impact and Adoption',
-                content: 'To be launched in Q1 2026'
+                content: 'To be launched in Q2 2026'
             }
         ]
     },
@@ -996,7 +993,7 @@ const projectData = {
             //     url: 'ADA Projects 2025/SAP Odoo Sync/SAP_Odoo_Sync_Documentation.pdf'
             // },
             {
-                title: 'Utilized By',
+                title: 'Utilized by',
                 utilized: [
                     { icon: '🛠️', name: 'Digitalization & AI Team' },
                     // { icon: '💼', name: 'Sales Team' },
@@ -1026,11 +1023,11 @@ const projectData = {
                 ]
             },
             {
-                title: 'Utilized By',
+                title: 'Utilized by',
                 utilized: [
-                    { icon: '👥', name: 'All Employees' },
+                    { icon: '👥', name: 'Everyone' },
                     { icon: '💼', name: 'HR Department' }
-                   
+
                 ]
             },
             {
@@ -1053,7 +1050,7 @@ const projectData = {
                 url: 'ADA Projects 2025/smart quotation generation/Smart Quotation Generation for ACMG/Quotation Generation/Automating Quotation Document Generation.pdf'
             },
             {
-                title: 'Utilized By',
+                title: 'Utilized by',
                 utilized: [
                     { icon: '👨‍💼', name: 'ACMG Teams' }
                 ]
@@ -1078,7 +1075,7 @@ const projectData = {
                 url: 'ADA Projects 2025/Document to excel/doctoexcel.mp4'
             },
             {
-                title: 'Utilized By',
+                title: 'Utilized by',
                 utilized: [
                     { icon: '👨‍💼', name: 'ACMG Teams' }
                 ]
@@ -1103,9 +1100,9 @@ const projectData = {
                 content: '<video controls style="width: 100%; height: auto;"><source src="ADA Projects 2025/GeM Portal/GeMPortal.mp4" type="video/mp4"></video>'
             },
             {
-                title: 'Utilized By',
+                title: 'Utilized by',
                 utilized: [
-                    { icon: '👨‍💼', name: 'ACMG Team' }
+                    { icon: '👨‍💼', name: 'ACMG Teams' }
                 ]
             },
             {
@@ -1123,13 +1120,13 @@ const matrixEffect = initMatrixEffect();
 window.addEventListener('load', () => {
     const matrixOverlay = document.getElementById('matrixOverlay');
     const mainContainer = document.getElementById('mainContainer');
-    
+
     if (!matrixOverlay) return;
-    
+
     // Show the loading overlay
     matrixOverlay.classList.add('active');
     matrixEffect.start();
-    
+
     // Hide after 3 seconds
     setTimeout(() => {
         matrixOverlay.classList.remove('active');
@@ -1140,9 +1137,9 @@ window.addEventListener('load', () => {
 // Open project detail page with matrix animation
 function openProject(projectKey) {
     const project = projectData[projectKey];
-    
+
     if (!project) return;
-    
+
     // Google Analytics – track project open
     if (typeof gtag === 'function') {
         gtag('event', 'project_open', {
@@ -1150,18 +1147,18 @@ function openProject(projectKey) {
             project_title: project.title
         });
     }
-    
+
     const matrixOverlay = document.getElementById('matrixOverlay');
-    
+
     // Show matrix overlay
     matrixOverlay.classList.add('active');
     matrixEffect.start();
-    
+
     // Load project after animation
     setTimeout(() => {
         const detailPage = document.getElementById('projectDetailPage');
         const mainContainer = document.getElementById('mainContainer');
-        
+
         // Build HTML for detail page
         let html = `
             <div class="detail-header">
@@ -1171,19 +1168,19 @@ function openProject(projectKey) {
             </div>
             <div class="detail-content">
         `;
-        
+
         // Add sections
         // Side by side for Utilized By and Business Impact
         let utilizedIndex = project.sections.findIndex(s => s.title === 'Utilized By' || s.title === 'Utilized by');
         let impactIndex = project.sections.findIndex(s => s.title === 'Impact and Adoption');
-        
+
         if (utilizedIndex !== -1 && impactIndex !== -1) {
             html += `
                 <div class="side-by-side">
                     <div class="detail-section">
                         <h3>${project.sections[utilizedIndex].title}</h3>
             `;
-            
+
             if (project.sections[utilizedIndex].utilized) {
                 html += `<div class="utilized-list">`;
                 project.sections[utilizedIndex].utilized.forEach(util => {
@@ -1196,7 +1193,7 @@ function openProject(projectKey) {
                 });
                 html += `</div>`;
             }
-            
+
             html += `
                     </div>
                     <div class="detail-section">
@@ -1206,7 +1203,7 @@ function openProject(projectKey) {
                 </div>
             `;
         }
-        
+
         // Render Overview
         html += `
             <div class="detail-section overview-section">
@@ -1229,7 +1226,7 @@ function openProject(projectKey) {
                 <div class="detail-section">
                     <h3>${videoSection.title}</h3>
             `;
-            
+
             if (videoSection.url) {
                 // Handle video with URL property
                 html += `
@@ -1242,7 +1239,7 @@ function openProject(projectKey) {
                 // Handle video with content property (embedded HTML)
                 html += `<div>${videoSection.content}</div>`;
             }
-            
+
             html += `</div>`;
         }
 
@@ -1322,19 +1319,19 @@ function openProject(projectKey) {
                 </div>
             `;
         }
-        
+
         html += `</div>`;
-        
+
         detailPage.innerHTML = html;
-        
+
         // Add wheel zoom and drag functionality to slideshow images
         const slideshow = detailPage.querySelector('.slideshow');
         if (slideshow) {
             let isDragging = false;
             let startX = 0, startY = 0;
             let translateX = 0, translateY = 0;
-            
-            slideshow.addEventListener('wheel', function(e) {
+
+            slideshow.addEventListener('wheel', function (e) {
                 const activeSlide = slideshow.querySelector('.slide.active');
                 if (activeSlide) {
                     e.preventDefault();
@@ -1342,7 +1339,7 @@ function openProject(projectKey) {
                     const delta = e.deltaY < 0 ? 0.1 : -0.1;
                     currentZoom = Math.min(3, Math.max(1, currentZoom + delta));
                     activeSlide.dataset.zoom = currentZoom;
-                    
+
                     // Reset translation when zoom is 1
                     if (currentZoom === 1) {
                         translateX = 0;
@@ -1353,12 +1350,12 @@ function openProject(projectKey) {
                     } else {
                         activeSlide.style.cursor = 'grab';
                     }
-                    
+
                     activeSlide.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentZoom})`;
                 }
             }, { passive: false });
-            
-            slideshow.addEventListener('mousedown', function(e) {
+
+            slideshow.addEventListener('mousedown', function (e) {
                 const activeSlide = slideshow.querySelector('.slide.active');
                 if (activeSlide && parseFloat(activeSlide.dataset.zoom) > 1) {
                     isDragging = true;
@@ -1370,8 +1367,8 @@ function openProject(projectKey) {
                     e.preventDefault();
                 }
             });
-            
-            slideshow.addEventListener('mousemove', function(e) {
+
+            slideshow.addEventListener('mousemove', function (e) {
                 if (isDragging) {
                     const activeSlide = slideshow.querySelector('.slide.active');
                     if (activeSlide) {
@@ -1384,8 +1381,8 @@ function openProject(projectKey) {
                     }
                 }
             });
-            
-            slideshow.addEventListener('mouseup', function(e) {
+
+            slideshow.addEventListener('mouseup', function (e) {
                 if (isDragging) {
                     const activeSlide = slideshow.querySelector('.slide.active');
                     if (activeSlide) {
@@ -1400,8 +1397,8 @@ function openProject(projectKey) {
                     isDragging = false;
                 }
             });
-            
-            slideshow.addEventListener('mouseleave', function() {
+
+            slideshow.addEventListener('mouseleave', function () {
                 if (isDragging) {
                     const activeSlide = slideshow.querySelector('.slide.active');
                     if (activeSlide) {
@@ -1411,13 +1408,13 @@ function openProject(projectKey) {
                 }
             });
         }
-        
+
         // Hide matrix overlay and show detail page
         matrixOverlay.classList.remove('active');
         matrixEffect.stop();
         detailPage.classList.add('active');
         mainContainer.style.display = 'none';
-        
+
         // Scroll to top
         window.scrollTo(0, 0);
     }, 2000);
@@ -1427,7 +1424,7 @@ function openProject(projectKey) {
 function closeProject() {
     const detailPage = document.getElementById('projectDetailPage');
     const mainContainer = document.getElementById('mainContainer');
-    
+
     // Google Analytics – track project close
     if (typeof gtag === 'function') {
         const projectTitle = document.querySelector('.detail-title');
@@ -1435,10 +1432,10 @@ function closeProject() {
             project_title: projectTitle ? projectTitle.textContent : 'Unknown'
         });
     }
-    
+
     detailPage.classList.remove('active');
     mainContainer.style.display = 'block';
-    
+
     // Scroll to top
     window.scrollTo(0, 0);
 }
@@ -1449,18 +1446,18 @@ let currentSlide = 0;
 function changeSlide(direction) {
     const slides = document.querySelectorAll('.slide');
     if (slides.length === 0) return;
-    
+
     slides[currentSlide].classList.remove('active');
     currentSlide = (currentSlide + direction + slides.length) % slides.length;
     slides[currentSlide].classList.add('active');
-    
+
     // Google Analytics – track gallery navigation
     if (typeof gtag === 'function') {
         gtag('event', 'gallery_interaction', {
             action: direction > 0 ? 'next' : 'prev'
         });
     }
-    
+
     // Update caption
     const caption = document.querySelector('.caption');
     if (caption) {
@@ -1595,7 +1592,7 @@ auth.onAuthStateChanged((user) => {
     const loginScreen = document.getElementById('loginScreen');
     const mainContainer = document.getElementById('mainContainer');
     const signOutBtn = document.getElementById('signOutBtn');
-    
+
     if (user) {
         // User is authenticated
         console.log('User authenticated:', user.email);
@@ -1624,7 +1621,7 @@ auth.onAuthStateChanged((user) => {
 // Google Sign-In function
 function login() {
     const buttons = document.querySelectorAll('#loginScreen button');
-    
+
     // Disable all login buttons
     buttons.forEach(btn => btn.disabled = true);
 
@@ -1643,7 +1640,7 @@ function login() {
         })
         .catch((error) => {
             console.error('Login failed:', error.message);
-            
+
             // Don't show alert if user closed the popup - they know what they did
             if (error.code !== 'auth/popup-closed-by-user' && error.code !== 'auth/cancelled-popup-request') {
                 alert('Login failed. Please try again.');
@@ -1657,10 +1654,10 @@ function login() {
 
 function loginMicrosoft() {
     const buttons = document.querySelectorAll('#loginScreen button');
-    
+
     // Disable all login buttons
     buttons.forEach(btn => btn.disabled = true);
-    
+
     const provider = new firebase.auth.OAuthProvider('microsoft.com');
 
     provider.setCustomParameters({
@@ -1683,20 +1680,20 @@ function loginMicrosoft() {
         .catch((error) => {
             console.error('Microsoft login error:', error);
             console.error('Error code:', error.code);
-            
+
             // Handle account exists with different credential - link accounts
             if (error.code === 'auth/account-exists-with-different-credential') {
                 const pendingCred = error.credential;
                 const email = error.email;
-                
+
                 console.log('Account exists, attempting to link...');
                 console.log('Email:', email);
-                
+
                 if (!pendingCred) {
                     alert('Unable to retrieve Microsoft credential. Please try again.');
                     return;
                 }
-                
+
                 // Store credential data in sessionStorage for linking after Google sign-in
                 try {
                     sessionStorage.setItem('pendingMicrosoftCred', JSON.stringify({
@@ -1710,22 +1707,22 @@ function loginMicrosoft() {
                 } catch (e) {
                     console.error('Failed to store credential:', e);
                 }
-                
+
                 console.log('Prompting Google sign-in to verify account ownership...');
-                
+
                 const googleProvider = new firebase.auth.GoogleAuthProvider();
                 googleProvider.setCustomParameters({
                     login_hint: email,
                     prompt: 'select_account'
                 });
-                
+
                 // Use signInWithPopup and handle linking immediately
                 auth.signInWithPopup(googleProvider)
                     .then((googleResult) => {
                         console.log('Google sign-in successful!');
                         console.log('Current user:', googleResult.user.email);
                         console.log('Now attempting to link Microsoft credential...');
-                        
+
                         // Link the pending Microsoft credential directly
                         // The pendingCred object is already a valid credential
                         return googleResult.user.linkWithCredential(pendingCred);
@@ -1733,10 +1730,10 @@ function loginMicrosoft() {
                     .then((linkedResult) => {
                         console.log('✅ Accounts linked successfully!');
                         console.log('Linked providers:', linkedResult.user.providerData.map(p => p.providerId));
-                        
+
                         // Clear stored credential
                         sessionStorage.removeItem('pendingMicrosoftCred');
-                        
+
                         if (typeof gtag === 'function') {
                             gtag('event', 'account_linked', { method: 'microsoft' });
                         }
@@ -1744,7 +1741,7 @@ function loginMicrosoft() {
                     .catch((linkError) => {
                         console.error('❌ Linking failed!');
                         console.error('Link error:', linkError);
-                        
+
                         // Only show alert for critical errors
                         if (linkError.code === 'auth/credential-already-in-use') {
                             alert('This Microsoft account is already linked to a different user.');
@@ -1757,13 +1754,13 @@ function loginMicrosoft() {
                         // Re-enable buttons after linking attempt
                         buttons.forEach(btn => btn.disabled = false);
                     });
-                
+
                 return; // Don't re-enable buttons yet, linking flow will handle it
             }
-            
+
             // Provide more specific error messages for other errors
             let errorMessage = 'Microsoft login failed. ';
-            
+
             if (error.code === 'auth/popup-blocked') {
                 errorMessage += 'Please allow popups for this site.';
                 alert(errorMessage);
@@ -1808,10 +1805,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (signOutBtn) {
         signOutBtn.addEventListener('click', signOut);
     }
+
+    // Initialize Utilized By Filter
+    initializeUtilizedByFilter();
 });
 
-
-// 🔒 Force logout on browser/tab close
+// Force logout on browser/tab close
 window.addEventListener('beforeunload', () => {
     try {
         firebase.auth().signOut();
@@ -1820,3 +1819,94 @@ window.addEventListener('beforeunload', () => {
         // fail silently
     }
 });
+
+// Utilized By Filter Functionality
+function initializeUtilizedByFilter() {
+    // Collect all unique utilized by values from project cards
+    const utilizedByValues = new Set();
+    const projectCards = document.querySelectorAll('.project-card');
+
+    projectCards.forEach(card => {
+        const utilizedTags = card.querySelectorAll('.utilized-tag');
+        utilizedTags.forEach(tag => {
+            const tagText = tag.textContent.trim();
+            if (tagText) {
+                utilizedByValues.add(tagText);
+            }
+        });
+    });
+
+    // Create filter buttons
+    const filterContainer = document.getElementById('utilizedByFilters');
+    if (filterContainer) {
+        // Clear existing buttons except "All Projects"
+        filterContainer.innerHTML = '<button class="filter-btn active" data-filter="all">All Projects</button>';
+
+        // Add buttons for each utilized by value
+        Array.from(utilizedByValues).sort().forEach(value => {
+            const button = document.createElement('button');
+            button.className = 'filter-btn';
+            button.setAttribute('data-filter', value);
+            button.textContent = value;
+            filterContainer.appendChild(button);
+        });
+
+        // Add click event listeners to filter buttons
+        const filterButtons = filterContainer.querySelectorAll('.filter-btn');
+        const allBtn = filterContainer.querySelector('[data-filter="all"]');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filterValue = button.getAttribute('data-filter');
+
+                if (filterValue === 'all') {
+                    // Reset all other filters
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    allBtn.classList.add('active');
+                } else {
+                    // Toggle current filter
+                    button.classList.toggle('active');
+                    
+                    // Always remove active from "All Projects" when a specific filter is clicked
+                    allBtn.classList.remove('active');
+
+                    // If no buttons are active now, reactivate "All Projects"
+                    const activeButtons = filterContainer.querySelectorAll('.filter-btn.active');
+                    if (activeButtons.length === 0) {
+                        allBtn.classList.add('active');
+                    }
+                }
+
+                // Apply updated filters
+                applyFilters();
+            });
+        });
+    }
+}
+
+function applyFilters() {
+    const filterContainer = document.getElementById('utilizedByFilters');
+    const activeFilters = Array.from(filterContainer.querySelectorAll('.filter-btn.active'))
+        .map(btn => btn.getAttribute('data-filter'));
+    
+    const projectCards = document.querySelectorAll('.project-card');
+
+    projectCards.forEach(card => {
+        if (activeFilters.includes('all')) {
+            card.classList.remove('hidden');
+        } else {
+            const utilizedTags = Array.from(card.querySelectorAll('.utilized-tag'))
+                .map(tag => tag.textContent.trim());
+            
+            // Show card if any of its tags matches any active filter
+            const matches = utilizedTags.some(tag => activeFilters.includes(tag));
+
+            if (matches) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        }
+    });
+}
+

@@ -946,9 +946,10 @@ const projectData = {
                 title: 'Project Gallery',
                 type: 'gallery',
                 images: [
-                    { src: 'https://via.placeholder.com/600x400?text=IT+Policy+Login', alt: 'IT Policy Training Login' },
-                    { src: 'https://via.placeholder.com/600x400?text=Course+Content', alt: 'Course Content View' },
-                    { src: 'https://via.placeholder.com/600x400?text=Digital+Signature', alt: 'Digital Signature Interface' }
+                    { src: 'ADA Projects 2025/IT Policy/Course Screen.png', alt: 'Course Screen' },
+                    { src: 'ADA Projects 2025/IT Policy/Content List.png', alt: 'Content List' },
+                    { src: 'ADA Projects 2025/IT Policy/Quiz.png', alt: 'Quiz Interface' },
+                    { src: 'ADA Projects 2025/IT Policy/Sign.png', alt: 'Digital Signature' }
                 ]
             },
             {

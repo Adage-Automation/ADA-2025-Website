@@ -839,6 +839,11 @@ const projectData = {
                 content: 'The Field Service Management system is in progress and expected to launch by Q1 2026, enabling service engineers to record maintenance or commissioning visits with details on identified problems and solutions.\n\nThis creates a shared knowledge base, allowing new engineers to review past site-specific notes before visits, reducing repeat issues and improving efficiency.\n\nManagers gain a comprehensive dashboard view of engineer locations, timelines, and workloads, facilitating optimal task assignments and resource planning.'
             },
             {
+                title: 'Project Video (Worksheet Analytics)',
+                type: 'video',
+                url: 'ADA Projects 2025/Field Service Management/Worksheet_Analytics.mp4'
+            },
+            {
                 title: 'Project Gallery',
                 type: 'gallery',
                 images: [
@@ -1095,7 +1100,7 @@ const projectData = {
             {
                 title: 'Project Video',
                 type: 'video',
-                content: '<video controls style="width: 100%; height: auto;"><source src="ADA Projects 2025/GeM Portal/GeM Portal Video.mp4" type="video/mp4"></video>'
+                content: '<video controls style="width: 100%; height: auto;"><source src="ADA Projects 2025/GeM Portal/GeMPortal.mp4" type="video/mp4"></video>'
             },
             {
                 title: 'Utilized By',

@@ -725,7 +725,8 @@ h1 .word:nth-child(4) { animation-delay: 0.9s; }
 }
 
 /* Hidden projects for filtering */
-.project-card.hidden {
+.project-card.hidden,
+.category-section.hidden {
     display: none;
 }
 

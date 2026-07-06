@@ -1616,6 +1616,9 @@ if (backToTopBtn) {
 // Initialize Firebase Auth
 const auth = firebase.auth();
 
+// LOCAL TESTING: disable auth when serving from localhost
+const DISABLE_AUTH_ON_LOCALHOST = false;
+
 // Check authentication state on page load
 auth.onAuthStateChanged((user) => {
     const body = document.body;
@@ -1922,21 +1925,21 @@ function applyFilters() {
     const projectCards = document.querySelectorAll('.project-card');
 
     projectCards.forEach(card => {
-        if (activeFilters.includes('all')) {
+        const utilizedTags = Array.from(card.querySelectorAll('.utilized-tag'))
+            .map(tag => tag.textContent.trim());
+        const matches = activeFilters.includes('all') || utilizedTags.some(tag => activeFilters.includes(tag));
+
+        if (matches) {
             card.classList.remove('hidden');
         } else {
-            const utilizedTags = Array.from(card.querySelectorAll('.utilized-tag'))
-                .map(tag => tag.textContent.trim());
-            
-            // Show card if any of its tags matches any active filter
-            const matches = utilizedTags.some(tag => activeFilters.includes(tag));
-
-            if (matches) {
-                card.classList.remove('hidden');
-            } else {
-                card.classList.add('hidden');
-            }
+            card.classList.add('hidden');
         }
+    });
+
+    const categorySections = document.querySelectorAll('.category-section');
+    categorySections.forEach(section => {
+        const visibleCards = section.querySelectorAll('.project-card:not(.hidden)');
+        section.classList.toggle('hidden', visibleCards.length === 0);
     });
 }
 
